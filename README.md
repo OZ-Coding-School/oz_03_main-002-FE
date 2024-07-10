@@ -1,5 +1,7 @@
 # 냉똑이 : 냉장고를 똑똑하게! (Front-End)
 
+[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fgjbae1212%2Fhit-counter&count_bg=%233DC7C8&title_bg=%23C6BABA&icon=&icon_color=%23E7E7E7&title=Hits&edge_flat=false)](https://hits.seeyoufarm.com)
+
 ## Project Introduction
 "냉장고를 똑똑하게!, 냉장고속 유통기한이 임박한 재료와 있는 재료로 레시피를 추천해주는 서비스!"
 
