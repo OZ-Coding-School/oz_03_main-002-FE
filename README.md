@@ -54,6 +54,16 @@
   </tr>
 </table>
 
+## Commit Convention
+- Feat : 새로운 기능 추가
+- Fix : 버그(올바르지 않은 동작) 수정
+- Refactor : 내부 로직은 변경하지 않고, 기존의 코드 개선 / 클래스명 및 변수명 수정
+- Design : xml 등 사용자 UI 디자인 추가, 변경
+- Style : 코드 정렬, 줄바꿈 등 수정
+- Docs : README 문서 추가, 수정, 삭제
+- Rename : 파일이나 폴더명을 수정하거나 이동
+- Remove : 필요없는 파일, 코드를 삭제
+- Chore : 기타 변경사항 (build.gradle, AndroidManifest, .gitignore 등)
 ## To-Do List
 
 ## Usages
