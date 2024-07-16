@@ -1,9 +1,8 @@
-// src/pages/Login.tsx
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import GoogleIcon from "../assets/google-icon.svg";
-import SHA256 from "crypto-js/sha256";
-import { v4 as uuidv4 } from "uuid";
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import GoogleIcon from '../assets/google-icon.svg';
+import SHA256 from 'crypto-js/sha256';
+import { v4 as uuidv4 } from 'uuid';
 
 type LoginProps = {
   onLogin: (username: string, password: string, salt: string) => void;
@@ -19,28 +18,28 @@ const Login: React.FC<LoginProps> = ({
   onForgotCredentials,
   onSignUp,
 }) => {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    // 암호화 적용 - salt
+    // 로그인 암호화 적용 - salt
     const salt = uuidv4(); // 고유한 salt 생성
     // 암호화 적용 - SHA256 단방향 해시 적용
     const hashedPassword = SHA256(password + salt).toString();
     onLogin(username, hashedPassword, salt);
-    navigate("/UserLoginTest");
+    navigate('/UserLoginTest');
   };
 
   const handleGoogleLogin = () => {
     onGoogleLogin();
-    navigate("/UserLoginTest");
+    navigate('/UserLoginTest');
   };
 
   const handleEmailLogin = () => {
-    navigate("/LoginToEmail");
+    navigate('/LoginToEmail');
   };
 
   return (
