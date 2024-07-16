@@ -4,7 +4,7 @@ interface HeaderProps {
 
 const Header: React.FC<HeaderProps> = () => {
   return (
-    <div>Header</div>
+    <div className='h-[30px] border'>Header</div>
   )
 }
 

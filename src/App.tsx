@@ -8,7 +8,8 @@ import Footer from './components/Footer';
 const App: React.FC = () => {
 
   return (
-    <div className='sm:w-[360px] sm:h-[740px] w-full h-dvh bg-white rounded-3xl m-auto flex column'>
+    <div className='sm:w-[360px] sm:h-[740px] w-full h-full bg-white m-auto rounded-3xl flex flex-col'>
+      <div className='h-full w-full'>
       <Router>
         <Header />
         <Routes>
@@ -17,6 +18,7 @@ const App: React.FC = () => {
         </Routes>
       <Footer title='Footer'/>
       </Router>
+      </div>
     </div>
   );
 }

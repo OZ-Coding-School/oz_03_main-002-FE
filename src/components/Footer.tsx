@@ -4,7 +4,7 @@ interface Props {
 
 const Footer: React.FC<Props> = () => {
   return (
-    <div>Footer</div>
+    <div  className='h-[30px] border'>Footer</div>
   )
 }
 
