@@ -1,0 +1,20 @@
+---
+name: Other Template
+about: 위 유형에 해당하지 않는 내용은 이 템플릿을 사용해주세요.
+title: ''
+labels: ''
+assignees: ''
+
+---
+
+---
+name: 기타 문의
+about: 위 유형에 해당하지 않는 내용은 이 템플릿을 사용해주세요.
+title: "[기타] 간결한 내용 요약"
+labels: ''
+assignees: ''
+---
+
+**내용**
+
+자유롭게 작성해주세요.
