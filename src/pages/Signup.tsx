@@ -1,4 +1,8 @@
 import { useState } from 'react';
+import { SHA256 } from 'crypto-js';
+import { v4 as uuidv4 } from 'uuid';
+import { FaRegEye, FaRegEyeSlash } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 interface SignupProps {
   title: string;
@@ -14,37 +18,95 @@ const Signup: React.FC<SignupProps> = () => {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
+  const [errors, setErrors] = useState({
+    userId: '',
+    password: '',
+    username: '',
+    email: '',
+  });
+
+  // 유효성 검사 함수
+  const validateUserId = (userId: string) =>
+    /^(?=.*[a-z])[a-z][A-Za-z\d]{2,14}$/.test(userId);
+  const validatePassword = (password: string) =>
+    /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[-_.,?!~])[A-Za-z\d-_.,?!~]{8,20}$/.test(
+      password,
+    );
+  const validateUsername = (username: string) =>
+    /^[가-힣]{2,5}$/.test(username);
+  const validateEmail = (email: string) =>
+    /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{3,}$/.test(email);
+
+  const handleValidation = () => {
+    const newErrors = { userId: '', password: '', username: '', email: '' };
+    if (!validateUserId(userId))
+      newErrors.userId =
+        '아이디는 소문자로 시작하는 영대소문자 또는 숫자가 포함되된 2자 이상 14자 이하로 입력해주세요.';
+    if (!validatePassword(password))
+      newErrors.password =
+        '비밀번호는 영문 대소문자, 숫자, 특수문자가 포함된 8자 이상 20자 이하로 입력해주세요.';
+    setErrors(newErrors);
+    if (!validateUsername(username))
+      newErrors.username =
+        '이름은 최소 2자 이상 5자 이하, 한글만 입력 가능합니다.';
+    if (!validateEmail(email))
+      newErrors.email = '유효한 이메일 주소를 입력해주세요.';
+    return Object.values(newErrors).every((error) => error === '');
   };
 
+  // 비밀번호 보기 & 숨기기
+  const [hidePassword, setHidePassword] = useState(true);
+  const toggleHidePassword = () => {
+    setHidePassword(!hidePassword);
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (!handleValidation()) {
+      return;
+    }
+
+    // 로그인 암호화 적용 - salt
+    const salt = uuidv4(); // 고유한 salt 생성
+    // 암호화 적용 - SHA256 단방향 해시 적용
+    const hashedPassword = SHA256(password + salt).toString();
+    console.log({ userId, username, email, hashedPassword, salt });
+  };
+
+  // 공통 Tailwind CSS 클래스명 변수로 추출
   const inputClassName =
     'appearance-none block w-full px-3 h-12 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-lg';
+  const labelClassName = 'block text-sm font-bold text-gray-700';
+  const errorClassName = 'text-red-500 text-xs mt-2';
 
   return (
-    <div className="min-h-screen bg-gray-100 mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-      <div className="  flex flex-col justify-center py-12 sm:px-6 lg:px-8">
+    <div
+      className="h-[100vh] sm:h-[100vh] md:h-auto w-full sm:w-full md:w-[360px] bg-white shadow-2xl rounded-3xl mt-2 mx-auto min-w-[360px]"
+      style={{ height: 'calc(100vh - 140px)' }}
+    >
+      <div className="flex flex-col justify-center py-3 sm:px-6 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-md">
-          <h2 className="mt-6 text-left ml-8 text-3xl font-normal text-gray-900">
+          <h2 className="text-left text-3xl font-normal text-gray-900">
             회원가입
           </h2>
-          <div className="flex w-full items-center gap-2.5 p-5 ">
-            <div className="relative w-44 mt-[-1.00px] [font-family:'SF_Pro_Text-Regular',Helvetica] font-normal text-black text-sm tracking-[0] leading-[normal]">
-              사용자 정보를 입력해 주세요.
+          <div className="flex w-full items-center py-2 gap-2.5">
+            <div className="relative w-44 [font-family:'SF_Pro_Text-Regular',Helvetica] font-normal text-black text-sm tracking-[0] leading-[normal]">
+              정보를 입력해 주세요.
             </div>
-            <div className="relative w-[147px] mt-[-1.00px] mr-[-2.00px] [font-family:'SF_Pro_Text-Regular',Helvetica] font-normal text-[#4340f2] text-sm tracking-[0] leading-[normal] underline">
+            <Link
+              to="/login"
+              className="relative w-[147px] [font-family:'SF_Pro_Text-Regular',Helvetica] font-normal text-[#4340f2] text-sm tracking-[0] leading-[normal] underline"
+            >
               로그인으로 돌아가기
-            </div>
+            </Link>
           </div>
         </div>
       </div>
-      <div className="bg-white py-8 ml-5 mr-5 px-4 shadow-2xl rounded-3xl">
+      <div className="py-8 ml-5 mr-5 px-4">
         <form className="space-y-6" onSubmit={handleSubmit}>
           <div>
-            <label
-              htmlFor="username"
-              className="block text-sm mr-10 font-bold text-gray-700"
-            >
+            <label htmlFor="userId" className={labelClassName}>
               아이디
             </label>
             <div className="mt-1">
@@ -54,37 +116,43 @@ const Signup: React.FC<SignupProps> = () => {
                 type="text"
                 required
                 placeholder="아이디를 입력해주세요."
-                className={`${inputClassName}`}
+                className={inputClassName}
                 value={userId}
                 onChange={(e) => setUserId(e.target.value)}
               />
+              {errors.userId && (
+                <p className={errorClassName}>{errors.userId}</p>
+              )}
             </div>
           </div>
           <div>
-            <label
-              htmlFor="password"
-              className="block text-sm font-bold text-gray-700"
-            >
+            <label htmlFor="password" className={labelClassName}>
               비밀번호
             </label>
-            <div className="mt-1">
+            <div className="mt-1 relative">
               <input
                 id="password"
                 name="password"
-                type="password"
+                type={hidePassword ? 'password' : 'text'}
                 required
                 placeholder="비밀번호를 입력해주세요."
-                className={`${inputClassName}`}
+                className={inputClassName}
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
+              <button
+                className="absolute top-3.5 right-4 text-xl text-slate-700"
+                onClick={toggleHidePassword}
+              >
+                {hidePassword ? <FaRegEye /> : <FaRegEyeSlash />}
+              </button>
+              {errors.password && (
+                <p className={errorClassName}>{errors.password}</p>
+              )}
             </div>
           </div>
           <div>
-            <label
-              htmlFor="password"
-              className="block text-sm font-bold text-gray-700"
-            >
+            <label htmlFor="username" className={labelClassName}>
               이름
             </label>
             <div className="mt-1">
@@ -94,18 +162,18 @@ const Signup: React.FC<SignupProps> = () => {
                 type="text"
                 required
                 placeholder="이름을 입력해주세요."
-                className={`${inputClassName}`}
+                className={inputClassName}
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
               />
+              {errors.username && (
+                <p className={errorClassName}>{errors.username}</p>
+              )}
             </div>
-          </div>{' '}
+          </div>
           <div>
-            <label
-              htmlFor="password"
-              className="block text-sm font-bold text-gray-700"
-            >
-              비밀번호
+            <label htmlFor="email" className={labelClassName}>
+              이메일
             </label>
             <div className="mt-1">
               <input
@@ -114,10 +182,11 @@ const Signup: React.FC<SignupProps> = () => {
                 type="email"
                 required
                 placeholder="이메일을 입력해주세요."
-                className={`${inputClassName}`}
+                className={inputClassName}
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
+              {errors.email && <p className={errorClassName}>{errors.email}</p>}
             </div>
           </div>
           <div className="space-y-3">
@@ -125,133 +194,12 @@ const Signup: React.FC<SignupProps> = () => {
               type="submit"
               className="w-full h-12 flex justify-center items-center py-2 px-4 border rounded-full border-transparent shadow-sm text-sm font-medium text-white bg-amber-500 hover:bg-amber-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-amber-500"
             >
-              로그인
+              회원가입
             </button>
           </div>
         </form>
-
-        <div className="mt-6">
-          <div className="relative">
-            <div className="absolute inset-0 flex items-center">
-              <div className="w-full border-t border-gray-300" />
-            </div>
-          </div>
-        </div>
       </div>
     </div>
-
-    // <div className="min-h-screen bg-gray-100 flex flex-col justify-center">
-    //   {/* Sign Up Page Header */}
-    //   <div className="sm:mx-auto sm:w-full sm:max-w-md">
-    //     <h2 className="mt-6 text-left ml-8 text-3xl font-normal text-gray-900">
-    //       회원가입
-    //     </h2>
-
-    //   </div>
-    //   {/* Sign Up Page Header --End-- */}
-
-    //   <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-    //     <div className="bg-white py-8 ml-5 mr-5 px-4 shadow-2xl rounded-3xl">
-    //       <form className="space-y-6" onSubmit={handleSubmit}>
-    //         {/* 아이디 입력 field */}
-    //         <div className="flex flex-col w-full items-start gap-[10px] px-2.5 py-0 relative flex-[0_0_auto]">
-    //           <div className="flex items-start gap-1 pl-2 pr-4 pt-3.5 pb-0 relative self-stretch w-full flex-[0_0_auto]">
-    //             <div className="inline-flex h-2 items-end justify-center gap-2.5 relative flex-[0_0_auto]">
-    //               <div className="relative w-1 h-1 rounded-sm" />
-    //             </div>
-    //             <div className="relative flex-1 mt-[-1.00px] font-ios-subhead-2 font-[number:var(--ios-subhead-2-font-weight)] text-texttext-secondary text-[length:var(--ios-subhead-2-font-size)] tracking-[var(--ios-subhead-2-letter-spacing)] leading-[var(--ios-subhead-2-line-height)] [font-style:var(--ios-subhead-2-font-style)]">
-    //               아이디
-    //             </div>
-    //           </div>
-    //           <div className="flex h-8 items-start gap-3.5 pt-0 pb-2 px-4 relative self-stretch w-full">
-    //             <div className="flex flex-wrap items-center gap-[0px_0px] relative flex-1 grow">
-    //               <input
-    //                 type="text"
-    //                 value={userId}
-    //                 onChange={(e) => setUserId(e.target?.value)}
-    //                 placeholder="아이디를 입력해주세요."
-    //                 className={`${inputClassName} placeholder:text-slate-700`}
-    //                 required
-    //               />
-    //             </div>
-    //           </div>
-    //         </div>
-    //         {/* 비밀번호 입력 field */}
-    //         <div className="flex flex-col w-full items-start gap-[30px] px-2.5 py-0 relative flex-[0_0_auto] bg-backgroundbackground-primary">
-    //           <div className="flex items-start gap-1 pl-2 pr-4 pt-3.5 pb-0 relative self-stretch w-full flex-[0_0_auto]">
-    //             <div className="inline-flex h-2 items-end justify-center gap-2.5 relative flex-[0_0_auto]">
-    //               <div className="relative w-1 h-1 rounded-sm" />
-    //             </div>
-    //             <div className="relative flex-1 mt-[-1.00px] font-ios-subhead-2 font-[number:var(--ios-subhead-2-font-weight)] text-texttext-secondary text-[length:var(--ios-subhead-2-font-size)] tracking-[var(--ios-subhead-2-letter-spacing)] leading-[var(--ios-subhead-2-line-height)] [font-style:var(--ios-subhead-2-font-style)]">
-    //               비밀번호
-    //             </div>
-    //           </div>
-    //           <div className="flex h-8 items-start gap-3.5 pt-0 pb-2 px-4 relative self-stretch w-full">
-    //             <div className="flex flex-wrap items-center gap-[0px_0px] relative flex-1 grow">
-    //               <input
-    //                 type="text"
-    //                 value={password}
-    //                 onChange={(e) => setPassword(e.target?.value)}
-    //                 placeholder="비밀번호를 입력해주세요."
-    //                 className={`${inputClassName} placeholder:text-slate-700`}
-    //                 required
-    //               />
-    //             </div>
-    //           </div>
-    //         </div>
-    //         {/* 이름 입력 field */}
-    //         <div className="flex flex-col w-full items-start gap-[30px] px-2.5 py-0 relative flex-[0_0_auto] bg-backgroundbackground-primary">
-    //           <div className="flex items-start gap-1 pl-2 pr-4 pt-3.5 pb-0 relative self-stretch w-full flex-[0_0_auto]">
-    //             <div className="inline-flex h-2 items-end justify-center gap-2.5 relative flex-[0_0_auto]">
-    //               <div className="relative w-1 h-1 rounded-sm" />
-    //             </div>
-    //             <div className="relative flex-1 mt-[-1.00px] font-ios-subhead-2 font-[number:var(--ios-subhead-2-font-weight)] text-texttext-secondary text-[length:var(--ios-subhead-2-font-size)] tracking-[var(--ios-subhead-2-letter-spacing)] leading-[var(--ios-subhead-2-line-height)] [font-style:var(--ios-subhead-2-font-style)]">
-    //               이름
-    //             </div>
-    //           </div>
-    //           <div className="flex h-8 items-start gap-3.5 pt-0 pb-2 px-4 relative self-stretch w-full">
-    //             <div className="flex flex-wrap items-center gap-[0px_0px] relative flex-1 grow">
-    //               <input
-    //                 type="text"
-    //                 value={username}
-    //                 onChange={(e) => setUsername(e.target?.value)}
-    //                 placeholder="이름을 입력해주세요"
-    //                 className={`${inputClassName} placeholder:text-slate-700`}
-    //                 required
-    //               />
-    //             </div>
-    //           </div>
-    //         </div>
-    //         {/* 이메일 입력 field */}
-    //         <div className="flex flex-col w-full items-start gap-[30px] px-2.5 py-0 relative flex-[0_0_auto] bg-backgroundbackground-primary">
-    //           <div className="flex items-start gap-1 pl-2 pr-4 pt-3.5 pb-0 relative self-stretch w-full flex-[0_0_auto]">
-    //             <div className="inline-flex h-2 items-end justify-center gap-2.5 relative flex-[0_0_auto]">
-    //               <div className="relative w-1 h-1 rounded-sm" />
-    //             </div>
-    //             <div className="relative flex-1 mt-[-1.00px] font-ios-subhead-2 font-[number:var(--ios-subhead-2-font-weight)] text-texttext-secondary text-[length:var(--ios-subhead-2-font-size)] tracking-[var(--ios-subhead-2-letter-spacing)] leading-[var(--ios-subhead-2-line-height)] [font-style:var(--ios-subhead-2-font-style)]">
-    //               이메일
-    //             </div>
-    //           </div>
-    //           <div className="flex h-8 items-start gap-3.5 pt-0 pb-2 px-4 relative self-stretch w-full">
-    //             <div className="flex flex-wrap items-center gap-[0px_0px] relative flex-1 grow">
-    //               <input
-    //                 type="text"
-    //                 value={email}
-    //                 onChange={(e) => setEmail(e.target?.value)}
-    //                 className={`${inputClassName} placeholder:text-slate-700`}
-    //                 placeholder="이메일을 입력해주세요"
-    //                 required
-    //               />
-    //             </div>
-    //           </div>
-    //           <div className="!self-stretch !h-[60px] !rounded-[100px] !px-2.5 !py-0 !flex !bg-[#ff9b9b] !w-full">
-    //             <button className="!self-stretch">회원가입</button>
-    //           </div>
-    //         </div>
-    //       </form>{' '}
-    //     </div>{' '}
-    //   </div>
-    // </div>
   );
 };
 

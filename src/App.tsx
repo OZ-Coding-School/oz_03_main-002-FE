@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Header from './components/Header';
-import NavBar from './components/NavBar';
+// import NavBar from './components/NavBar';
 import Login from './pages/Login';
 import LoginToEmail from './pages/LoginToEmail';
 import Signup from './pages/Signup';
@@ -35,7 +35,7 @@ function App() {
     <Router>
       <div className="flex flex-col h-full">
         <Header />
-        <main className="h-[100vh-140px]">
+        <main className="h-full  bg-gray-100">
           <Routes>
             <Route
               path="/"
@@ -71,7 +71,7 @@ function App() {
             <Route path="/signup" element={<Signup title="회원가입" />} />
           </Routes>
         </main>
-        <NavBar />
+        {/* <NavBar /> */}
       </div>
     </Router>
   );
