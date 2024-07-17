@@ -1,0 +1,5 @@
+const FindPassword = () => {
+  return <div>FindPassword</div>;
+};
+
+export default FindPassword;
