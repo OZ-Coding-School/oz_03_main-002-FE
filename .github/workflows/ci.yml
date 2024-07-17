@@ -37,4 +37,4 @@ jobs:
         run: npm install
 
       - name: Run lint
-        run: npm run lint
+        run: npm run lint -- --quiet
