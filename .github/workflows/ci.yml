@@ -2,9 +2,15 @@ name: CI
 
 on:
   push:
-    branches: ['**'] # 검사할 브랜치 지정
+    branches:
+      - feature/*
+      - develop
+      - main
   pull_request:
-    branches: ['**']
+    branches:
+      - develop
+      - feature/*
+      - main
 
 jobs:
   lint:
