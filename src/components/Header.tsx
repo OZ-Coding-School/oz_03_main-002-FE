@@ -1,6 +1,6 @@
 import { Link, useLocation } from 'react-router-dom';
 
-const Header = () => {
+function Header() {
   const location = useLocation();
 
   const isActive = (path: string) => {
@@ -47,11 +47,19 @@ const Header = () => {
                 회원가입
               </Link>
             </li>
+            <li>
+              <Link
+                to="/IngredientView"
+                className={`${isActive('../pages/LoginToEmail')} hover:text-blue-500 transition duration-300`}
+              >
+                냉장고 재료 관리
+              </Link>
+            </li>
           </ul>
         </nav>
       </div>
     </header>
   );
-};
+}
 
 export default Header;

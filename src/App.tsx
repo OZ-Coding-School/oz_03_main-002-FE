@@ -1,9 +1,10 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Header from './components/Header';
-// import NavBar from './components/NavBar';
+import NavBar from './components/NavBar';
 import Login from './pages/Login';
 import LoginToEmail from './pages/LoginToEmail';
 import Signup from './pages/Signup';
+import IngredientView from './pages/IngredientView';
 
 function App() {
   const handleLogin = () => {
@@ -69,9 +70,10 @@ function App() {
               }
             />
             <Route path="/signup" element={<Signup title="회원가입" />} />
+            <Route path="/IngredientView" element={<IngredientView />} />
           </Routes>
         </main>
-        {/* <NavBar /> */}
+        <NavBar />
       </div>
     </Router>
   );
