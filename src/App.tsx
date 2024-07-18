@@ -1,8 +1,9 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Header from './components/Header';
-import NavBar from './components/NavBar';
+// import NavBar from './components/NavBar';
 import Login from './pages/Login';
 import LoginToEmail from './pages/LoginToEmail';
+import Signup from './pages/Signup';
 
 function App() {
   const handleLogin = () => {
@@ -32,9 +33,9 @@ function App() {
 
   return (
     <Router>
-      <div className="App flex flex-col min-h-screen">
+      <div className="flex flex-col h-full">
         <Header />
-        <main className="flex-grow">
+        <main className="h-full  bg-gray-100">
           <Routes>
             <Route
               path="/"
@@ -67,9 +68,10 @@ function App() {
                 />
               }
             />
+            <Route path="/signup" element={<Signup title="회원가입" />} />
           </Routes>
         </main>
-        <NavBar />
+        {/* <NavBar /> */}
       </div>
     </Router>
   );

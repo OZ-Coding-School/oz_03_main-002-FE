@@ -1,11 +1,11 @@
 // src/components/NavBar.tsx
-import { Link } from "react-router-dom";
-import { FaRegPlusSquare } from "react-icons/fa";
-import { FaHome, FaUser, FaHeart } from "react-icons/fa";
+import { Link } from 'react-router-dom';
+import { FaRegPlusSquare } from 'react-icons/fa';
+import { FaHome, FaUser, FaHeart } from 'react-icons/fa';
 
 const NavBar = () => {
   return (
-    <nav className="fixed bottom-0 left-0 right-0 bg-white shadow-lg z-10">
+    <nav className="fixed bottom-0 left-0 right-0 bg-white shadow-lg z-10 h-[64px]">
       <div className="flex justify-around items-center h-16">
         <Link
           to="/"
