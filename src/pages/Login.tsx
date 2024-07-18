@@ -1,22 +1,23 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import GoogleIcon from '../assets/google-icon.svg';
 import SHA256 from 'crypto-js/sha256';
 import { v4 as uuidv4 } from 'uuid';
+import GoogleIcon from '../assets/google-icon.svg';
+
+// 로그인 시 salt값만 제거, SHA256 단방향 해시는 그대로 적용.
 
 type LoginProps = {
-  onLogin: (username: string, password: string, salt: string) => void;
-  onGoogleLogin: () => void;
-  onEmailLogin: () => void;
-  onForgotCredentials: () => void;
-  onSignUp: () => void;
+  handleLoginSubmit: (username: string, password: string, salt: string) => void;
+  handleGoogleLoginClick: () => void;
+  handleForgotCredentialsClick: () => void;
+  handleSignUpClick: () => void;
 };
 
 const Login: React.FC<LoginProps> = ({
-  onLogin,
-  onGoogleLogin,
-  onForgotCredentials,
-  onSignUp,
+  handleLoginSubmit,
+  handleGoogleLoginClick,
+  handleForgotCredentialsClick,
+  handleSignUpClick,
 }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -25,16 +26,14 @@ const Login: React.FC<LoginProps> = ({
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    // 로그인 암호화 적용 - salt
     const salt = uuidv4(); // 고유한 salt 생성
-    // 암호화 적용 - SHA256 단방향 해시 적용
     const hashedPassword = SHA256(password + salt).toString();
-    onLogin(username, hashedPassword, salt);
+    handleLoginSubmit(username, hashedPassword, salt);
     navigate('/UserLoginTest');
   };
 
   const handleGoogleLogin = () => {
-    onGoogleLogin();
+    handleGoogleLoginClick();
     navigate('/UserLoginTest');
   };
 
@@ -129,7 +128,7 @@ const Login: React.FC<LoginProps> = ({
               <button
                 onClick={(e) => {
                   e.preventDefault();
-                  onForgotCredentials();
+                  handleForgotCredentialsClick();
                 }}
                 className="text-sm font-medium mt-2 mr-10 text-sky-600 hover:text-sky-500 underline"
               >
@@ -142,7 +141,7 @@ const Login: React.FC<LoginProps> = ({
               <button
                 onClick={(e) => {
                   e.preventDefault();
-                  onSignUp();
+                  handleSignUpClick();
                 }}
                 className="text-sm font-medium text-sky-600 hover:text-sky-500 underline"
               >
