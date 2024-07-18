@@ -6,10 +6,10 @@ import { Link } from 'react-router-dom';
 
 interface SignupProps {
   title: string;
-  userId: string;
-  password: string;
-  username: string;
-  email: string;
+  // userId: string;
+  // password: string;
+  // username: string;
+  // email: string;
 }
 
 const Signup: React.FC<SignupProps> = () => {

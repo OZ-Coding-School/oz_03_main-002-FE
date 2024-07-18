@@ -1,0 +1,53 @@
+.slider-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.slider-content {
+  display: grid; /* flex에서 grid로 변경 */
+  grid-template-columns: repeat(2, 1fr); /* 2열 그리드 */
+  grid-template-rows: repeat(2, 1fr); /* 2행 그리드 */
+  gap: 15px; /* 아이템 간의 간격 설정 */
+  overflow: hidden;
+  width: 100%;
+  height: 150px;
+  padding: 20px; /* 슬라이더 내부의 패딩 추가 */
+}
+
+.slider-item {
+  background-color: #ffffff;
+  /* border: 0px solid #cccccc90; */
+  border-radius: 5px;
+  text-align: center;
+  padding: 10px;
+  box-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 -2px 6px -1px rgba(0, 0, 0, 0.1);
+}
+/* 
+--tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow); */
+
+.dots-container {
+  position: absolute;
+  bottom: 3px;
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.dot {
+  width: 7px;
+  height: 7px;
+  margin: 0 10px;
+  background-color: #ccc;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.dot.active {
+  background-color: #007bff;
+}

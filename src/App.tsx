@@ -4,9 +4,18 @@ import Header from './components/Header';
 import Login from './pages/Login';
 import LoginToEmail from './pages/LoginToEmail';
 import Signup from './pages/Signup';
-import Fridges from './components/Fridges';
+import Fridges from './components/FridgeList';
+import { useEffect } from 'react';
+import useFridgeStore from './store/fridgeStore';
+import fridges from './data/fridges';
 
 function App() {
+  const setFridges = useFridgeStore((state) => state.setFridges);
+
+  useEffect(() => {
+    setFridges(fridges);
+  }, [setFridges]);
+
   const handleLogin = () => {
     // 로그인 로직
     console.log('Login');
@@ -63,7 +72,7 @@ function App() {
               }
             />
             <Route path="/signup" element={<Signup title="회원가입" />} />
-            <Route path="/fridges" element={<Fridges title="냉장고 목록" />} />
+            <Route path="/fridges" element={<Fridges />} />
           </Routes>
         </main>
         {/* <NavBar /> */}

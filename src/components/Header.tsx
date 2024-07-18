@@ -1,10 +1,16 @@
 import { Link, useLocation } from 'react-router-dom';
+import { useState } from 'react';
 
 const Header = () => {
+  const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
 
   const isActive = (path: string) => {
     return location.pathname === path ? 'text-blue-500' : 'text-gray-600';
+  };
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
   };
 
   return (
@@ -46,6 +52,22 @@ const Header = () => {
               >
                 회원가입
               </Link>
+            </li>
+            <li>
+              <button
+                className="text-2xl cursor-pointer text-slate-800"
+                onClick={toggleMenu}
+              >
+                {/* 햄버거 버튼 */}
+                &#9776;
+              </button>
+              {isOpen && (
+                <div className="flex flex-col bg-slate-600/20 absolute top-13 right-5 p-2 rounded-md">
+                  <Link to="/fridges">냉장고 보기</Link>
+                  <Link to="/recipes">레시피보기</Link>
+                  <Link to="/ingredients">재료보기</Link>
+                </div>
+              )}
             </li>
           </ul>
         </nav>
