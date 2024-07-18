@@ -4,6 +4,7 @@ import Header from './components/Header';
 import Login from './pages/Login';
 import LoginToEmail from './pages/LoginToEmail';
 import Signup from './pages/Signup';
+import Fridges from './components/Fridges';
 
 function App() {
   const handleLogin = () => {
@@ -37,14 +38,7 @@ function App() {
         <Header />
         <main className="h-full  bg-gray-100">
           <Routes>
-            <Route
-              path="/"
-              element={
-                <div>
-                  <h1>냉뚝이 테스트 페이지입니다.</h1>
-                </div>
-              }
-            />
+            <Route path="/" element={<h1>냉뚝이 테스트 페이지입니다.</h1>} />
             <Route
               path="/login"
               element={
@@ -69,6 +63,7 @@ function App() {
               }
             />
             <Route path="/signup" element={<Signup title="회원가입" />} />
+            <Route path="/fridges" element={<Fridges title="냉장고 목록" />} />
           </Routes>
         </main>
         {/* <NavBar /> */}
