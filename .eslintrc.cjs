@@ -25,7 +25,6 @@ module.exports = {
   },
   plugins: ['react', '@typescript-eslint', 'prettier'],
   rules: {
-    'react/jsx-filename-extension': ['warn', { extensions: ['.tsx'] }],
     'jsx-a11y/label-has-associated-control': [
       'error',
       {
