@@ -1,11 +1,10 @@
-import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Header from './components/Header.tsx';
 import Login from './pages/Login.tsx';
 import LoginToEmail from './pages/LoginToEmail.tsx';
 import Signup from './pages/Signup.tsx';
 
-function App(): React.FC {
+function App() {
   // const handleLogin = () => {
   //   // 로그인 로직
   //   console.log('Login');
