@@ -83,7 +83,7 @@
     scrollbar-width: thin;
   }
   .scroll_custom:hover {
-    scrollbar-color: rgba(0, 0, 0, 0.6) transparent;
+    scrollbar-color: rgba(0, 0, 0, 0.4) transparent;
   }
   .skeleton {
     @apply animate-shimmer bg-gradient-custom;

@@ -1,58 +1,54 @@
 import { create } from 'zustand';
-import { devtools, persist } from 'zustand/middleware';
-import axios from 'axios';
+import fridgeData from '../data/fridgeData.ts';
+import { Refrigerator, RefrigeratorMode } from '../types/fridgeType.ts';
 
-// Fridge 타입 정의
-interface Fridge {
-  id: string; // api -> fridges_id
-  fridge_name: string; // api > fridges_name
-}
+type FridgeState = {
+  fridges: Refrigerator[];
+  showModal: boolean;
+  currentMode: RefrigeratorMode;
+  fetchFridges: () => void;
+  setShowModal: (show: boolean) => void;
+  setCurrentMode: (mode: RefrigeratorMode) => void;
+  addFridge: (refrigerator: Omit<Refrigerator, 'id'>) => void;
+  updateFridge: (id: number, refrigerator: Omit<Refrigerator, 'id'>) => void;
+  deleteFridge: (id: number) => void;
+};
 
-// FridgeState 타입 정의
-interface FridgeState {
-  status: string | null;
-  token: string | null;
-  loading: boolean;
-  fridges: Fridge[]; // fridges: 냉장고 여러 개의 배열을 뜻함
-}
-
-// FridgeActions 타입 정의
-interface FridgeActions {
-  updateFridgeName: (id: string, fridge_name: string) => Promise<void>;
-}
-
-const useFridgeStore = create<FridgeState & FridgeActions>()(
-  devtools(
-    persist(
-      (set) => ({
-        status: null,
-        token: null,
-        loading: false,
-        fridges: [],
-
-        // 냉장고 이름 수정
-        updateFridgeName: async (id, fridge_name) => {
-          set({ loading: true });
-          try {
-            await axios.put(`/api/fridges/${id}`, { fridge_name });
-            set((state) => ({
-              fridges: state.fridges.map((fridge) =>
-                fridge.id === id ? { ...fridge, fridge_name } : fridge,
-              ), // fridge -> fridges의 배열 안의 각 요소
-              loading: false,
-              status: '냉장고 이름이 수정되었습니다',
-            }));
-          } catch (error) {
-            const err = error as Error;
-            set({ status: err.message, loading: false });
-          }
-        },
-      }),
-      {
-        name: 'fridge-storage',
-      },
-    ),
-  ),
-);
-
-export default useFridgeStore;
+export const useFridgeStore = create<FridgeState>((set) => ({
+  fridges: fridgeData,
+  showModal: false,
+  currentMode: 'add',
+  fetchFridges: async () => {
+    // 더미 데이터를 사용하므로 실제 API 호출 없이 상태를 설정합니다.
+    set({ fridges: fridgeData });
+  },
+  setShowModal: (show) => set({ showModal: show }),
+  setCurrentMode: (mode) => set({ currentMode: mode }),
+  addFridge: async (refrigerator) => {
+    const newFridge: Refrigerator = {
+      id: Math.max(...fridgeData.map((f) => f.id)) + 1, // 새 ID 생성
+      ...refrigerator,
+      createAt: new Date().toISOString(),
+      updateAt: new Date().toISOString(),
+      isActivate: true,
+    };
+    set((state) => ({ fridges: [...state.fridges, newFridge] }));
+  },
+  updateFridge: async (id, refrigerator) => {
+    const updatedFridge = {
+      ...refrigerator,
+      id,
+      updatedAt: new Date().toISOString(),
+    };
+    set((state) => ({
+      fridges: state.fridges.map((fridge) =>
+        fridge.id === id ? updatedFridge : fridge,
+      ),
+    }));
+  },
+  deleteFridge: async (id) => {
+    set((state) => ({
+      fridges: state.fridges.filter((fridge) => fridge.id !== id),
+    }));
+  },
+}));
