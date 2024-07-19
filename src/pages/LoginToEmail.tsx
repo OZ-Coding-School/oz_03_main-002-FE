@@ -1,31 +1,32 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import GoogleIcon from "../assets/google-icon.svg";
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import GoogleIcon from '../assets/google-icon.svg';
 
-type LoginToEmailProps = {
-  onLogin: (username: string, password: string) => void;
-  onGoogleLogin: () => void;
-  onForgotCredentials: () => void;
-  onSignUp: () => void;
-};
+// type LoginToEmailProps = {
+//   onLogin: (username: string, password: string) => void;
+//   onGoogleLogin: () => void;
+//   onForgotCredentials: () => void;
+//   onSignUp: () => void;
+// };
 
-const LoginToEmail: React.FC<LoginToEmailProps> = ({
-  onLogin,
-  onGoogleLogin,
-  onForgotCredentials,
-  onSignUp,
-}) => {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+function LoginToEmail() {
+  // {
+  //   onLogin,
+  //   onGoogleLogin,
+  //   onForgotCredentials,
+  //   onSignUp,
+  // },
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    onLogin(username, password);
+    // onLogin(username, password);
   };
 
   const handleBackToLogin = () => {
-    navigate("/Login");
+    navigate('/Login');
   };
 
   return (
@@ -88,7 +89,7 @@ const LoginToEmail: React.FC<LoginToEmailProps> = ({
                 로그인
               </button>
               <button
-                onClick={onGoogleLogin}
+                // onClick={onGoogleLogin}
                 type="button"
                 className="w-full h-12 flex justify-center items-center py-2 px-4 border border-gray-300 rounded-full shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50"
               >
@@ -107,13 +108,15 @@ const LoginToEmail: React.FC<LoginToEmailProps> = ({
 
             <div className="mt-6 flex justify-between">
               <button
+                type="button"
                 onClick={handleBackToLogin}
                 className="text-sm font-medium mt-2 ml-10 text-sky-600 hover:text-sky-500 underline"
               >
                 로그인으로 돌아가기
               </button>
               <button
-                onClick={onForgotCredentials}
+                type="button"
+                // onClick={onForgotCredentials}
                 className="text-sm font-medium mt-2 mr-10 text-sky-600 hover:text-sky-500 underline"
               >
                 아이디/비밀번호 찾기
@@ -123,7 +126,8 @@ const LoginToEmail: React.FC<LoginToEmailProps> = ({
             <div className="mt-12 flex justify-center items-center space-x-2">
               <span className="text-sm text-gray-500">오늘 처음오셨나요?</span>
               <button
-                onClick={onSignUp}
+                type="button"
+                // onClick={onSignUp}
                 className="text-sm font-medium text-sky-600 hover:text-sky-500 underline"
               >
                 회원가입
@@ -134,6 +138,6 @@ const LoginToEmail: React.FC<LoginToEmailProps> = ({
       </div>
     </div>
   );
-};
+}
 
 export default LoginToEmail;

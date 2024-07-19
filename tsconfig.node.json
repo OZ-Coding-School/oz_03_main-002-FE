@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "target": "ES6",
     "composite": true,
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.node.tsbuildinfo",
     "skipLibCheck": true,

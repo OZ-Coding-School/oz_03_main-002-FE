@@ -1,39 +1,47 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import SHA256 from 'crypto-js/sha256';
-import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuid } from 'uuid';
 import GoogleIcon from '../assets/google-icon.svg';
 
-// 로그인 시 salt값만 제거, SHA256 단방향 해시는 그대로 적용.
+// type LoginProps = {
+//   onLogin: (username: string, password: string, salt: string) => void;
+//   onGoogleLogin: () => void;
+//   onEmailLogin: () => void;
+//   onForgotCredentials: () => void;
+//   onSignUp: () => void;
+// };
 
-type LoginProps = {
-  handleLoginSubmit: (username: string, password: string, salt: string) => void;
-  handleGoogleLoginClick: () => void;
-  handleForgotCredentialsClick: () => void;
-  handleSignUpClick: () => void;
-};
-
-const Login: React.FC<LoginProps> = ({
-  handleLoginSubmit,
-  handleGoogleLoginClick,
-  handleForgotCredentialsClick,
-  handleSignUpClick,
-}) => {
+function Login() {
+  // {
+  //   onLogin,
+  //   onGoogleLogin,
+  //   onForgotCredentials,
+  //   onSignUp,
+  // },
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
 
+  // TODO esLint때문에 넣은 함수 - 추후에 api 실제 작동시 제거해도 됨
+  const users = (saltedPassword: string) => {
+    setPassword(saltedPassword);
+  };
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    const salt = uuidv4(); // 고유한 salt 생성
+    // 로그인 암호화 적용 - salt
+    const salt = uuid(); // 고유한 salt 생성
+    // 암호화 적용 - SHA256 단방향 해시 적용
     const hashedPassword = SHA256(password + salt).toString();
-    handleLoginSubmit(username, hashedPassword, salt);
+    // onLogin(username, hashedPassword, salt);
+    users(hashedPassword); // TODO esLint때문에 넣은 코드 - 추후에 api 실제 작동시 제거해도 됨
     navigate('/UserLoginTest');
   };
 
   const handleGoogleLogin = () => {
-    handleGoogleLoginClick();
+    // onGoogleLogin();
     navigate('/UserLoginTest');
   };
 
@@ -120,15 +128,17 @@ const Login: React.FC<LoginProps> = ({
 
             <div className="mt-6 flex justify-between">
               <button
+                type="button"
                 onClick={handleEmailLogin}
                 className="text-sm font-medium mt-2 ml-10 text-sky-600 hover:text-sky-500 underline"
               >
                 이메일로 로그인
               </button>
               <button
+                type="button"
                 onClick={(e) => {
                   e.preventDefault();
-                  handleForgotCredentialsClick();
+                  // onForgotCredentials();
                 }}
                 className="text-sm font-medium mt-2 mr-10 text-sky-600 hover:text-sky-500 underline"
               >
@@ -139,9 +149,10 @@ const Login: React.FC<LoginProps> = ({
             <div className="mt-12 flex justify-center items-center space-x-2">
               <span className="text-sm text-gray-500">오늘 처음오셨나요?</span>
               <button
+                type="button"
                 onClick={(e) => {
                   e.preventDefault();
-                  handleSignUpClick();
+                  // onSignUp();
                 }}
                 className="text-sm font-medium text-sky-600 hover:text-sky-500 underline"
               >
@@ -153,6 +164,6 @@ const Login: React.FC<LoginProps> = ({
       </div>
     </div>
   );
-};
+}
 
 export default Login;
