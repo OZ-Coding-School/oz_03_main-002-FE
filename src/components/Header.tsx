@@ -1,7 +1,8 @@
+import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useState } from 'react';
 
-const Header = () => {
+function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
 
@@ -74,6 +75,6 @@ const Header = () => {
       </div>
     </header>
   );
-};
+}
 
 export default Header;
