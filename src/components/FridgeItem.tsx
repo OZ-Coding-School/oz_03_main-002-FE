@@ -21,7 +21,7 @@ function FridgeItem({ item }: FridgeItemProps) {
 
   return (
     <div className="w-full">
-      <div className="w-full relative text-center p-2 bg-sky-300/40">
+      <div className="w-full relative text-center p-2 bg-sky-300/40 rounded-t-2xl">
         <div>
           <Link to="/ingredients">{item.fridges_name}</Link>
         </div>
@@ -48,7 +48,9 @@ function FridgeItem({ item }: FridgeItemProps) {
         </div>
       </div>
       <Slider ingredients={item.ingre_list} sliderId={item.id} />
-      <button type="button">재료 추가</button>
+      <div className="h-8 text-center bg-blue-400/60 rounded-b-2xl">
+        <button type="button">재료 추가</button>
+      </div>
     </div>
   );
 }

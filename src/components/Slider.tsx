@@ -36,7 +36,8 @@ function Slider({ ingredients, sliderId }: SliderProps) {
           .map((ingredient) => (
             <div key={ingredient.id} className="slider-item">
               <p className="slider-item__name">{ingredient.ingre_name}</p>
-              <p className="slider-item__">{ingredient.expiration_date}</p>
+              <p className="slider-item__blank"></p>
+              <p className="slider-item__date">{ingredient.expiration_date}</p>
             </div>
           ))}
       </div>
