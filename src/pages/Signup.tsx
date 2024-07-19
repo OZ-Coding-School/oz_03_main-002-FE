@@ -1,18 +1,10 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { SHA256 } from 'crypto-js';
-import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuid } from 'uuid';
 import { FaRegEye, FaRegEyeSlash } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
-interface SignupProps {
-  title: string;
-  userId: string;
-  password: string;
-  username: string;
-  email: string;
-}
-
-const Signup: React.FC<SignupProps> = () => {
+function Signup() {
   const [userId, setUserId] = useState('');
   const [password, setPassword] = useState('');
   const [username, setUsername] = useState('');
@@ -24,18 +16,20 @@ const Signup: React.FC<SignupProps> = () => {
     username: '',
     email: '',
   });
+  const users = (saltedPassword: string) => {
+    setPassword(saltedPassword);
+  };
 
   // 유효성 검사 함수
-  const validateUserId = (userId: string) =>
-    /^(?=.*[a-z])[a-z][A-Za-z\d]{2,14}$/.test(userId);
-  const validatePassword = (password: string) =>
+  const validateUserId = (id: string) =>
+    /^(?=.*[a-z])[a-z][A-Za-z\d]{2,14}$/.test(id);
+  const validatePassword = (pw: string) =>
     /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[-_.,?!~])[A-Za-z\d-_.,?!~]{8,20}$/.test(
-      password,
+      pw,
     );
-  const validateUsername = (username: string) =>
-    /^[가-힣]{2,5}$/.test(username);
-  const validateEmail = (email: string) =>
-    /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{3,}$/.test(email);
+  const validateUsername = (name: string) => /^[가-힣]{2,5}$/.test(name);
+  const validateEmail = (mail: string) =>
+    /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{3,}$/.test(mail);
 
   const handleValidation = () => {
     const newErrors = { userId: '', password: '', username: '', email: '' };
@@ -45,12 +39,12 @@ const Signup: React.FC<SignupProps> = () => {
     if (!validatePassword(password))
       newErrors.password =
         '비밀번호는 영문 대소문자, 숫자, 특수문자가 포함된 8자 이상 20자 이하로 입력해주세요.';
-    setErrors(newErrors);
     if (!validateUsername(username))
       newErrors.username =
         '이름은 최소 2자 이상 5자 이하, 한글만 입력 가능합니다.';
     if (!validateEmail(email))
       newErrors.email = '유효한 이메일 주소를 입력해주세요.';
+    setErrors(newErrors);
     return Object.values(newErrors).every((error) => error === '');
   };
 
@@ -68,10 +62,12 @@ const Signup: React.FC<SignupProps> = () => {
     }
 
     // 로그인 암호화 적용 - salt
-    const salt = uuidv4(); // 고유한 salt 생성
+    const salt = uuid(); // 고유한 salt 생성
     // 암호화 적용 - SHA256 단방향 해시 적용
     const hashedPassword = SHA256(password + salt).toString();
-    console.log({ userId, username, email, hashedPassword, salt });
+    const saltedPassword: string = SHA256(hashedPassword + salt).toString();
+    // console.log({ userId, username, email, hashedPassword, salt });
+    users(saltedPassword);
   };
 
   // 공통 Tailwind CSS 클래스명 변수로 추출
@@ -141,6 +137,7 @@ const Signup: React.FC<SignupProps> = () => {
                 onChange={(e) => setPassword(e.target.value)}
               />
               <button
+                type="button"
                 className="absolute top-3.5 right-4 text-xl text-slate-700"
                 onClick={toggleHidePassword}
               >
@@ -201,6 +198,6 @@ const Signup: React.FC<SignupProps> = () => {
       </div>
     </div>
   );
-};
+}
 
 export default Signup;
