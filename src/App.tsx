@@ -1,10 +1,10 @@
-import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Header from './components/Header.tsx';
 import Login from './pages/Login.tsx';
 import LoginToEmail from './pages/LoginToEmail.tsx';
 import Signup from './pages/Signup.tsx';
 import FridgeList from './components/FridgeList.tsx';
+import IngredientView from './pages/IngredientView.tsx';
 
 function App() {
   // const handleLogin = () => {
@@ -64,6 +64,7 @@ function App() {
             />
             <Route path="/signup" element={<Signup />} />
             <Route path="/fridges" element={<FridgeList />} />
+            <Route path="/IngredientView" element={<IngredientView />} />
           </Routes>
         </main>
       </div>

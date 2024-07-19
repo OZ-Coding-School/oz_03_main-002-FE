@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
 function Header() {
@@ -65,13 +65,13 @@ function Header() {
               {isOpen && (
                 <div className="flex flex-col bg-slate-600/20 absolute top-13 right-5 p-2 rounded-md">
                   <Link to="/fridges" className="hover:font-bold">
-                    냉장고 보기
+                    냉장고 목록
+                  </Link>
+                  <Link to="/IngredientView" className="hover:font-bold">
+                    냉장고 재료 관리
                   </Link>
                   <Link to="/recipes" className="hover:font-bold">
-                    레시피보기
-                  </Link>
-                  <Link to="/ingredients" className="hover:font-bold">
-                    재료보기
+                    레시피 목록
                   </Link>
                 </div>
               )}
