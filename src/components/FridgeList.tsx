@@ -1,11 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import FridgeItem from './FridgeItem.tsx';
-import useFridgeStore, { Refrigerator } from '../store/fridgeStore';
+import fridgeData from '../data/fridgeData.ts';
+import { Refrigerator } from './type/fridgeType.ts';
 
-// FridgeList 컴포넌트 정의: 냉장고 목록을 표시
 function FridgeList() {
-  // Zustand를 통해 fridges 상태를 가져옴
-  const fridges = useFridgeStore((state) => state.fridges);
+  const [fridges, setFridges] = useState(fridgeData);
 
   // 냉장고 스타일 정의
   const fridgeStyle =

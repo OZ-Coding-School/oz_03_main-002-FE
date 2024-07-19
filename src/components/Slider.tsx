@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import './Slider.css'; // 슬라이더 컴포넌트의 스타일을 정의한 CSS 파일을 가져옴
-import { RefrigeratorIngreList } from '../store/fridgeStore'; // Ingredient 타입을 가져옴
+import { RefrigeratorIngre } from './type/fridgeType';
 
 // SliderProps 타입 정의: ingredients 배열을 받아옴
 type SliderProps = {
-  ingredients: RefrigeratorIngreList[];
+  ingredients: RefrigeratorIngre[];
+  sliderId: number;
 };
 
-function Slider({ ingredients }: SliderProps) {
+function Slider({ ingredients, sliderId }: SliderProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   // 한 번에 보여줄 슬라이드의 개수
   const slideWidth = 4;
@@ -22,8 +23,10 @@ function Slider({ ingredients }: SliderProps) {
     index: number,
   ) => {
     if (event.key === 'Enter' || event.key === ' ') {
+      setCurrentIndex(index * slideWidth);
     }
   };
+  console.log(ingredients);
   return (
     <div className="slider-container">
       {/* 슬라이드 내용을 담는 컨테이너 */}
@@ -32,7 +35,7 @@ function Slider({ ingredients }: SliderProps) {
           .slice(currentIndex, currentIndex + slideWidth) // 현재 인덱스부터 슬라이드 크기만큼의 재료를 잘라냄
           .map((ingredient) => (
             <div key={ingredient.id} className="slider-item">
-              <p className="slider-item__name">{ingredient.name}</p>
+              <p className="slider-item__name">{ingredient.ingre_name}</p>
               <p className="slider-item__">{ingredient.expiration_date}</p>
             </div>
           ))}
@@ -40,11 +43,17 @@ function Slider({ ingredients }: SliderProps) {
       {/* 도트 네비게이션 컨테이너 */}
       {totalPages > 1 && (
         <div className="dots-container">
-          {Array.from({ length: totalPages }).map((_, index) => (
+          {Array.from({ length: totalPages }, (_, index) => (
             <span
-              key={index}
+              key={`${sliderId}-${index}`}
               className={`dot ${currentIndex / slideWidth === index ? 'active' : ''}`}
               onClick={() => handleDotClick(index)}
+              onKeyDown={(event) => {
+                handleKeyDown(event, index);
+              }}
+              tabIndex={0}
+              role="button"
+              aria-label={`Go to slide ${index + 1}`}
             />
           ))}
         </div>

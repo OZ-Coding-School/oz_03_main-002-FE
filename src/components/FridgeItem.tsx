@@ -14,7 +14,7 @@ function FridgeItem({ item }: FridgeItemProps) {
   return (
     <div className="fridge-item">
       <h3>{item.fridges_name}</h3>
-      <Slider ingredients={item.ingre_list} />
+      <Slider ingredients={item.ingre_list} sliderId={item.id} />
       <button type="button">재료 추가</button>
     </div>
   );

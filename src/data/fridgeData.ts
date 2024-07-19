@@ -1,12 +1,12 @@
 // 특정 사용자의 냉장고 목록 Dummy Data
-const fridges = [
+const fridgeData = [
   {
     id: 1,
     fridges_name: '주방 냉장고',
     ingre_list: [
       {
         id: 1,
-        name: '당근',
+        ingre_name: '당근',
         quantity: 3,
         registration_date: '2024-07-19',
         expiration_date: '2024-08-01',
@@ -336,4 +336,4 @@ const fridges = [
   },
 ];
 
-export default fridges;
+export default fridgeData;
