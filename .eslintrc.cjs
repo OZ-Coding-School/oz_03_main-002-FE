@@ -25,6 +25,11 @@ module.exports = {
   },
   plugins: ['react', '@typescript-eslint', 'prettier'],
   rules: {
+    'react/react-in-jsx-scope': 'off', // JSX 스코프 규칙 비활성화
+    'react/function-component-definition': [
+      2,
+      { namedComponents: 'arrow-function' },
+    ],
     'jsx-a11y/label-has-associated-control': [
       'error',
       {
