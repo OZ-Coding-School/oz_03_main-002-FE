@@ -1,6 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { useState } from 'react';
 
 function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -56,6 +55,7 @@ function Header() {
             </li>
             <li>
               <button
+                type="button"
                 className="text-2xl cursor-pointer text-slate-800"
                 onClick={toggleMenu}
               >

@@ -1,13 +1,16 @@
 import React from 'react';
 import { Refrigerator } from '../store/fridgeStore';
-import Slider from './Slider';
+import Slider from './Slider.tsx';
 import './Slider.css';
 
 type FridgeItemProps = {
   item: Refrigerator;
 };
 
-const FridgeItem: React.FC<FridgeItemProps> = ({ item }) => {
+function FridgeItem({ item }: FridgeItemProps) {
+  if (!item) {
+    return null;
+  }
   return (
     <div className="fridge-item">
       <h3>{item.fridges_name}</h3>
@@ -15,6 +18,6 @@ const FridgeItem: React.FC<FridgeItemProps> = ({ item }) => {
       <button type="button">재료 추가</button>
     </div>
   );
-};
+}
 
 export default FridgeItem;

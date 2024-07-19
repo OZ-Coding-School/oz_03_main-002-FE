@@ -1,13 +1,16 @@
 // src/store/fridgeStore.ts
 import { create } from 'zustand';
 import { devtools, persist } from 'zustand/middleware';
-import { Ingredient } from './ingredientStore';
 
 // 냉장고에 추가된 재료 타입
-export type Refrigerator_ingre_list = {
+export type RefrigeratorIngreList = {
   id: number;
-  ingre_id: Ingredient[];
+  name: string;
+  quantity: number;
+  registration_date: string;
   expiration_date: string;
+  category: string;
+  weight?: number;
 };
 
 // 사용자의 냉장고
@@ -18,7 +21,7 @@ export type Refrigerator = {
   update_at: string;
   is_activate: boolean;
   // TODO 어떻게 매칭을 시킬지... // user_id: number;
-  ingre_list: Refrigerator_ingre_list[]; // json 데이터에 포함
+  ingre_list: RefrigeratorIngreList[]; // json 데이터에 포함
 };
 
 type FridgeStore = {

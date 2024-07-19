@@ -1,9 +1,9 @@
 import React from 'react';
-import FridgeItem from './FridgeItem'; // FridgeItem 컴포넌트를 가져옴
-import useFridgeStore, { Refrigerator } from '../store/fridgeStore'; // zustand 상태 관리와 Fridge 타입을 가져옴
+import FridgeItem from './FridgeItem.tsx';
+import useFridgeStore, { Refrigerator } from '../store/fridgeStore';
 
 // FridgeList 컴포넌트 정의: 냉장고 목록을 표시
-const FridgeList: React.FC = () => {
+function FridgeList() {
   // Zustand를 통해 fridges 상태를 가져옴
   const fridges = useFridgeStore((state) => state.fridges);
 
@@ -40,11 +40,14 @@ const FridgeList: React.FC = () => {
         <div
           className={`${fridgeStyle} text-2xl min-h-[210px] flex items-center justify-center`}
         >
-          <button className="w-full h-full">&#43;</button> {/* 플러스 버튼 */}
+          <button type="button" className="w-full h-full">
+            &#43;
+          </button>{' '}
+          {/* 플러스 버튼 */}
         </div>
       </div>
     </div>
   );
-};
+}
 
 export default FridgeList;

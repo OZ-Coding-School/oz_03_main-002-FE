@@ -4,19 +4,7 @@ import { v4 as uuid } from 'uuid';
 import { FaRegEye, FaRegEyeSlash } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
-<<<<<<< HEAD
-interface SignupProps {
-  title: string;
-  // userId: string;
-  // password: string;
-  // username: string;
-  // email: string;
-}
-
-const Signup: React.FC<SignupProps> = () => {
-=======
 function Signup() {
->>>>>>> develop
   const [userId, setUserId] = useState('');
   const [password, setPassword] = useState('');
   const [username, setUsername] = useState('');
