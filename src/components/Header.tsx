@@ -1,6 +1,7 @@
+import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
-const Header: React.FC = () => {
+function Header() {
   const location = useLocation();
 
   const isActive = (path: string) => {
@@ -25,16 +26,16 @@ const Header: React.FC = () => {
             </li>
             <li>
               <Link
-                to="/login"
-                className={`${isActive('/login')} hover:text-blue-500 transition duration-300`}
+                to="Login"
+                className={`${isActive('../pages/Login')} hover:text-blue-500 transition duration-300`}
               >
                 Login 페이지
               </Link>
             </li>
             <li>
               <Link
-                to="/logintoemail"
-                className={`${isActive('/logintoemail')} hover:text-blue-500 transition duration-300`}
+                to="/LoginToEmail"
+                className={`${isActive('../pages/LoginToEmail')} hover:text-blue-500 transition duration-300`}
               >
                 E-mail 로그인 페이지
               </Link>
@@ -52,6 +53,6 @@ const Header: React.FC = () => {
       </div>
     </header>
   );
-};
+}
 
 export default Header;
