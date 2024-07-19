@@ -27,7 +27,7 @@ jobs:
 
       - name: Cache node modules
         uses: actions/cache@v3
-        id: cache
+        id: cache-npm
         with:
           path: node_modules
           key: npm-packages-${{ hashFiles('**/package-lock.json') }}
