@@ -26,7 +26,7 @@ function Slider({ ingredients, sliderId }: SliderProps) {
       setCurrentIndex(index * slideWidth);
     }
   };
-  console.log(ingredients);
+
   return (
     <div className="slider-container">
       {/* 슬라이드 내용을 담는 컨테이너 */}

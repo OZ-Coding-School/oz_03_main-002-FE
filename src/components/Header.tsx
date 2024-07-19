@@ -64,9 +64,15 @@ function Header() {
               </button>
               {isOpen && (
                 <div className="flex flex-col bg-slate-600/20 absolute top-13 right-5 p-2 rounded-md">
-                  <Link to="/fridges">냉장고 보기</Link>
-                  <Link to="/recipes">레시피보기</Link>
-                  <Link to="/ingredients">재료보기</Link>
+                  <Link to="/fridges" className="hover:font-bold">
+                    냉장고 보기
+                  </Link>
+                  <Link to="/recipes" className="hover:font-bold">
+                    레시피보기
+                  </Link>
+                  <Link to="/ingredients" className="hover:font-bold">
+                    재료보기
+                  </Link>
                 </div>
               )}
             </li>

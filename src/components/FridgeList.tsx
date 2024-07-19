@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import FridgeItem from './FridgeItem.tsx';
-import fridgeData from '../data/fridgeData.ts';
-import { Refrigerator } from './type/fridgeType.ts';
+import fridgeData from '../data/fridgeData';
+import { Refrigerator } from './type/fridgeType';
 
 function FridgeList() {
   const [fridges, setFridges] = useState(fridgeData);
