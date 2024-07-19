@@ -26,6 +26,7 @@ module.exports = {
   plugins: ['react', '@typescript-eslint', 'prettier'],
   rules: {
     'react/react-in-jsx-scope': 'off', // JSX 스코프 규칙 비활성화
+    'react/jsx-filename-extension': [1, { extensions: ['.tsx'] }], // 추가
     'jsx-a11y/label-has-associated-control': [
       'error',
       {
