@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-// 프리텐다드 글꼴 속성 (Thin, ExtraLight, Light, Regular, Medium, SemiBold, Bold, ExtraBold, Black)
+/* 프리텐다드 글꼴 속성 (Thin, ExtraLight, Light, Regular, Medium, SemiBold, Bold, ExtraBold, Black) */
 
 @font-face {
   font-family: 'Pretendard';
@@ -85,4 +85,9 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  width: 100%;
+  height: 100vh;
 }
