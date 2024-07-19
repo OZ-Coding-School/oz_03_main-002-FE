@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Slider from './Slider.tsx';
 import './Slider.css';
-import { Refrigerator } from './type/fridgeType';
+import { Refrigerator } from './types/fridgeType.ts';
 import { IoEllipsisVerticalCircle } from 'react-icons/io5';
 import { Link } from 'react-router-dom';
 
@@ -48,9 +48,10 @@ function FridgeItem({ item }: FridgeItemProps) {
         </div>
       </div>
       <Slider ingredients={item.ingre_list} sliderId={item.id} />
-      <div className="h-8 text-center bg-blue-400/60 rounded-b-2xl">
-        <button type="button">재료 추가</button>
+      <div className="h-8 text-center bg-blue-400/60 rounded-b-2xl py-1">
+        <Link to="/IngredientView">재료 목록 보기</Link>
       </div>
+      <div></div>
     </div>
   );
 }

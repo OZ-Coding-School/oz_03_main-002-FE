@@ -1,11 +1,21 @@
 import React, { useState } from 'react';
 import FridgeItem from './FridgeItem.tsx';
 import fridgeData from '../data/fridgeData';
-import { Refrigerator } from './type/fridgeType';
+import { Refrigerator } from './types/fridgeType.ts';
+import PopupModal from './common/PopupModal.tsx';
 
 function FridgeList() {
   const [fridges, setFridges] = useState(fridgeData);
+  const [showModal, setShowModal] = useState(false);
+  const [mode, setMode] = useState('');
 
+  const handleAddFridgeClick = () => {
+    setShowModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setShowModal(false);
+  };
   // 냉장고 스타일 정의
   const fridgeStyle =
     'w-full rounded-2xl bg-[#f8f8f8] shadow-[0_4px_8px_-2px_rgba(0,0,0,0.3)] ';
@@ -25,7 +35,7 @@ function FridgeList() {
       </div>
       <div
         id="fridge-list" // 냉장고 리스트 컨테이너
-        className="w-full px-5 flex flex-col gap-5 pt-5 pb-3 overflow-auto scroll-smooth scroll_custom"
+        className="w-full px-5 flex flex-col gap-5 pt-5 pb-3 overflow-auto scroll-smooth scroll_custom relative"
         style={{ height: 'calc(100% - 50px)' }} // 동적 높이 계산
       >
         {/* 각 냉장고 아이템을 반복문을 통해 렌더링 */}
@@ -37,12 +47,16 @@ function FridgeList() {
         ))}
         {/* 냉장고 추가 버튼 */}
         <div
-          className={`${fridgeStyle} text-2xl min-h-[210px] flex items-center justify-center`}
+          className={`${fridgeStyle} text-2xl min-h-[210px] flex items-center justify-center mb-5`}
         >
-          <button type="button" className="w-full h-full">
+          <button
+            type="button"
+            onClick={handleAddFridgeClick}
+            className="w-full h-full"
+          >
             &#43;
           </button>{' '}
-          {/* 플러스 버튼 */}
+          {showModal && <PopupModal onClose={handleCloseModal} />}
         </div>
       </div>
     </div>
