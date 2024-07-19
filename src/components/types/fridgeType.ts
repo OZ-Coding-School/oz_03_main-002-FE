@@ -24,3 +24,6 @@ export type Fridges = {
   fridges: Refrigerator[];
   setFridges: (fridges: Refrigerator[]) => void;
 };
+
+export type FridgeMode = 'add' | 'edit' | 'delete' | '';
+export type BtnType = 'submit' | 'cancel';

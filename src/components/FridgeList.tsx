@@ -1,21 +1,30 @@
 import React, { useState } from 'react';
 import FridgeItem from './FridgeItem.tsx';
 import fridgeData from '../data/fridgeData';
-import { Refrigerator } from './types/fridgeType.ts';
+import { BtnType, FridgeMode, Refrigerator } from './types/fridgeType.ts';
 import PopupModal from './common/PopupModal.tsx';
 
 function FridgeList() {
   const [fridges, setFridges] = useState(fridgeData);
   const [showModal, setShowModal] = useState(false);
-  const [mode, setMode] = useState('');
+  const [currentMode, setCurrentMode] = useState<FridgeMode>('add');
+  const [btnMode, setBtnMode] = useState<BtnType>('add');
 
   const handleAddFridgeClick = () => {
+    console.log('Add Fridge button clicked'); // 콘솔 로그 추가
     setShowModal(true);
+    setCurrentMode(currentMode);
   };
 
   const handleCloseModal = () => {
+    console.log('Close Modal button clicked'); // 콘솔 로그 추가
     setShowModal(false);
   };
+
+  const handleModeChange = (mode: FridgeMode) => {
+    setCurrentMode(mode);
+  };
+
   // 냉장고 스타일 정의
   const fridgeStyle =
     'w-full rounded-2xl bg-[#f8f8f8] shadow-[0_4px_8px_-2px_rgba(0,0,0,0.3)] ';
@@ -56,7 +65,13 @@ function FridgeList() {
           >
             &#43;
           </button>{' '}
-          {showModal && <PopupModal onClose={handleCloseModal} />}
+          {showModal && (
+            <PopupModal
+              mode={currentMode}
+              onClose={handleCloseModal}
+              onModeChange={handleModeChange}
+            />
+          )}
         </div>
       </div>
     </div>
