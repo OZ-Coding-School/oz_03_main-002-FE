@@ -47,6 +47,14 @@ function Header() {
                 회원가입
               </Link>
             </li>
+            <li>
+              <Link
+                to="/IngredientView"
+                className={`${isActive('../pages/LoginToEmail')} hover:text-blue-500 transition duration-300`}
+              >
+                냉장고 재료 관리
+              </Link>
+            </li>
           </ul>
         </nav>
       </div>
