@@ -26,14 +26,13 @@ function CalendarModal({ isOpen, onClose, onSelectDate }: CalendarModalProps) {
   if (!isOpen) return null;
 
   return (
-    <div className="modal-overlay" onClick={onClose}>
-      <div
+    <button type="button" className="modal-overlay" onClick={onClose}>
+      <button
+        type="button"
         className="modal-content"
-        role="dialog"
-        aria-modal="true"
         onClick={(e) => e.stopPropagation()}
       >
-        <button className="modal-close" onClick={onClose} type="button">
+        <button type="button" className="modal-close" onClick={onClose}>
           X
         </button>
         <DatePicker
@@ -41,8 +40,8 @@ function CalendarModal({ isOpen, onClose, onSelectDate }: CalendarModalProps) {
           selected={selectedDate}
           onChange={handleDateChange}
         />
-      </div>
-    </div>
+      </button>
+    </button>
   );
 }
 
