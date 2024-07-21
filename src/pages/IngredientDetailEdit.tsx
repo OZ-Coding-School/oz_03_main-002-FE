@@ -35,19 +35,19 @@ function IngredientDetailEdit() {
     setFormState((prev) => (prev ? { ...prev, [name]: value } : null));
   };
 
-  const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setImagePreview(reader.result as string);
-        setFormState((prev) =>
-          prev ? { ...prev, image: reader.result as string } : null,
-        );
-      };
-      reader.readAsDataURL(file);
-    }
-  };
+  // const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  //   const file = e.target.files?.[0];
+  //   if (file) {
+  //     const reader = new FileReader();
+  //     reader.onloadend = () => {
+  //       setImagePreview(reader.result as string);
+  //       setFormState((prev) =>
+  //         prev ? { ...prev, image: reader.result as string } : null,
+  //       );
+  //     };
+  //     reader.readAsDataURL(file);
+  //   }
+  // };
 
   const handleSave = () => {
     if (formState) {
@@ -113,7 +113,7 @@ function IngredientDetailEdit() {
           onChange={handleChange}
         />
       </div>
-      <div>
+      {/* <div>
         <label htmlFor="image">이미지:</label>
         <input
           type="file"
@@ -128,7 +128,7 @@ function IngredientDetailEdit() {
             style={{ width: '200px', height: '200px' }}
           />
         )}
-      </div>
+      </div> */}
       <div className="flex justify-end mt-4">
         <button
           type="button"

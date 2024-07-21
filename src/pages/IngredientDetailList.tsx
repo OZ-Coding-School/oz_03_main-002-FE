@@ -60,7 +60,7 @@ function IngredientDetailList() {
       <p>소비기한: {ingredient.expirationDate}</p>
       <p>개수: {ingredient.quantity}</p>
       <p>중량: {ingredient.weight || '중량을 입력해주세요.'}</p>
-      {/* <p>카테고리</p> */}
+      <p>카테고리: {ingredient.category}</p>
       {/* {ingredient.image ? (
         <img
           src={ingredient.image}
