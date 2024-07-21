@@ -1,27 +1,44 @@
-import React, { useState } from 'react';
-import { RefrigeratorMode } from '../../types/fridgeType';
+import React, { useEffect, useState } from 'react';
+import { Refrigerator, RefrigeratorMode } from '../../types/fridgeType';
 
 type PopupModalProps = {
   mode: RefrigeratorMode;
   onClose: () => void;
-  onSubmit: (data: any) => void;
+  onSubmit: (data: Omit<Refrigerator, 'id'>) => void;
+  existingData?: Refrigerator;
 };
 
-const PopupModal: React.FC<PopupModalProps> = ({ mode, onClose, onSubmit }) => {
-  const [formData, setFormData] = useState({
-    id: '',
-    name: '',
-    ingredients: [],
-  });
+function PopupModal({
+  mode,
+  onClose,
+  onSubmit,
+  existingData,
+}: PopupModalProps) {
+  const initialData: Omit<Refrigerator, 'id'> = {
+    fridgeName: '',
+    createAt: '',
+    updateAt: '',
+    isActivate: true,
+    ingreList: [],
+    userId: 'abc123',
+  };
+  const [formData, setFormData] =
+    useState<Omit<Refrigerator, 'id'>>(initialData);
+
+  useEffect(() => {
+    if (mode === 'edit' && existingData) {
+      setFormData(existingData);
+    }
+  }, [mode, existingData]);
 
   const getTitle = () => {
     switch (mode) {
       case 'add':
-        return '냉장고 추가';
+        return '냉장고를 추가합니다';
       case 'edit':
-        return '냉장고 수정';
+        return '냉장고의 이름을 수정합니다';
       case 'delete':
-        return '냉장고 삭제';
+        return '냉장고를 삭제합니다';
       default:
         return '';
     }
@@ -30,6 +47,7 @@ const PopupModal: React.FC<PopupModalProps> = ({ mode, onClose, onSubmit }) => {
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({ ...prevData, [name]: value }));
+    // setFridgeName(e.target.value);
   };
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -45,11 +63,11 @@ const PopupModal: React.FC<PopupModalProps> = ({ mode, onClose, onSubmit }) => {
           <form onSubmit={handleSubmit}>
             <input
               type="text"
-              name="name"
-              value={formData.name}
+              name="fridgeName"
+              value={formData.fridgeName}
               onChange={handleInputChange}
               placeholder="냉장고 이름"
-              className="mb-4 p-2 border"
+              className="mb-4 p-2 border block"
             />
             <button
               type="submit"
@@ -57,25 +75,47 @@ const PopupModal: React.FC<PopupModalProps> = ({ mode, onClose, onSubmit }) => {
             >
               제출
             </button>
+            <button
+              type="button"
+              className="mt-4 bg-gray-500 text-white px-4 py-2 rounded"
+              onClick={onClose}
+            >
+              닫기
+            </button>
           </form>
         )}
         {mode === 'delete' && (
-          <button
-            onClick={() => onSubmit(formData)}
-            className="mt-4 bg-red-500 text-white px-4 py-2 rounded"
-          >
-            삭제
-          </button>
+          <>
+            <button
+              type="button"
+              onClick={() => onSubmit(formData)}
+              className="mt-4 bg-red-500 text-white px-4 py-2 rounded"
+            >
+              삭제
+            </button>
+            <button
+              type="button"
+              className="mt-4 bg-gray-500 text-white px-4 py-2 rounded"
+              onClick={onClose}
+            >
+              닫기
+            </button>
+          </>
         )}
-        <button
-          className="mt-4 bg-gray-500 text-white px-4 py-2 rounded"
-          onClick={onClose}
-        >
-          닫기
-        </button>
       </div>
     </div>
   );
+}
+
+PopupModal.defaultProps = {
+  existingData: {
+    fridgeName: '',
+    createAt: '',
+    updateAt: '',
+    isActivate: true,
+    ingreList: [],
+    userId: 'abc123',
+  },
 };
 
 export default PopupModal;

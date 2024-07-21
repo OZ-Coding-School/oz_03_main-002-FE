@@ -1,40 +1,48 @@
 import { create } from 'zustand';
-import fridgeData from '../data/fridgeData.ts';
-import { Refrigerator, RefrigeratorMode } from '../types/fridgeType.ts';
+import {
+  FridgeState,
+  Refrigerator,
+  RefrigeratorMode,
+} from '../types/fridgeType';
 
-type FridgeState = {
-  fridges: Refrigerator[];
-  showModal: boolean;
-  currentMode: RefrigeratorMode;
-  fetchFridges: () => void;
-  setShowModal: (show: boolean) => void;
-  setCurrentMode: (mode: RefrigeratorMode) => void;
-  addFridge: (refrigerator: Omit<Refrigerator, 'id'>) => void;
-  updateFridge: (id: number, refrigerator: Omit<Refrigerator, 'id'>) => void;
-  deleteFridge: (id: number) => void;
+const getFridgesFromLocalStorage = (): Refrigerator[] => {
+  const data = localStorage.getItem('fridges');
+  return data ? JSON.parse(data) : [];
 };
 
-export const useFridgeStore = create<FridgeState>((set) => ({
-  fridges: fridgeData,
+const saveFridgeToLocalStorage = (fridges: Refrigerator[]) => {
+  localStorage.setItem('fridges', JSON.stringify(fridges));
+};
+
+const useFridgeStore = create<FridgeState>((set) => ({
+  fridges: getFridgesFromLocalStorage(),
   showModal: false,
-  currentMode: 'add',
+  currentMode: '' as RefrigeratorMode,
   fetchFridges: async () => {
-    // 더미 데이터를 사용하므로 실제 API 호출 없이 상태를 설정합니다.
+    // TODO 실제 API 호출시 코드 수정 필요
+    const fridgeData = getFridgesFromLocalStorage();
     set({ fridges: fridgeData });
   },
   setShowModal: (show) => set({ showModal: show }),
   setCurrentMode: (mode) => set({ currentMode: mode }),
-  addFridge: async (refrigerator) => {
+  addFridge: async (refrigerator: Omit<Refrigerator, 'id'>) => {
+    const fridges = getFridgesFromLocalStorage();
+    const newId =
+      fridges.length > 0 ? Math.max(...fridges.map((f) => f.id)) + 1 : 1;
     const newFridge: Refrigerator = {
-      id: Math.max(...fridgeData.map((f) => f.id)) + 1, // 새 ID 생성
+      id: newId,
       ...refrigerator,
-      createAt: new Date().toISOString(),
-      updateAt: new Date().toISOString(),
+      createAt: new Date().toISOString().substring(0, 10),
+      updateAt: new Date().toISOString().substring(0, 10),
       isActivate: true,
     };
-    set((state) => ({ fridges: [...state.fridges, newFridge] }));
+    set((state) => {
+      const updatedFridges = [...state.fridges, newFridge];
+      saveFridgeToLocalStorage(updatedFridges);
+      return { fridges: updatedFridges };
+    });
   },
-  updateFridge: async (id, refrigerator) => {
+  updateFridge: async (id: number, refrigerator) => {
     const updatedFridge = {
       ...refrigerator,
       id,
@@ -46,9 +54,13 @@ export const useFridgeStore = create<FridgeState>((set) => ({
       ),
     }));
   },
-  deleteFridge: async (id) => {
-    set((state) => ({
-      fridges: state.fridges.filter((fridge) => fridge.id !== id),
-    }));
+  deleteFridge: async (id: number) => {
+    set((state) => {
+      const updatedFridges = state.fridges.filter((fridge) => fridge.id !== id);
+      saveFridgeToLocalStorage(updatedFridges);
+      return { fridges: updatedFridges };
+    });
   },
 }));
+
+export default useFridgeStore;

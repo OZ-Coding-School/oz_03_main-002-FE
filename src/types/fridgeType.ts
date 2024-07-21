@@ -17,7 +17,7 @@ export type Refrigerator = {
   updateAt: string;
   isActivate: boolean;
   userId: string;
-  ingreList: RefrigeratorIngre[]; // json 데이터에 포함
+  ingreList: RefrigeratorIngre[];
 };
 
 export type Fridges = {
@@ -31,21 +31,16 @@ export type FridgeActions = {
 };
 
 export type RefrigeratorMode = 'add' | 'edit' | 'delete' | '';
-export type BtnType = 'submit' | 'cancel';
 
 // FridgeState 타입 정의
 export type FridgeState = {
   fridges: Refrigerator[];
   showModal: boolean;
   currentMode: RefrigeratorMode;
+  fetchFridges: () => void;
   setShowModal: (show: boolean) => void;
   setCurrentMode: (mode: RefrigeratorMode) => void;
-  addFridge: (fridge: Refrigerator) => void;
-  updateFridge: (fridge: Refrigerator) => void;
+  addFridge: (refrigerator: Omit<Refrigerator, 'id'>) => void;
+  updateFridge: (id: number, refrigerator: Omit<Refrigerator, 'id'>) => void;
   deleteFridge: (id: number) => void;
 };
-
-// FridgeActions 타입 정의
-// interface FridgeActions {
-//   updateFridgeName: (id: string, fridge_name: string) => Promise<void>;
-// }

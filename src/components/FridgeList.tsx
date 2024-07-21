@@ -1,8 +1,9 @@
-import { useEffect } from 'react';
-import { useFridgeStore } from '../store/useFridgeStore.ts';
-import { Refrigerator } from '../types/fridgeType.ts';
+import { useEffect, useState } from 'react';
 import FridgeItem from './FridgeItem.tsx';
+import useFridgeStore from '../store/useFridgeStore';
+import { Refrigerator } from '../types/fridgeType';
 import PopupModal from './common/PopupModal.tsx';
+// import fridgeData from '../data/fridgeData.ts';
 
 function FridgeList() {
   const fridges = useFridgeStore((state) => state.fridges);
@@ -15,29 +16,61 @@ function FridgeList() {
   const updateFridge = useFridgeStore((state) => state.updateFridge);
   const deleteFridge = useFridgeStore((state) => state.deleteFridge);
 
+  const [selectedFridge, setSelectedFridge] = useState<Refrigerator | null>(
+    null,
+  );
+
+  // 더미 테이터를 local storage에 임시로 저장하는 코드 (import 문과 함께 주석처리 됨)
+  // const test = () => {
+  //   const dataSave = localStorage.setItem(
+  //     'fridges',
+  //     JSON.stringify(fridgeData),
+  //   );
+  //   return console.log(`first ${dataSave}`);
+  // };
+  // test();
+
   useEffect(() => {
     fetchFridges();
   }, [fetchFridges]);
 
-  const handleAddFridgeClick = () => {
+  const handleAddClick = () => {
     setCurrentMode('add');
+    setSelectedFridge(null);
     setShowModal(true);
+  };
+
+  const handleEditClick = (fridge: Refrigerator) => {
+    setCurrentMode('edit');
+    setSelectedFridge(fridge);
+    setShowModal(true);
+  };
+
+  const handleDeleteClick = (id: number) => {
+    setCurrentMode('delete');
+    setShowModal(true);
+    deleteFridge(id);
   };
 
   const handleCloseModal = () => {
     setShowModal(false);
+    setCurrentMode('');
+    setSelectedFridge(null);
   };
 
-  const handleSubmit = (data: any) => {
+  const handleSubmit = (data: Omit<Refrigerator, 'id'>) => {
     if (currentMode === 'add') {
       addFridge(data);
-    } else if (currentMode === 'edit') {
-      updateFridge(data.id, data);
-    } else if (currentMode === 'delete') {
-      deleteFridge(data.id);
+    } else if (currentMode === 'edit' && selectedFridge) {
+      useFridgeStore.getState().updateFridge(selectedFridge.id, data);
+      updateFridge(selectedFridge.id, data);
+    } else if (currentMode === 'delete' && selectedFridge) {
+      deleteFridge(selectedFridge.id);
     }
-    setShowModal(false);
+    handleCloseModal();
   };
+
+  if (!fridges) return null;
 
   // 냉장고 스타일 정의
   const fridgeStyle =
@@ -61,10 +94,14 @@ function FridgeList() {
         style={{ height: 'calc(100% - 80px)' }} // 동적 높이 계산
       >
         {/* 각 냉장고 아이템을 반복문을 통해 렌더링 */}
-        {fridges.map((item: Refrigerator) => (
-          <div key={item.createAt} className={`${fridgeStyle}`}>
-            <FridgeItem key={item.id} item={item} />{' '}
-            {/* FridgeItem 컴포넌트를 통해 냉장고 아이템 렌더링 */}
+        {fridges.map((fridge) => (
+          <div key={fridge.id} className={`${fridgeStyle}`}>
+            <FridgeItem
+              key={fridge.id}
+              item={fridge}
+              onEdit={handleEditClick}
+              onDelete={handleDeleteClick}
+            />
           </div>
         ))}
         {/* 냉장고 추가 버튼 */}
@@ -73,16 +110,18 @@ function FridgeList() {
         >
           <button
             type="button"
-            onClick={handleAddFridgeClick}
+            onClick={handleAddClick}
             className="w-full h-full"
           >
             &#43;
           </button>{' '}
           {showModal && (
             <PopupModal
+              // item={item}
               mode={currentMode}
               onClose={handleCloseModal}
               onSubmit={handleSubmit}
+              existingData={selectedFridge || undefined}
             />
           )}
         </div>

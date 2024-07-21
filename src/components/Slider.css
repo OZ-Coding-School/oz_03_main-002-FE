@@ -16,7 +16,8 @@
   padding: 10px 15px 20px 15px;
 }
 
-.slider-item {
+.slider-item,
+.empty-item {
   background-color: #ffffff;
   /* border: 0px solid #cccccc90; */
   border-radius: 5px;
