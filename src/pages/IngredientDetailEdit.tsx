@@ -9,7 +9,7 @@ function IngredientDetailEdit() {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
   const [formState, setFormState] = useState<Ingredient | null>(null);
-  const [imagePreview, setImagePreview] = useState<string | null>(null);
+  // const [imagePreview, setImagePreview] = useState<string | null>(null);
   const [isCalendarOpen, setIsCalendarOpen] = useState(false);
 
   useEffect(() => {
@@ -21,7 +21,7 @@ function IngredientDetailEdit() {
         const localData = JSON.parse(localStorage.getItem(id) || '{}');
         const mergedData = { ...foundIngredient, ...localData };
         setFormState(mergedData);
-        setImagePreview(mergedData.image || null);
+        // setImagePreview(mergedData.image || null);
       } else {
         console.error('재료를 찾을 수 없습니다.');
       }
