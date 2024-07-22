@@ -3,4 +3,6 @@ export interface Ingredient {
   name: string;
   quantity: string;
   expirationDate: string;
+  category?: string;
+  weight?: string;
 }

@@ -64,7 +64,8 @@ function BottomSheet({
                         : {ing.quantity}
                       </span>
                       <p className="text-gray-500 text-xs">
-                        유통기한: {ing.expirationDate}
+                        소비기한: {ing.expirationDate}{' '}
+                        {/* 유통기한을 소비기한으로 수정 */}
                       </p>
                     </div>
                     <div className="flex">

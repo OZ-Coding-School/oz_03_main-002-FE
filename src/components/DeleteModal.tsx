@@ -51,7 +51,8 @@ function DeleteModal({
             <p className="text-gray-600 text-xs mb-3">
               수량: {ingredient.quantity}
               <br />
-              유통기한: {ingredient.expirationDate}
+              소비기한: {ingredient.expirationDate}{' '}
+              {/* 유통기한을 소비기한으로 수정 */}
             </p>
             <hr className="my-3 border-gray-300" />
             <div className="flex justify-between mt-4">
