@@ -81,7 +81,6 @@ function FridgeItem({ item, onDelete, onEdit }: FridgeItemProps) {
       >
         <Link to="/IngredientView">재료 목록 보기</Link>
       </button>
-      <div />
     </div>
   );
 }

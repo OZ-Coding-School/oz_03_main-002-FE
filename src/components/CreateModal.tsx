@@ -91,7 +91,7 @@ function CreateModal({
                   htmlFor="expirationDate"
                   className="block text-sm font-medium text-gray-700 mb-1"
                 >
-                  유통기한
+                  소비기한 {/* 유통기한을 소비기한으로 수정 */}
                 </label>
                 <input
                   type="date"

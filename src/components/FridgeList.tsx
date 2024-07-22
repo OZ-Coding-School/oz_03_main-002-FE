@@ -62,7 +62,6 @@ function FridgeList() {
     if (currentMode === 'add') {
       addFridge(data);
     } else if (currentMode === 'edit' && selectedFridge) {
-      useFridgeStore.getState().updateFridge(selectedFridge.id, data);
       updateFridge(selectedFridge.id, data);
     } else if (currentMode === 'delete' && selectedFridge) {
       deleteFridge(selectedFridge.id);
@@ -97,7 +96,7 @@ function FridgeList() {
         {fridges.map((fridge) => (
           <div key={fridge.id} className={`${fridgeStyle}`}>
             <FridgeItem
-              key={fridge.id}
+              key={`fridge-item-${fridge.id}`}
               item={fridge}
               onEdit={handleEditClick}
               onDelete={handleDeleteClick}

@@ -3,9 +3,9 @@ export type RefrigeratorIngre = {
   id: number;
   ingreName: string;
   quantity: number;
-  registrationDate: string;
+  registrationDate?: string;
   expirationDate: string;
-  category: string;
+  category?: string;
   weight?: number;
 };
 
@@ -15,8 +15,8 @@ export type Refrigerator = {
   fridgeName: string; // TODO 백엔드에 항목 추가 요청해야함
   createAt: string;
   updateAt: string;
-  isActivate: boolean;
-  userId: string;
+  isActivate?: boolean;
+  userId?: string;
   ingreList: RefrigeratorIngre[];
 };
 

@@ -5,6 +5,8 @@ import LoginToEmail from './pages/LoginToEmail.tsx';
 import Signup from './pages/Signup.tsx';
 import FridgeList from './components/FridgeList.tsx';
 import IngredientView from './pages/IngredientView.tsx';
+import IngredientDetailList from './pages/IngredientDetailList.tsx';
+import IngredientDetailEdit from './pages/IngredientDetailEdit.tsx';
 
 function App() {
   // const handleLogin = () => {
@@ -65,6 +67,11 @@ function App() {
             <Route path="/signup" element={<Signup />} />
             <Route path="/fridges" element={<FridgeList />} />
             <Route path="/IngredientView" element={<IngredientView />} />
+            <Route path="/ingredients/:id" element={<IngredientDetailList />} />
+            <Route
+              path="/ingredients/:id/edit"
+              element={<IngredientDetailEdit />}
+            />
           </Routes>
         </main>
       </div>

@@ -76,6 +76,14 @@ function Header() {
                 </div>
               )}
             </li>
+            <li>
+              <Link
+                to="/ingredients/:id"
+                className={`${isActive('../pages/IngredientDetailList')} hover:text-blue-500 transition duration-300`}
+              >
+                냉장고 재료 상세 관리
+              </Link>
+            </li>
           </ul>
         </nav>
       </div>
