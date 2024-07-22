@@ -3,6 +3,7 @@ import Header from './components/Header.tsx';
 import Login from './pages/Login.tsx';
 import LoginToEmail from './pages/LoginToEmail.tsx';
 import Signup from './pages/Signup.tsx';
+import FridgeList from './components/FridgeList.tsx';
 import IngredientView from './pages/IngredientView.tsx';
 import IngredientDetailList from './pages/IngredientDetailList.tsx';
 import IngredientDetailEdit from './pages/IngredientDetailEdit.tsx';
@@ -39,14 +40,7 @@ function App() {
         <Header />
         <main className="h-full  bg-gray-100">
           <Routes>
-            <Route
-              path="/"
-              element={
-                <div>
-                  <h1>냉뚝이 테스트 페이지입니다.</h1>
-                </div>
-              }
-            />
+            <Route path="/" element={<h1>냉뚝이 테스트 페이지입니다.</h1>} />
             <Route
               path="/login"
               element={
@@ -71,6 +65,7 @@ function App() {
               }
             />
             <Route path="/signup" element={<Signup />} />
+            <Route path="/fridges" element={<FridgeList />} />
             <Route path="/IngredientView" element={<IngredientView />} />
             <Route path="/ingredients/:id" element={<IngredientDetailList />} />
             <Route

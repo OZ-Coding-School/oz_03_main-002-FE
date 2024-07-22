@@ -1,10 +1,16 @@
+import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
 function Header() {
+  const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
 
   const isActive = (path: string) => {
     return location.pathname === path ? 'text-blue-500' : 'text-gray-600';
+  };
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
   };
 
   return (
@@ -48,12 +54,27 @@ function Header() {
               </Link>
             </li>
             <li>
-              <Link
-                to="/IngredientView"
-                className={`${isActive('../pages/LoginToEmail')} hover:text-blue-500 transition duration-300`}
+              <button
+                type="button"
+                className="text-2xl cursor-pointer text-slate-800"
+                onClick={toggleMenu}
               >
-                냉장고 재료 관리
-              </Link>
+                {/* 햄버거 버튼 */}
+                &#9776;
+              </button>
+              {isOpen && (
+                <div className="flex flex-col bg-slate-600/20 absolute top-13 right-5 p-2 rounded-md">
+                  <Link to="/fridges" className="hover:font-bold">
+                    냉장고 목록
+                  </Link>
+                  <Link to="/IngredientView" className="hover:font-bold">
+                    냉장고 재료 관리
+                  </Link>
+                  <Link to="/recipes" className="hover:font-bold">
+                    레시피 목록
+                  </Link>
+                </div>
+              )}
             </li>
             <li>
               <Link

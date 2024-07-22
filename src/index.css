@@ -76,6 +76,20 @@
   font-style: normal;
 }
 
+@layer utilities {
+  .scroll_custom {
+    overflow: overlay;
+    scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
+    scrollbar-width: thin;
+  }
+  .scroll_custom:hover {
+    scrollbar-color: rgba(0, 0, 0, 0.4) transparent;
+  }
+  .skeleton {
+    @apply animate-shimmer bg-gradient-custom;
+  }
+}
+
 :root {
   font-family: Pretendard, Inter, system-ui, Avenir, Helvetica, Arial,
     sans-serif;

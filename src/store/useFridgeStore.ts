@@ -1,58 +1,66 @@
 import { create } from 'zustand';
-import { devtools, persist } from 'zustand/middleware';
-import axios from 'axios';
+import {
+  FridgeState,
+  Refrigerator,
+  RefrigeratorMode,
+} from '../types/fridgeType';
 
-// Fridge 타입 정의
-interface Fridge {
-  id: string; // api -> fridges_id
-  fridge_name: string; // api > fridges_name
-}
+const getFridgesFromLocalStorage = (): Refrigerator[] => {
+  const data = localStorage.getItem('fridges');
+  return data ? JSON.parse(data) : [];
+};
 
-// FridgeState 타입 정의
-interface FridgeState {
-  status: string | null;
-  token: string | null;
-  loading: boolean;
-  fridges: Fridge[]; // fridges: 냉장고 여러 개의 배열을 뜻함
-}
+const saveFridgeToLocalStorage = (fridges: Refrigerator[]) => {
+  localStorage.setItem('fridges', JSON.stringify(fridges));
+};
 
-// FridgeActions 타입 정의
-interface FridgeActions {
-  updateFridgeName: (id: string, fridge_name: string) => Promise<void>;
-}
-
-const useFridgeStore = create<FridgeState & FridgeActions>()(
-  devtools(
-    persist(
-      (set) => ({
-        status: null,
-        token: null,
-        loading: false,
-        fridges: [],
-
-        // 냉장고 이름 수정
-        updateFridgeName: async (id, fridge_name) => {
-          set({ loading: true });
-          try {
-            await axios.put(`/api/fridges/${id}`, { fridge_name });
-            set((state) => ({
-              fridges: state.fridges.map((fridge) =>
-                fridge.id === id ? { ...fridge, fridge_name } : fridge,
-              ), // fridge -> fridges의 배열 안의 각 요소
-              loading: false,
-              status: '냉장고 이름이 수정되었습니다',
-            }));
-          } catch (error) {
-            const err = error as Error;
-            set({ status: err.message, loading: false });
-          }
-        },
-      }),
-      {
-        name: 'fridge-storage',
-      },
-    ),
-  ),
-);
+const useFridgeStore = create<FridgeState>((set) => ({
+  fridges: getFridgesFromLocalStorage(),
+  showModal: false,
+  currentMode: '' as RefrigeratorMode,
+  fetchFridges: async () => {
+    // TODO 실제 API 호출시 코드 수정 필요
+    const fridgeData = getFridgesFromLocalStorage();
+    set({ fridges: fridgeData });
+  },
+  setShowModal: (show) => set({ showModal: show }),
+  setCurrentMode: (mode) => set({ currentMode: mode }),
+  addFridge: async (refrigerator: Omit<Refrigerator, 'id'>) => {
+    const fridges = getFridgesFromLocalStorage();
+    const newId =
+      fridges.length > 0 ? Math.max(...fridges.map((f) => f.id)) + 1 : 1;
+    const newFridge: Refrigerator = {
+      id: newId,
+      ...refrigerator,
+      createAt: new Date().toISOString().substring(0, 10),
+      updateAt: new Date().toISOString().substring(0, 10),
+      isActivate: true,
+    };
+    set((state) => {
+      const updatedFridges = [...state.fridges, newFridge];
+      saveFridgeToLocalStorage(updatedFridges);
+      return { fridges: updatedFridges };
+    });
+  },
+  updateFridge: async (id: number, refrigerator) => {
+    const updatedFridge = {
+      ...refrigerator,
+      id,
+      updatedAt: new Date().toISOString(),
+    };
+    set((state) => ({
+      fridges: state.fridges.map((fridge) =>
+        fridge.id === id ? updatedFridge : fridge,
+      ),
+    }));
+  },
+  deleteFridge: async (id: number) => {
+    set((state) => {
+      const updatedFridges = state.fridges.filter((fridge) => fridge.id !== id);
+      saveFridgeToLocalStorage(updatedFridges);
+      return { fridges: updatedFridges };
+    });
+  },
+}));
 
 export default useFridgeStore;
