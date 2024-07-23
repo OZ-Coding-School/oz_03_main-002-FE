@@ -13,9 +13,7 @@ const useIngredientStore = create<IngredientStore>((set) => ({
   updateIngredient: (updatedIngredient) =>
     set((state) => ({
       ingredients: state.ingredients.map((ingredient) =>
-        ingredient.fridgeIngreId === updatedIngredient.fridgeIngreId
-          ? updatedIngredient
-          : ingredient,
+        ingredient.id === updatedIngredient.id ? updatedIngredient : ingredient,
       ),
     })),
 }));
