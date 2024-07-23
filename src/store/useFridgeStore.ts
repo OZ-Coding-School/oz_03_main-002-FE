@@ -45,7 +45,7 @@ const useFridgeStore = create<FridgeState>((set, get) => ({
       const newId =
         fridges.length > 0 ? Math.max(...fridges.map((f) => f.id)) + 1 : 1;
       const newFridge: Refrigerator = {
-        id: newId,
+        id: newId.toString(),
         ...refrigerator,
         createAt: new Date().toISOString().substring(0, 10),
         updateAt: new Date().toISOString().substring(0, 10),
@@ -61,12 +61,13 @@ const useFridgeStore = create<FridgeState>((set, get) => ({
       console.log('Failed to add fridge', error);
     }
   },
-  updateFridge: async (id: number, refrigerator) => {
+  updateFridge: async (refrigerator: Omit<Refrigerator, 'updatedAt'>) => {
+    const id = refrigerator.id;
     const updatedFridge = {
       ...refrigerator,
-      id,
       updatedAt: new Date().toISOString(),
     };
+    const response = await axios.put(`/fridges/${id}`, updatedFridge);
     set((state) => ({
       fridges: state.fridges.map((fridge) =>
         fridge.id === id ? updatedFridge : fridge,
@@ -77,6 +78,7 @@ const useFridgeStore = create<FridgeState>((set, get) => ({
     console.log('try delete fridge');
     try {
       const response = await axios.delete(`/fridges/${id}`);
+      console.log(response.data);
       if (response.status === 200) {
         set((state) => {
           const updatedFridges = state.fridges.filter(

@@ -1,29 +1,25 @@
 import React, { useState } from 'react';
-import { Refrigerator } from '../../types/fridgeType';
-import ModalForm from '../common/ModalForm';
+import { Refrigerator } from '../../../types/fridgeType';
+import ModalForm from '../../common/ModalForm';
 
 type EditFridgeModalProps = {
   existingData: Refrigerator;
   onClose: () => void;
-  onSubmit: (id: number, updatedFridge: Omit<Refrigerator, 'id'>) => void;
+  onEdit: (newData: Omit<Refrigerator, 'updatedAt'>) => void;
 };
 
 const EditFridgeModal = ({
   existingData,
   onClose,
-  onSubmit,
+  onEdit,
 }: EditFridgeModalProps) => {
-  const [fridgeName, setFridgeName] = useState(existingData.fridgeName);
+  const [newFridgeName, setNewFridgeName] = useState(existingData.fridgeName);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    onSubmit(existingData.id, {
-      fridgeName,
-      createAt: existingData.createAt,
-      updateAt: new Date().toISOString(),
-      isActivate: existingData.isActivate,
-      ingreList: existingData.ingreList,
-      userId: existingData.userId,
+    onEdit({
+      ...existingData,
+      fridgeName: newFridgeName,
     });
     onClose();
   };
@@ -35,8 +31,8 @@ const EditFridgeModal = ({
         <form onSubmit={handleSubmit}>
           <input
             type="text"
-            value={fridgeName}
-            onChange={(e) => setFridgeName(e.target.value)}
+            value={newFridgeName}
+            onChange={(e) => setNewFridgeName(e.target.value)}
             placeholder="냉장고 이름"
             className="mb-4 p-2 border block"
           />

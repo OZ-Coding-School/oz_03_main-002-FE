@@ -1,6 +1,7 @@
 // AddFridgeModal.tsx
 import React from 'react';
-import ModalForm from '../common/ModalForm';
+import ModalForm from '../../common/ModalForm';
+import { Refrigerator } from '../../../types/fridgeType';
 
 type AddFridgeModalProps = {
   onSubmit: (data: { fridgeName: string }) => void;
@@ -11,7 +12,12 @@ const AddFridgeModal: React.FC<AddFridgeModalProps> = ({
   onSubmit,
   onClose,
 }) => {
-  const initialData = { fridgeName: '냉장고' };
+  const initialData: Omit<Refrigerator, 'id'> = {
+    fridgeName: '냉장고',
+    ingreList: [],
+    createAt: '',
+    updateAt: '',
+  };
 
   return (
     <ModalForm

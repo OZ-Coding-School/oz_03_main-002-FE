@@ -10,7 +10,7 @@
     "preview": "vite preview",
     "format": "prettier --write .",
     "tsc": "tsc  -p tsconfig.json --noEmit",
-    "start": "json-server --watch ./src/data/fridgeData.json"
+    "start": "json-server --watch src/data/fridgeData.json --port 3000"
   },
   "dependencies": {
     "@eslint/config-array": "^0.17.0",

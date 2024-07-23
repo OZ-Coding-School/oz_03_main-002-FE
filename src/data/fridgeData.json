@@ -256,53 +256,13 @@
       "updateAt": "2023-01-10 15:12:30"
     },
     {
-      "id": 6,
-      "fridgeName": "",
+      "id": "4",
+      "fridgeName": "술장고 123",
+      "ingreList": [],
       "createAt": "2024-07-23",
       "updateAt": "2024-07-23",
-      "isActivate": true
-    },
-    {
-      "id": 7,
-      "fridgeName": "",
-      "createAt": "2024-07-23",
-      "updateAt": "2024-07-23",
-      "isActivate": true
-    },
-    {
-      "id": 8,
-      "fridgeName": "술장고",
-      "createAt": "2024-07-23",
-      "updateAt": "2024-07-23",
-      "isActivate": true
-    },
-    {
-      "id": 9,
-      "fridgeName": "김치 냉장고",
-      "createAt": "2024-07-23",
-      "updateAt": "2024-07-23",
-      "isActivate": true
-    },
-    {
-      "id": 10,
-      "fridgeName": "",
-      "createAt": "2024-07-23",
-      "updateAt": "2024-07-23",
-      "isActivate": true
-    },
-    {
-      "id": 11,
-      "fridgeName": "",
-      "createAt": "2024-07-23",
-      "updateAt": "2024-07-23",
-      "isActivate": true
-    },
-    {
-      "id": 12,
-      "fridgeName": "sogood",
-      "createAt": "2024-07-23",
-      "updateAt": "2024-07-23",
-      "isActivate": true
+      "isActivate": true,
+      "updatedAt": "2024-07-23T08:30:43.262Z"
     }
   ],
   "ingredient": [],

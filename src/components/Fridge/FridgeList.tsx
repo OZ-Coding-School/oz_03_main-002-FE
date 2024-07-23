@@ -2,16 +2,17 @@ import { useEffect, useState } from 'react';
 import FridgeItem from './FridgeItem.tsx';
 import useFridgeStore from '../../store/useFridgeStore.ts';
 import { Refrigerator } from '../../types/fridgeType.ts';
-import AddFridgeModal from './AddFridgeModal.tsx';
-import DeleteFridgeModal from './DeleteFridgeModal.tsx';
-import EditFridgeModal from './EditFridgeModal.tsx';
+import AddFridgeModal from './modals/AddFridgeModal.tsx';
+import GlobalHeader from '../common/GlobalHeader.tsx';
+// import DeleteFridgeModal from './modals/DeleteFridgeModal.tsx';
+// import EditFridgeModal from './modals/EditFridgeModal.tsx';
 
 function FridgeList() {
   const fridges = useFridgeStore((state) => state.fridges);
   const fetchFridges = useFridgeStore((state) => state.fetchFridges);
   const addFridge = useFridgeStore((state) => state.addFridge);
-  const updateFridge = useFridgeStore((state) => state.updateFridge);
-  const deleteFridge = useFridgeStore((state) => state.deleteFridge);
+  // const updateFridge = useFridgeStore((state) => state.updateFridge);
+  // const deleteFridge = useFridgeStore((state) => state.deleteFridge);
 
   const [showAddModal, setShowAddModal] = useState(false);
   const [selectedFridge, setSelectedFridge] = useState<Refrigerator | null>(
@@ -31,8 +32,8 @@ function FridgeList() {
 
   const handleCloseModal = () => {
     setShowAddModal(false);
-    setShowEditModal(false);
-    setShowDeleteModal(false);
+    // setShowEditModal(false);
+    // setShowDeleteModal(false);
     setSelectedFridge(null);
   };
   const handleAddClick = () => {
@@ -61,10 +62,11 @@ function FridgeList() {
       id="fridge-container" // 냉장고 목록 전체를 감싸는 컨테이너
       className="h-[800px] sm:h-[800px] md:h-[800px] w-full sm:w-full md:w-[360px] bg-white shadow-2xl rounded-3xl mt-2 mx-auto min-w-[360px] overflow-hidden"
     >
+      <GlobalHeader />
       {/* 상단 헤더: 글로벌 헤더가 추후 추가될 예정 */}
       <div
         id="fridges-header" // 냉장고 목록의 헤더
-        className="w-full h-[60px] border-b-2 border-slate-500/30 shadow-md text-center flex "
+        className="w-full h-[50px] bg-slate-100 text-center flex "
       >
         <p className="m-auto">나의 냉장고 목록</p> {/* 헤더 텍스트 */}
       </div>
@@ -74,7 +76,7 @@ function FridgeList() {
         style={{ height: 'calc(100% - 80px)' }} // 동적 높이 계산
       >
         {/* 각 냉장고 아이템을 반복문을 통해 렌더링 */}
-        {fridges.map((fridge) => (
+        {fridges.map((fridge: Refrigerator) => (
           <div key={fridge.id} className={`${fridgeStyle}`}>
             <FridgeItem key={`fridge-item-${fridge.id}`} item={fridge} />
           </div>

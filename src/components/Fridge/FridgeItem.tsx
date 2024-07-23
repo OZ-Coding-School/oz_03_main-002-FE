@@ -5,8 +5,8 @@ import useFridgeStore from '../../store/useFridgeStore.ts';
 import { Refrigerator } from '../../types/fridgeType.ts';
 import Slider from './Slider.tsx';
 import './Slider.css';
-import EditFridgeModal from './EditFridgeModal.tsx';
-import DeleteFridgeModal from './DeleteFridgeModal.tsx';
+import EditFridgeModal from './modals/EditFridgeModal.tsx';
+import DeleteFridgeModal from './modals/DeleteFridgeModal.tsx';
 
 type FridgeItemProps = {
   item: Refrigerator;
@@ -17,14 +17,15 @@ function FridgeItem({ item, onClose }: FridgeItemProps) {
   const [isSelector, setIsSelector] = useState(false);
   const [showEditModal, setShowEditModal] = useState(false);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
+  const updateFridge = useFridgeStore((state) => state.updateFridge);
   const deleteFridge = useFridgeStore((state) => state.deleteFridge);
 
   const toggleSelector = () => {
     setIsSelector(!isSelector);
   };
 
-  const handleEditFridge = (data: Refrigerator) => {
-    updateFridge(item.id, data);
+  const handleEditFridge = (newData: Refrigerator) => {
+    updateFridge(newData);
   };
 
   const handleDeleteFridge = () => {
@@ -50,7 +51,6 @@ function FridgeItem({ item, onClose }: FridgeItemProps) {
       case 'edit':
         setShowEditModal(true);
         setIsSelector(false);
-        setSelected;
         break;
       case 'delete':
         setShowDeleteModal(true);
@@ -58,6 +58,12 @@ function FridgeItem({ item, onClose }: FridgeItemProps) {
       default:
         break;
     }
+  };
+
+  const handleCloseModal = () => {
+    // setShowAddModal(false);
+    setShowEditModal(false);
+    setShowDeleteModal(false);
   };
   if (!item) {
     return null;
@@ -82,7 +88,7 @@ function FridgeItem({ item, onClose }: FridgeItemProps) {
         aria-label="moveToIngredientViewPage"
         className="m-3  bg-amber-700/40 rounded-2xl py-1 px-16 self-center"
       >
-        <Link to="/IngredientView">재료 목록 보기</Link>
+        <Link to="/IngredientView">재료 관리</Link>
       </button>
       {isSelector && (
         <div className="flex flex-col absolute top-8 right-4 px-4 py-1 text-xs bg-white  rounded-md z-10 border border-sky-400">
@@ -105,12 +111,16 @@ function FridgeItem({ item, onClose }: FridgeItemProps) {
         </div>
       )}
       {showEditModal && (
-        <EditFridgeModal onEdit={handleEditFridge} onClose={handleCloseModal} />
+        <EditFridgeModal
+          onEdit={handleEditFridge}
+          onClose={handleCloseModal}
+          existingData={item}
+        />
       )}
       {showDeleteModal && (
         <DeleteFridgeModal
           onDelete={handleDeleteFridge}
-          onClose={onClose}
+          onClose={handleCloseModal}
           existingData={item}
         />
       )}

@@ -1,6 +1,6 @@
 import React from 'react';
-import { Refrigerator } from '../../types/fridgeType';
-import ModalForm from '../common/ModalForm';
+import { Refrigerator } from '../../../types/fridgeType';
+import ModalForm from '../../common/ModalForm';
 
 type DeleteFridgeModalProps = {
   existingData: Refrigerator;

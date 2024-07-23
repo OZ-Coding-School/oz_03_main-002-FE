@@ -1,6 +1,6 @@
 // 냉장고에 추가된 재료 타입
 export type RefrigeratorIngre = {
-  id: number;
+  id: string;
   ingreName: string;
   quantity: number;
   registrationDate?: string;
@@ -11,7 +11,7 @@ export type RefrigeratorIngre = {
 
 // 사용자의 냉장고
 export type Refrigerator = {
-  id: number;
+  id: string;
   fridgeName: string; // TODO 백엔드에 항목 추가 요청해야함
   ingreList: RefrigeratorIngre[];
   createAt: string;
