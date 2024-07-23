@@ -1,5 +1,5 @@
-import create from 'zustand';
-import { FridgeIngredient } from './ingredientType';
+import { create } from 'zustand';
+import { FridgeIngredient } from '../types/ingredientType';
 
 interface IngredientStore {
   ingredients: FridgeIngredient[];
