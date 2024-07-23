@@ -1,6 +1,6 @@
 export interface Ingredient {
-  ingredientId: number;
-  ingredientName: string;
+  id: number;
+  originName: string;
   category: string;
   mdCategory?: string;
   sbCategory?: string;
@@ -8,7 +8,7 @@ export interface Ingredient {
 
 export interface FridgeIngredient {
   fridgeId: number;
-  fridgeIngreId: number;
+  id: number;
   fridgeIngreName: string;
   ingredient: Ingredient;
   createdDate: string;
