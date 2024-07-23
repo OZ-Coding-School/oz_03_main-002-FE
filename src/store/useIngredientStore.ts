@@ -10,13 +10,12 @@ interface IngredientStore {
 const useIngredientStore = create<IngredientStore>((set) => ({
   ingredients: [],
   setIngredients: (ingredients) => set({ ingredients }),
-  updateIngredient: (updatedIngredient) => set((state) => ({
-    ingredients: state.ingredients.map((ingredient) =>
-      ingredient.fridgeIngreId === updatedIngredient.fridgeIngreId
-        ? updatedIngredient
-        : ingredient
-    ),
-  })),
+  updateIngredient: (updatedIngredient) =>
+    set((state) => ({
+      ingredients: state.ingredients.map((ingredient) =>
+        ingredient.id === updatedIngredient.id ? updatedIngredient : ingredient,
+      ),
+    })),
 }));
 
 export default useIngredientStore;
