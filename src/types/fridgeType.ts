@@ -13,11 +13,11 @@ export type RefrigeratorIngre = {
 export type Refrigerator = {
   id: number;
   fridgeName: string; // TODO 백엔드에 항목 추가 요청해야함
+  ingreList: RefrigeratorIngre[];
   createAt: string;
   updateAt: string;
   isActivate?: boolean;
   userId?: string;
-  ingreList: RefrigeratorIngre[];
 };
 
 export type Fridges = {
@@ -34,10 +34,10 @@ export type RefrigeratorMode = 'add' | 'edit' | 'delete' | '';
 
 // FridgeState 타입 정의
 export type FridgeState = {
-  fridges: Refrigerator[];
+  fridges: Promise<Refrigerator[]> | [];
   showModal: boolean;
   currentMode: RefrigeratorMode;
-  fetchFridges: () => void;
+  fetchFridges: () => Promise<void>;
   setShowModal: (show: boolean) => void;
   setCurrentMode: (mode: RefrigeratorMode) => void;
   addFridge: (refrigerator: Omit<Refrigerator, 'id'>) => void;

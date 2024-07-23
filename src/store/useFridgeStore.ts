@@ -4,43 +4,62 @@ import {
   Refrigerator,
   RefrigeratorMode,
 } from '../types/fridgeType';
+import axios from '../api/axios';
 
-const getFridgesFromLocalStorage = (): Refrigerator[] => {
-  const data = localStorage.getItem('fridges');
-  return data ? JSON.parse(data) : [];
-};
+// const getFridgesFromLocalStorage = (): Refrigerator[] => {
+//   const data = localStorage.getItem('fridges');
+//   return data ? JSON.parse(data) : [];
+// };
 
-const saveFridgeToLocalStorage = (fridges: Refrigerator[]) => {
-  localStorage.setItem('fridges', JSON.stringify(fridges));
-};
+// const saveFridgeToLocalStorage = (fridges: Refrigerator[]) => {
+//   localStorage.setItem('fridges', JSON.stringify(fridges));
+// };
 
-const useFridgeStore = create<FridgeState>((set) => ({
-  fridges: getFridgesFromLocalStorage(),
+// const getFridges = async (): Promise<Refrigerator[]> => {
+//   try {
+//     const response = await axios.get<Refrigerator[]>("'api/fridges");
+//     set({fridgeData: response.data});
+//   } catch (error) {
+//     console.log('Failed to fetch fridge', error);
+//   }
+// };
+
+const useFridgeStore = create<FridgeState>((set, get) => ({
+  fridges: [],
   showModal: false,
   currentMode: '' as RefrigeratorMode,
   fetchFridges: async () => {
-    // TODO 실제 API 호출시 코드 수정 필요
-    const fridgeData = getFridgesFromLocalStorage();
-    set({ fridges: fridgeData });
+    try {
+      const response = await axios.get<Refrigerator[]>('/fridges');
+      set({ fridges: response.data });
+      // return response.data;
+    } catch (error) {
+      console.log('Failed to fetch fridges', error);
+    }
   },
   setShowModal: (show) => set({ showModal: show }),
   setCurrentMode: (mode) => set({ currentMode: mode }),
   addFridge: async (refrigerator: Omit<Refrigerator, 'id'>) => {
-    const fridges = getFridgesFromLocalStorage();
-    const newId =
-      fridges.length > 0 ? Math.max(...fridges.map((f) => f.id)) + 1 : 1;
-    const newFridge: Refrigerator = {
-      id: newId,
-      ...refrigerator,
-      createAt: new Date().toISOString().substring(0, 10),
-      updateAt: new Date().toISOString().substring(0, 10),
-      isActivate: true,
-    };
-    set((state) => {
-      const updatedFridges = [...state.fridges, newFridge];
-      saveFridgeToLocalStorage(updatedFridges);
-      return { fridges: updatedFridges };
-    });
+    try {
+      const fridges = get().fridges;
+      const newId =
+        fridges.length > 0 ? Math.max(...fridges.map((f) => f.id)) + 1 : 1;
+      const newFridge: Refrigerator = {
+        id: newId,
+        ...refrigerator,
+        createAt: new Date().toISOString().substring(0, 10),
+        updateAt: new Date().toISOString().substring(0, 10),
+        isActivate: true,
+      };
+      const response = await axios.post('/fridges', newFridge);
+      set((state) => {
+        const updatedFridges = [...state.fridges, response.data];
+        // saveFridgeToLocalStorage(updatedFridges);
+        return { fridges: updatedFridges };
+      });
+    } catch (error) {
+      console.log('Failed to add fridge', error);
+    }
   },
   updateFridge: async (id: number, refrigerator) => {
     const updatedFridge = {
@@ -55,11 +74,24 @@ const useFridgeStore = create<FridgeState>((set) => ({
     }));
   },
   deleteFridge: async (id: number) => {
-    set((state) => {
-      const updatedFridges = state.fridges.filter((fridge) => fridge.id !== id);
-      saveFridgeToLocalStorage(updatedFridges);
-      return { fridges: updatedFridges };
-    });
+    console.log('try delete fridge');
+    try {
+      const response = await axios.delete(`/fridges/${id}`);
+      if (response.status === 200) {
+        set((state) => {
+          const updatedFridges = state.fridges.filter(
+            (fridge) => fridge.id !== id,
+          );
+          // saveFridgeToLocalStorage(updatedFridges);
+          return { fridges: updatedFridges };
+        });
+        console.log('Fridge deleted successfully');
+      } else {
+        console.log('Failed to delete fridge');
+      }
+    } catch (error) {
+      console.log('Failed to delete.', error);
+    }
   },
 }));
 

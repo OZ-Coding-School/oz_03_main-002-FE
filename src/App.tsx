@@ -3,7 +3,7 @@ import Header from './components/Header.tsx';
 import Login from './pages/Login.tsx';
 import LoginToEmail from './pages/LoginToEmail.tsx';
 import Signup from './pages/Signup.tsx';
-import FridgeList from './components/FridgeList.tsx';
+import FridgeList from './components/Fridge/FridgeList.tsx';
 import IngredientView from './pages/IngredientView.tsx';
 import IngredientDetailList from './pages/IngredientDetailList.tsx';
 import IngredientDetailEdit from './pages/IngredientDetailEdit.tsx';

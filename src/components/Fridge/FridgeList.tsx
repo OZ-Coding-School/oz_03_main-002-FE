@@ -1,73 +1,54 @@
 import { useEffect, useState } from 'react';
 import FridgeItem from './FridgeItem.tsx';
-import useFridgeStore from '../store/useFridgeStore';
-import { Refrigerator } from '../types/fridgeType';
-import PopupModal from './common/PopupModal.tsx';
-// import fridgeData from '../data/fridgeData.ts';
+import useFridgeStore from '../../store/useFridgeStore.ts';
+import { Refrigerator } from '../../types/fridgeType.ts';
+import AddFridgeModal from './AddFridgeModal.tsx';
+import DeleteFridgeModal from './DeleteFridgeModal.tsx';
+import EditFridgeModal from './EditFridgeModal.tsx';
 
 function FridgeList() {
   const fridges = useFridgeStore((state) => state.fridges);
-  const showModal = useFridgeStore((state) => state.showModal);
-  const setShowModal = useFridgeStore((state) => state.setShowModal);
-  const currentMode = useFridgeStore((state) => state.currentMode);
-  const setCurrentMode = useFridgeStore((state) => state.setCurrentMode);
   const fetchFridges = useFridgeStore((state) => state.fetchFridges);
   const addFridge = useFridgeStore((state) => state.addFridge);
   const updateFridge = useFridgeStore((state) => state.updateFridge);
   const deleteFridge = useFridgeStore((state) => state.deleteFridge);
 
+  const [showAddModal, setShowAddModal] = useState(false);
   const [selectedFridge, setSelectedFridge] = useState<Refrigerator | null>(
     null,
   );
-
-  // 더미 테이터를 local storage에 임시로 저장하는 코드 (import 문과 함께 주석처리 됨)
-  // const test = () => {
-  //   const dataSave = localStorage.setItem(
-  //     'fridges',
-  //     JSON.stringify(fridgeData),
-  //   );
-  //   return console.log(`first ${dataSave}`);
-  // };
-  // test();
 
   useEffect(() => {
     fetchFridges();
   }, [fetchFridges]);
 
-  const handleAddClick = () => {
-    setCurrentMode('add');
-    setSelectedFridge(null);
-    setShowModal(true);
-  };
-
-  const handleEditClick = (fridge: Refrigerator) => {
-    setCurrentMode('edit');
-    setSelectedFridge(fridge);
-    setShowModal(true);
-  };
-
-  const handleDeleteClick = (id: number) => {
-    setCurrentMode('delete');
-    setShowModal(true);
-    deleteFridge(id);
+  const handleAddFridge = (data) => {
+    // setCurrentMode('add');
+    // setSelectedFridge(null);
+    addFridge(data);
+    setShowAddModal(false);
   };
 
   const handleCloseModal = () => {
-    setShowModal(false);
-    setCurrentMode('');
+    setShowAddModal(false);
+    setShowEditModal(false);
+    setShowDeleteModal(false);
     setSelectedFridge(null);
   };
-
-  const handleSubmit = (data: Omit<Refrigerator, 'id'>) => {
-    if (currentMode === 'add') {
-      addFridge(data);
-    } else if (currentMode === 'edit' && selectedFridge) {
-      updateFridge(selectedFridge.id, data);
-    } else if (currentMode === 'delete' && selectedFridge) {
-      deleteFridge(selectedFridge.id);
-    }
-    handleCloseModal();
+  const handleAddClick = () => {
+    setShowAddModal(true);
   };
+
+  // const handleSubmit = (data: Refrigerator) => {
+  //   if (currentMode === 'add') {
+  //     addFridge(data);
+  //   } else if (currentMode === 'edit' && selectedFridge) {
+  //     updateFridge(selectedFridge.id, data);
+  //   } else if (currentMode === 'delete' && selectedFridge) {
+  //     deleteFridge(selectedFridge.id);
+  //   }
+  //   handleCloseModal();
+  // };
 
   if (!fridges) return null;
 
@@ -95,12 +76,7 @@ function FridgeList() {
         {/* 각 냉장고 아이템을 반복문을 통해 렌더링 */}
         {fridges.map((fridge) => (
           <div key={fridge.id} className={`${fridgeStyle}`}>
-            <FridgeItem
-              key={`fridge-item-${fridge.id}`}
-              item={fridge}
-              onEdit={handleEditClick}
-              onDelete={handleDeleteClick}
-            />
+            <FridgeItem key={`fridge-item-${fridge.id}`} item={fridge} />
           </div>
         ))}
         {/* 냉장고 추가 버튼 */}
@@ -112,15 +88,12 @@ function FridgeList() {
             onClick={handleAddClick}
             className="w-full h-full"
           >
-            &#43;
+            +
           </button>{' '}
-          {showModal && (
-            <PopupModal
-              // item={item}
-              mode={currentMode}
+          {showAddModal && (
+            <AddFridgeModal
+              onSubmit={handleAddFridge}
               onClose={handleCloseModal}
-              onSubmit={handleSubmit}
-              existingData={selectedFridge || undefined}
             />
           )}
         </div>

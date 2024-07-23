@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './Slider.css'; // 슬라이더 컴포넌트의 스타일을 정의한 CSS 파일을 가져옴
-import { RefrigeratorIngre } from '../types/fridgeType';
+import { RefrigeratorIngre } from '../../types/fridgeType';
 
 type SliderProps = {
   ingredients: RefrigeratorIngre[];
