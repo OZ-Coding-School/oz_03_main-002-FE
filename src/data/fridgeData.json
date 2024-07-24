@@ -275,5 +275,58 @@
     }
   ],
   "ingredient": [],
-  "recipe": []
+  "recipe": [],
+  "login": [
+    {
+      "user": {
+        "id": "test",
+        "password": "cd92f31d6ab53aa610bc52905d2822493af485e918ff4b8e9c07935e8864afd5",
+        "username": "홍길동",
+        "email": "test@exampl.com",
+        "isActive": true,
+        "sort": "potato"
+      },
+      "token": {
+        "access": "",
+        "refresh": ""
+      }
+    }
+  ],
+  "signup": [
+    {
+      "id": "test",
+      "username": "홍길동",
+      "email": "test@example.com",
+      "password": "Abc123!!",
+      "salt": "283992cd-8202-4897-aacc-54aa15eafffc"
+    },
+    {
+      "id": "test",
+      "username": "홍길동",
+      "email": "test@example.com",
+      "password": "Abc123!!",
+      "salt": "0db81253-7eeb-45f2-a011-fcd8f1050aca"
+    },
+    {
+      "id": "test",
+      "username": "홍길동",
+      "email": "test@example.com",
+      "password": "Abc123!!",
+      "salt": "60f5eb21-6501-4df7-9d33-5df1b23ea192"
+    },
+    {
+      "id": "test",
+      "username": "홍당무",
+      "email": "test1111@example.com",
+      "password": "Abc123!!",
+      "salt": "a57613b8-f60b-40b4-8923-490f60b713cd"
+    },
+    {
+      "id": "test",
+      "username": "황진희",
+      "email": "test1111@example.com",
+      "password": "Abc123!!",
+      "salt": "fee84eed-7b86-451a-b518-9ee82424e82d"
+    }
+  ]
 }

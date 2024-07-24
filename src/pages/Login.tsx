@@ -1,53 +1,25 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import SHA256 from 'crypto-js/sha256';
-import { v4 as uuid } from 'uuid';
 import GoogleIcon from '../assets/google-icon.svg';
-
-// type LoginProps = {
-//   onLogin: (username: string, password: string, salt: string) => void;
-//   onGoogleLogin: () => void;
-//   onEmailLogin: () => void;
-//   onForgotCredentials: () => void;
-//   onSignUp: () => void;
-// };
+import useAuthStore from '../store/useAuthStore';
 
 function Login() {
-  // {
-  //   onLogin,
-  //   onGoogleLogin,
-  //   onForgotCredentials,
-  //   onSignUp,
-  // },
-  const [username, setUsername] = useState('');
+  const [id, setId] = useState('');
   const [password, setPassword] = useState('');
-  const navigate = useNavigate();
-
-  // TODO esLint때문에 넣은 함수 - 추후에 api 실제 작동시 제거해도 됨
-  const users = (saltedPassword: string) => {
-    setPassword(saltedPassword);
-  };
+  const login = useAuthStore((state) => state.login);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    // 로그인 암호화 적용 - salt
-    const salt = uuid(); // 고유한 salt 생성
     // 암호화 적용 - SHA256 단방향 해시 적용
-    const hashedPassword = SHA256(password + salt).toString();
-    // onLogin(username, hashedPassword, salt);
-    users(hashedPassword); // TODO esLint때문에 넣은 코드 - 추후에 api 실제 작동시 제거해도 됨
-    navigate('/UserLoginTest');
+    const hashedPassword = SHA256(password).toString();
+    console.log(id, hashedPassword);
+    login(id, hashedPassword);
   };
 
-  const handleGoogleLogin = () => {
-    // onGoogleLogin();
-    navigate('/UserLoginTest');
-  };
+  const handleGoogleLogin = () => {};
 
-  const handleEmailLogin = () => {
-    navigate('/LoginToEmail');
-  };
+  const handleEmailLogin = () => {};
 
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
@@ -69,14 +41,14 @@ function Login() {
               </label>
               <div className="mt-1">
                 <input
-                  id="username"
-                  name="username"
+                  id="user-id"
+                  name="user-id"
                   type="text"
                   required
                   placeholder="아이디를 입력해주세요."
                   className="appearance-none block w-full h-12 px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-lg"
-                  value={username}
-                  onChange={(e) => setUsername(e.target.value)}
+                  value={id}
+                  onChange={(e) => setId(e.target.value)}
                 />
               </div>
             </div>

@@ -1,65 +1,32 @@
 import { create } from 'zustand';
 import { devtools, persist } from 'zustand/middleware';
-import axios from 'axios';
+import axios from '../api/axios';
+import { AuthActions, AuthResponse, AuthState } from '../types/userType';
 
-// User 타입 정의
-interface User {
-  id: string;
-  username: string;
-  email: string;
-  password: string;
-}
-
-// AuthState 타입 정의
-interface AuthState {
-  user: User | null;
-  token: string | null;
-  loading: boolean;
-  error: string | null;
-  status: string | null;
-}
-
-// AuthActions 타입 정의
-interface AuthActions {
-  signUp: (
-    id: string,
-    username: string,
-    email: string,
-    password: string,
-  ) => Promise<void>;
-  login: (id: string, password: string) => Promise<void>;
-  logout: () => void;
-  setId: (id: string) => void;
-  setUsername: (username: string) => void;
-  setEmail: (email: string) => void;
-  setPassword: (password: string) => void;
-}
-
-// API 응답 타입
-interface AuthResponse {
-  token: string;
-  user: User;
-}
+const initialData = {
+  user: null,
+  token: '',
+  loading: false,
+  error: '',
+  status: '',
+};
 
 const useAuthStore = create<AuthState & AuthActions>()(
   devtools(
     persist(
       (set) => ({
-        user: null,
-        token: null,
-        loading: false,
-        error: null,
-        status: null,
+        ...initialData,
 
         // 회원가입
-        signUp: async (id, username, email, password) => {
-          set({ loading: true, error: null });
+        signUp: async (id, username, email, saltedPassword, salt) => {
+          set({ loading: true, error: '' });
           try {
-            const response = await axios.post<AuthResponse>('/api/signup', {
+            const response = await axios.post<AuthResponse>('/signup', {
               id,
               username,
               email,
-              password,
+              password: saltedPassword,
+              salt,
             });
             set({
               token: response.data.token,
@@ -67,18 +34,17 @@ const useAuthStore = create<AuthState & AuthActions>()(
               status: '회원가입 성공',
             });
           } catch (error) {
-            const err = error as Error;
-            set({ error: err.message, loading: false });
+            set({ error: (error as Error).message, loading: false });
           }
         },
 
         // 로그인
-        login: async (id, password) => {
-          set({ loading: true, error: null });
+        login: async (id, hashedPassword) => {
+          set({ loading: true, error: '' });
           try {
-            const response = await axios.post<AuthResponse>('/api/login', {
+            const response = await axios.post<AuthResponse>('/login', {
               id,
-              password,
+              password: hashedPassword,
             });
             set({
               token: response.data.token,
@@ -86,33 +52,51 @@ const useAuthStore = create<AuthState & AuthActions>()(
               status: '로그인 성공',
             });
           } catch (error) {
-            const err = error as Error;
-            set({ error: err.message, loading: false });
+            set({ error: (error as Error).message, loading: false });
           }
         },
 
         // 로그아웃
-        logout: () => {
+        logout: async () => {
           set({ user: null, token: null, status: '로그아웃 성공' });
+          // try {
+          //   const response = await axios.post('/logout');
+          //   set({ user: null, token: null, status: '로그아웃 성공' });
+          // } catch (error) {
+          //   const err = error as Error;
+          //   set({ error: err.message, loading: false });
+          // }
         },
-
+        googleLogin: async () => {
+          set({ loading: true, error: '' });
+          try {
+            const response = await axios.post<AuthResponse>('/oauth/google');
+            set({
+              token: response.data.token,
+              loading: false,
+              status: '로그인 성공',
+            });
+          } catch (error) {
+            set({ error: (error as Error).message, loading: false });
+          }
+        },
         // 상태 업데이트 액션
-        setId: (id: string) =>
-          set((state) => ({
-            user: state.user ? { ...state.user, id } : null,
-          })),
-        setUsername: (username: string) =>
-          set((state) => ({
-            user: state.user ? { ...state.user, username } : null,
-          })),
-        setEmail: (email: string) =>
-          set((state) => ({
-            user: state.user ? { ...state.user, email } : null,
-          })),
-        setPassword: (password: string) =>
-          set((state) => ({
-            user: state.user ? { ...state.user, password } : null,
-          })),
+        // setId: (id: string) =>
+        //   set((state) => ({
+        //     user: state.user ? { ...state.user, id } : null,
+        //   })),
+        // setUsername: (username: string) =>
+        //   set((state) => ({
+        //     user: state.user ? { ...state.user, username } : null,
+        //   })),
+        // setEmail: (email: string) =>
+        //   set((state) => ({
+        //     user: state.user ? { ...state.user, email } : null,
+        //   })),
+        // setPassword: (password: string) =>
+        //   set((state) => ({
+        //     user: state.user ? { ...state.user, password } : null,
+        //   })),
       }),
       {
         name: 'auth-storage',
