@@ -257,12 +257,21 @@
     },
     {
       "id": "4",
-      "fridgeName": "술장고 123",
+      "fridgeName": "대비마마 납시오",
       "ingreList": [],
       "createAt": "2024-07-23",
       "updateAt": "2024-07-23",
       "isActivate": true,
-      "updatedAt": "2024-07-23T08:30:43.262Z"
+      "updatedAt": "2024-07-23T13:59:03.725Z"
+    },
+    {
+      "id": "5",
+      "fridgeName": "미미뿌꾸",
+      "ingreList": [],
+      "createAt": "2024-07-23",
+      "updateAt": "2024-07-23",
+      "isActivate": true,
+      "updatedAt": "2024-07-23T13:59:14.997Z"
     }
   ],
   "ingredient": [],

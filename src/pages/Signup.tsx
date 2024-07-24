@@ -5,13 +5,13 @@ import { FaRegEye, FaRegEyeSlash } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
 function Signup() {
-  const [userId, setUserId] = useState('');
+  const [id, setId] = useState('');
   const [password, setPassword] = useState('');
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
 
   const [errors, setErrors] = useState({
-    userId: '',
+    id: '',
     password: '',
     username: '',
     email: '',
@@ -21,8 +21,8 @@ function Signup() {
   };
 
   // 유효성 검사 함수
-  const validateUserId = (id: string) =>
-    /^(?=.*[a-z])[a-z][A-Za-z\d]{2,14}$/.test(id);
+  const validateId = (userId: string) =>
+    /^(?=.*[a-z])[a-z][A-Za-z\d]{2,14}$/.test(userId);
   const validatePassword = (pw: string) =>
     /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[-_.,?!~])[A-Za-z\d-_.,?!~]{8,20}$/.test(
       pw,
@@ -32,9 +32,9 @@ function Signup() {
     /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{3,}$/.test(mail);
 
   const handleValidation = () => {
-    const newErrors = { userId: '', password: '', username: '', email: '' };
-    if (!validateUserId(userId))
-      newErrors.userId =
+    const newErrors = { id: '', password: '', username: '', email: '' };
+    if (!validateId(id))
+      newErrors.id =
         '아이디는 소문자로 시작하는 영대소문자 또는 숫자가 포함되된 2자 이상 14자 이하로 입력해주세요.';
     if (!validatePassword(password))
       newErrors.password =
@@ -113,12 +113,10 @@ function Signup() {
                 required
                 placeholder="아이디를 입력해주세요."
                 className={inputClassName}
-                value={userId}
-                onChange={(e) => setUserId(e.target.value)}
+                value={id}
+                onChange={(e) => setId(e.target.value)}
               />
-              {errors.userId && (
-                <p className={errorClassName}>{errors.userId}</p>
-              )}
+              {errors.id && <p className={errorClassName}>{errors.id}</p>}
             </div>
           </div>
           <div>

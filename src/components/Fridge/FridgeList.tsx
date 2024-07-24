@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import FridgeItem from './FridgeItem.tsx';
-import useFridgeStore from '../../store/useFridgeStore.ts';
-import { Refrigerator } from '../../types/fridgeType.ts';
+import useFridgeStore from '../../store/useFridgeStore';
+import { Refrigerator } from '../../types/fridgeType';
 import AddFridgeModal from './modals/AddFridgeModal.tsx';
 import GlobalHeader from '../common/GlobalHeader.tsx';
 // import DeleteFridgeModal from './modals/DeleteFridgeModal.tsx';
@@ -15,41 +15,22 @@ function FridgeList() {
   // const deleteFridge = useFridgeStore((state) => state.deleteFridge);
 
   const [showAddModal, setShowAddModal] = useState(false);
-  const [selectedFridge, setSelectedFridge] = useState<Refrigerator | null>(
-    null,
-  );
 
   useEffect(() => {
     fetchFridges();
   }, [fetchFridges]);
 
-  const handleAddFridge = (data) => {
-    // setCurrentMode('add');
-    // setSelectedFridge(null);
+  const handleAddFridge = (data: { fridgeName: string }) => {
     addFridge(data);
     setShowAddModal(false);
   };
 
   const handleCloseModal = () => {
     setShowAddModal(false);
-    // setShowEditModal(false);
-    // setShowDeleteModal(false);
-    setSelectedFridge(null);
   };
   const handleAddClick = () => {
     setShowAddModal(true);
   };
-
-  // const handleSubmit = (data: Refrigerator) => {
-  //   if (currentMode === 'add') {
-  //     addFridge(data);
-  //   } else if (currentMode === 'edit' && selectedFridge) {
-  //     updateFridge(selectedFridge.id, data);
-  //   } else if (currentMode === 'delete' && selectedFridge) {
-  //     deleteFridge(selectedFridge.id);
-  //   }
-  //   handleCloseModal();
-  // };
 
   if (!fridges) return null;
 
@@ -76,11 +57,12 @@ function FridgeList() {
         style={{ height: 'calc(100% - 80px)' }} // 동적 높이 계산
       >
         {/* 각 냉장고 아이템을 반복문을 통해 렌더링 */}
-        {fridges.map((fridge: Refrigerator) => (
-          <div key={fridge.id} className={`${fridgeStyle}`}>
-            <FridgeItem key={`fridge-item-${fridge.id}`} item={fridge} />
-          </div>
-        ))}
+        {Array.isArray(fridges) &&
+          fridges.map((fridge: Refrigerator) => (
+            <div key={fridge.id} className={`${fridgeStyle}`}>
+              <FridgeItem key={`fridge-item-${fridge.id}`} item={fridge} />
+            </div>
+          ))}
         {/* 냉장고 추가 버튼 */}
         <div
           className={`${fridgeStyle} text-2xl min-h-[210px] flex items-center justify-center`}
@@ -91,7 +73,7 @@ function FridgeList() {
             className="w-full h-full"
           >
             +
-          </button>{' '}
+          </button>
           {showAddModal && (
             <AddFridgeModal
               onSubmit={handleAddFridge}

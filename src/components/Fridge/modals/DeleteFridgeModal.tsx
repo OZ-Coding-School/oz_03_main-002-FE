@@ -1,20 +1,17 @@
-import React from 'react';
-import { Refrigerator } from '../../../types/fridgeType';
-import ModalForm from '../../common/ModalForm';
+import { Refrigerator } from '../../../types/fridgeType.tsx';
 
 type DeleteFridgeModalProps = {
   existingData: Refrigerator;
   onClose: () => void;
-  onDelete: (id: number) => void;
+  onDelete: (id: string) => void;
 };
 
-const DeleteFridgeModal = ({
+function DeleteFridgeModal({
   existingData,
   onClose,
   onDelete,
-}: DeleteFridgeModalProps) => {
+}: DeleteFridgeModalProps) {
   const handleDelete = () => {
-    console.log(existingData.id);
     onDelete(existingData.id);
   };
 
@@ -41,6 +38,6 @@ const DeleteFridgeModal = ({
       </div>
     </div>
   );
-};
+}
 
 export default DeleteFridgeModal;

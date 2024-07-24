@@ -24,23 +24,25 @@ export type Fridges = {
   setFridges: (fridges: Refrigerator[]) => void;
 };
 
-export type FridgeActions = {
-  addFridge: (fridge: Refrigerator) => void;
-  editFridge: (fridge: Refrigerator) => void;
-  deleteFridge: () => void;
-};
+// export type FridgeActions = {
+//   addFridge: (data: { fridgeName: string }) => void;
+//   editFridge: (fridge: Refrigerator) => void;
+//   deleteFridge: () => void;
+// };
 
 export type RefrigeratorMode = 'add' | 'edit' | 'delete' | '';
 
 // FridgeState 타입 정의
 export type FridgeState = {
-  fridges: Promise<Refrigerator[]> | [];
+  fridges: Refrigerator[];
   showModal: boolean;
   currentMode: RefrigeratorMode;
   fetchFridges: () => Promise<void>;
   setShowModal: (show: boolean) => void;
   setCurrentMode: (mode: RefrigeratorMode) => void;
-  addFridge: (refrigerator: Omit<Refrigerator, 'id'>) => void;
-  updateFridge: (id: number, refrigerator: Omit<Refrigerator, 'id'>) => void;
-  deleteFridge: (id: number) => void;
+  addFridge: (data: { fridgeName: string }) => Promise<void>;
+  updateFridge: (
+    refrigerator: Omit<Refrigerator, 'updatedAt'>,
+  ) => Promise<void>;
+  deleteFridge: (id: string) => Promise<void>;
 };

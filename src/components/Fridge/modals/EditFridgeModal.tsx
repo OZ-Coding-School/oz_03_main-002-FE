@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Refrigerator } from '../../../types/fridgeType';
-import ModalForm from '../../common/ModalForm';
 
 type EditFridgeModalProps = {
   existingData: Refrigerator;
@@ -8,11 +7,11 @@ type EditFridgeModalProps = {
   onEdit: (newData: Omit<Refrigerator, 'updatedAt'>) => void;
 };
 
-const EditFridgeModal = ({
+function EditFridgeModal({
   existingData,
   onClose,
   onEdit,
-}: EditFridgeModalProps) => {
+}: EditFridgeModalProps) {
   const [newFridgeName, setNewFridgeName] = useState(existingData.fridgeName);
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -53,6 +52,6 @@ const EditFridgeModal = ({
       </div>
     </div>
   );
-};
+}
 
 export default EditFridgeModal;

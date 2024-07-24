@@ -1,7 +1,6 @@
 // ModalForm.tsx
 import React, { useState } from 'react';
-import InputField from './InputField';
-import Button from './Button';
+// import InputField from './InputField.tsx';
 
 type ModalFormProps = {
   title: string;
@@ -10,12 +9,7 @@ type ModalFormProps = {
   onClose: () => void;
 };
 
-const ModalForm: React.FC<ModalFormProps> = ({
-  title,
-  initialData,
-  onSubmit,
-  onClose,
-}) => {
+function ModalForm({ title, initialData, onSubmit, onClose }: ModalFormProps) {
   const [formData, setFormData] = useState(initialData);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -23,9 +17,12 @@ const ModalForm: React.FC<ModalFormProps> = ({
     setFormData((prevData) => ({ ...prevData, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    onSubmit(formData);
+  const handleSubmit = () => {
+    const submittedData = { ...formData };
+    if (submittedData.fridgeName.trim() === '') {
+      submittedData.fridgeName = '냉장고';
+    }
+    onSubmit(submittedData);
   };
 
   return (
@@ -33,24 +30,31 @@ const ModalForm: React.FC<ModalFormProps> = ({
       <div className="bg-white p-5 rounded-lg shadow-lg">
         <h2 className="text-xl mb-4">{title}</h2>
         <form onSubmit={handleSubmit}>
-          <InputField
-            label="냉장고 이름"
+          <input
             name="fridgeName"
             value={formData.fridgeName}
             onChange={handleInputChange}
             placeholder="냉장고 이름을 입력하세요"
+            className="mt-1 p-2 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
           />
-          <Button type="submit" label="제출" onClick={handleSubmit} />
-          <Button
+          <button
+            type="submit"
+            onClick={handleSubmit}
+            className="mt-4 bg-blue-500 text-white px-4 py-2 rounded"
+          >
+            제출
+          </button>
+          <button
             type="button"
-            label="닫기"
             onClick={onClose}
-            className="bg-gray-500"
-          />
+            className="mt-4 bg-gray-500 text-white px-4 py-2 rounded "
+          >
+            닫기
+          </button>
         </form>
       </div>
     </div>
   );
-};
+}
 
 export default ModalForm;

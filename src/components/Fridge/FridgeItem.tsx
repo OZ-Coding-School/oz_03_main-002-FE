@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { IoEllipsisVerticalCircle } from 'react-icons/io5';
 import { Link } from 'react-router-dom';
-import useFridgeStore from '../../store/useFridgeStore.ts';
-import { Refrigerator } from '../../types/fridgeType.ts';
+import useFridgeStore from '../../store/useFridgeStore';
+import { Refrigerator } from '../../types/fridgeType';
 import Slider from './Slider.tsx';
 import './Slider.css';
 import EditFridgeModal from './modals/EditFridgeModal.tsx';
@@ -10,10 +10,9 @@ import DeleteFridgeModal from './modals/DeleteFridgeModal.tsx';
 
 type FridgeItemProps = {
   item: Refrigerator;
-  onClose: () => void;
 };
 
-function FridgeItem({ item, onClose }: FridgeItemProps) {
+function FridgeItem({ item }: FridgeItemProps) {
   const [isSelector, setIsSelector] = useState(false);
   const [showEditModal, setShowEditModal] = useState(false);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
@@ -31,22 +30,8 @@ function FridgeItem({ item, onClose }: FridgeItemProps) {
   const handleDeleteFridge = () => {
     deleteFridge(item.id);
   };
-  // const handleFridgeEdit = (event: React.MouseEvent<HTMLButtonElement>) => {
-  //   event.preventDefault();
-  //   onEdit(item);
-  //   setCurrentMode('edit');
-  //   setShowModal(true);
-  //   setIsSelector(false);
-  // };
-  // const handleFridgeDelete = (event: React.MouseEvent<HTMLButtonElement>) => {
-  //   event.preventDefault();
-  //   onDelete(item.id);
-  //   setCurrentMode('delete');
-  //   setShowModal(true);
-  //   setIsSelector(false);
-  // };
 
-  const handleClick = (state) => {
+  const handleClick = (state: string) => {
     switch (state) {
       case 'edit':
         setShowEditModal(true);
@@ -55,13 +40,13 @@ function FridgeItem({ item, onClose }: FridgeItemProps) {
       case 'delete':
         setShowDeleteModal(true);
         setIsSelector(false);
+        break;
       default:
         break;
     }
   };
 
   const handleCloseModal = () => {
-    // setShowAddModal(false);
     setShowEditModal(false);
     setShowDeleteModal(false);
   };
