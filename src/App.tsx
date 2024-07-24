@@ -7,6 +7,7 @@ import FridgeList from './components/Fridge/FridgeList.tsx';
 import IngredientView from './pages/IngredientView.tsx';
 import IngredientDetailList from './pages/IngredientDetailList.tsx';
 import IngredientDetailEdit from './pages/IngredientDetailEdit.tsx';
+import Layout from './components/common/Layout.tsx';
 
 function App() {
   // const handleLogin = () => {
@@ -40,7 +41,11 @@ function App() {
         <Header />
         <main className="h-full  bg-gray-100">
           <Routes>
-            <Route path="/" element={<h1>냉뚝이 테스트 페이지입니다.</h1>} />
+            <Route path="/" element={<Layout />}>
+              <Route index element={<Login />} />
+              <Route path="/signup" element={<Signup />} />
+              <Route path="/fridges" element={<FridgeList />} />
+            </Route>
             <Route
               path="/login"
               element={
@@ -64,8 +69,6 @@ function App() {
                 />
               }
             />
-            <Route path="/signup" element={<Signup />} />
-            <Route path="/fridges" element={<FridgeList />} />
             <Route path="/IngredientView" element={<IngredientView />} />
             <Route path="/ingredients/:id" element={<IngredientDetailList />} />
             <Route
