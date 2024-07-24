@@ -7,6 +7,7 @@ interface User {
   id: string;
   username: string;
   email: string;
+  password: string;
 }
 
 // AuthState 타입 정의
@@ -34,6 +35,12 @@ interface AuthActions {
   setPassword: (password: string) => void;
 }
 
+// API 응답 타입
+interface AuthResponse {
+  token: string;
+  user: User;
+}
+
 const useAuthStore = create<AuthState & AuthActions>()(
   devtools(
     persist(
@@ -48,7 +55,7 @@ const useAuthStore = create<AuthState & AuthActions>()(
         signUp: async (id, username, email, password) => {
           set({ loading: true, error: null });
           try {
-            const response = await axios.post('/api/signup', {
+            const response = await axios.post<AuthResponse>('/api/signup', {
               id,
               username,
               email,
@@ -69,7 +76,10 @@ const useAuthStore = create<AuthState & AuthActions>()(
         login: async (id, password) => {
           set({ loading: true, error: null });
           try {
-            const response = await axios.post('/api/login', { id, password });
+            const response = await axios.post<AuthResponse>('/api/login', {
+              id,
+              password,
+            });
             set({
               token: response.data.token,
               loading: false,
