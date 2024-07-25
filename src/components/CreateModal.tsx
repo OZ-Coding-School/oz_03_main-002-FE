@@ -8,7 +8,9 @@ import { Ingredient } from '../types/types';
 interface CreateModalProps {
   isOpen: boolean;
   onClose: () => void;
-  onAdd: (newIngredient: Omit<Ingredient, 'id'>) => void;
+  onAdd: (
+    newIngredient: Omit<Ingredient, 'id'> & { createdDate: string },
+  ) => void;
 }
 
 /**
@@ -40,7 +42,6 @@ function CreateModal({
     quantity: '',
     weight: '',
     expirationDate: '',
-    createdDate: '',
   });
 
   // 현재 날짜와 시간을 관리하는 state
@@ -80,7 +81,7 @@ function CreateModal({
     e.preventDefault();
     onAdd({
       ...newIngredient,
-      createdDate: currentDate,
+      createdDate: currentDate, // 현재 날짜와 시간을 추가
     });
     // 폼 제출 후 입력 필드 초기화
     setNewIngredient({
@@ -88,7 +89,6 @@ function CreateModal({
       quantity: '',
       weight: '',
       expirationDate: '',
-      createdDate: '',
     });
   };
 

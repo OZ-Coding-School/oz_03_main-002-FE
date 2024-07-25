@@ -48,7 +48,7 @@ function EditModal({
     >,
   ) => {
     const { name, value } = e.target;
-    setEditedIngredient((prev) => ({
+    setEditedIngredient((prev: FridgeIngredient) => ({
       ...prev,
       [name]: value,
     }));
@@ -56,7 +56,7 @@ function EditModal({
 
   const handleDateChange = (date: Date | null) => {
     if (date) {
-      setEditedIngredient((prev) => ({
+      setEditedIngredient((prev: FridgeIngredient) => ({
         ...prev,
         expirationDate: date.toISOString().split('T')[0],
       }));
@@ -152,7 +152,6 @@ function EditModal({
                   value={editedIngredient.weight}
                   onChange={handleChange}
                   className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-150 ease-in-out"
-                  required
                 />
               </div>
               <div className="mb-4">
@@ -167,7 +166,7 @@ function EditModal({
                   name="category"
                   value={editedIngredient.ingredient.category}
                   onChange={(e) =>
-                    setEditedIngredient((prev) => ({
+                    setEditedIngredient((prev: FridgeIngredient) => ({
                       ...prev,
                       ingredient: {
                         ...prev.ingredient,
