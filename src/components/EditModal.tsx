@@ -5,7 +5,7 @@ import { RiEditLine } from 'react-icons/ri';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import './Calendar.css';
-import { FridgeIngredient } from '../types/types';
+import { FridgeIngredient } from '../types/ingredientType';
 
 interface EditModalProps {
   isOpen: boolean;
