@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { IoCloseOutline } from 'react-icons/io5';
 import { RiDeleteBinLine } from 'react-icons/ri';
-import { Ingredient } from '../types/types'; // 수정된 import 경로
+import { FridgeIngredient } from '../types/ingredientType'; // 수정된 import 경로
 
 interface DeleteModalProps {
   isOpen: boolean;
   onClose: () => void;
-  ingredient: Ingredient | null;
+  ingredient: FridgeIngredient | null;
   onConfirm: () => void;
 }
 
