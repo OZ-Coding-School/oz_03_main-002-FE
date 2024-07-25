@@ -94,7 +94,7 @@ function Login() {
                   type="password"
                   required
                   placeholder="비밀번호를 입력해주세요."
-                  className="appearance-none block w-full px-3 h-12 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-lg"
+                  className="appearance-none block w-full px-3 h-12 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-lg font-"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                 />
@@ -104,7 +104,7 @@ function Login() {
             <div className="space-y-3">
               <button
                 type="submit"
-                className="w-full h-12 flex justify-center items-center py-2 px-4 border rounded-full border-transparent shadow-sm text-sm font-medium text-white bg-amber-500 hover:bg-amber-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-amber-500"
+                className="w-full h-12 flex justify-center items-center py-2 px-4 border rounded-full border-transparent shadow-sm text-sm font-medium text-white bg-amber-500 hover:bg-amber-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-amber-500 font"
               >
                 로그인
               </button>
