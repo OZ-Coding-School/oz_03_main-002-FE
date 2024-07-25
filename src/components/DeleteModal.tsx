@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { IoCloseOutline } from 'react-icons/io5';
 import { RiDeleteBinLine } from 'react-icons/ri';
-import { Ingredient } from '../types/types'; // 수정된 import 경로
+import { FridgeIngredient } from '../types/ingredientType';
 
 interface DeleteModalProps {
   isOpen: boolean;
   onClose: () => void;
-  ingredient: Ingredient | null;
+  ingredient: FridgeIngredient | null;
   onConfirm: () => void;
 }
 
@@ -47,7 +47,9 @@ function DeleteModal({
             className="bg-white p-4 rounded-lg shadow-xl max-w-md w-full mx-4"
           >
             <h3 className="text-base font-bold mb-3">재료 삭제</h3>
-            <p className="mb-2 text-sm">{ingredient.name}을(를) 삭제할까요?</p>
+            <p className="mb-2 text-sm">
+              {ingredient.fridgeIngreName}을(를) 삭제할까요?
+            </p>
             <p className="text-gray-600 text-xs mb-3">
               수량: {ingredient.quantity}
               <br />
