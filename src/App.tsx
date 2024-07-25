@@ -1,7 +1,6 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Header from './components/Header.tsx';
 import Login from './pages/Login.tsx';
-import LoginToEmail from './pages/LoginToEmail.tsx';
 import Signup from './pages/Signup.tsx';
 import FridgeList from './components/Fridge/FridgeList.tsx';
 import IngredientView from './pages/IngredientView.tsx';
@@ -21,7 +20,6 @@ function App() {
               <Route path="/signup" element={<Signup />} />
               <Route path="/fridges" element={<FridgeList />} />
               <Route path="/login" element={<Login />} />
-              <Route path="LoginToEmail" element={<LoginToEmail />} />
             </Route>
             <Route path="/IngredientView" element={<IngredientView />} />
             <Route path="/ingredients/:id" element={<IngredientDetailList />} />

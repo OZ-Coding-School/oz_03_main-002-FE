@@ -1,28 +1,12 @@
-import { useEffect, useState } from 'react';
-import { Link, useNavigate, useNavigationType } from 'react-router-dom';
-import {
-  IoIosArrowBack,
-  IoIosMenu,
-  IoMdClose,
-  IoIosArrowForward,
-} from 'react-icons/io';
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { IoIosMenu, IoMdClose, IoIosArrowForward } from 'react-icons/io';
 import useAuthStore from '../../store/useAuthStore';
 
 function GlobalHeader() {
   const [isOpen, setIsOpen] = useState(false);
-  const isLoggedIn = useAuthStore((state) => state.token !== null);
   const user = useAuthStore((state) => state.user);
-  const navigate = useNavigate();
-  // const [canGoBack, setCanGoBack] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
-
-  // useEffect(() => {
-  //   if (location.pathname === '/login' || location.pathname === '/signup') {
-  //     setCanGoBack(true);
-  //   } else {
-  //     setCanGoBack(false);
-  //   }
-  // }, [canGoBack]);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -33,23 +17,21 @@ function GlobalHeader() {
 
   return (
     <div className="w-full h-12 flex justify-between items-center px-5 shadow-lg z-30 ">
-      <div className="w-8 p-0">
-        {/* {canGoBack && (
-          <button className="w-8 text-2xl" onClick={() => navigate(-1)}>
-            <IoIosArrowBack />
-          </button>
-        )} */}
-      </div>
+      <div className="w-8 p-0">{/* 뒤로 돌아가는 버튼 생성 예정 */}</div>
       <h2 className="font-bold">냉똑이</h2>
       <button
         type="button"
         className="w-8 text-2xl  cursor-pointer text-slate-800"
         onClick={toggleMenu}
+        aria-label="메뉴 창 열기"
       >
         <IoIosMenu />
       </button>
       {isOpen && (
-        <div className="absolute inset-0 z-40 flex justify-end">
+        <div
+          className="absolute inset-0 z-40 flex justify-end"
+          aria-label="메뉴창"
+        >
           <div
             className="absolute inset-0 bg-black opacity-50"
             onClick={closeMenu}
@@ -79,7 +61,10 @@ function GlobalHeader() {
                     <p className="font-bold">{user?.username}</p>
                     <Link
                       to="/mypage"
-                      className="text-sm text-blue-500 hover:underline"
+                      className="text-sm text-sky-500 "
+                      onClick={(e) => {
+                        e.preventDefault(); // 마이페이지 생성후 비활성 해제
+                      }}
                     >
                       마이페이지
                     </Link>
