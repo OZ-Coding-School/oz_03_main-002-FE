@@ -16,7 +16,7 @@ function IngredientDetailList() {
   useEffect(() => {
     const fetchIngredients = async () => {
       try {
-        const response = await axios.get(
+        const response = await axios.get<FridgeIngredient[]>(
           'http://localhost:3001/fridgeIngredients',
         );
         setIngredients(response.data);
