@@ -5,10 +5,10 @@ import { AuthActions, AuthResponse, AuthState } from '../types/userType';
 
 const initialData = {
   user: null,
-  token: '',
+  token: null,
   loading: false,
-  error: '',
-  status: '',
+  error: null,
+  status: null,
 };
 
 const useAuthStore = create<AuthState & AuthActions>()(
