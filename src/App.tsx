@@ -7,6 +7,8 @@ import FridgeList from './components/FridgeList.tsx';
 import IngredientView from './pages/IngredientView.tsx';
 import IngredientDetailList from './pages/IngredientDetailList.tsx';
 import IngredientDetailEdit from './pages/IngredientDetailEdit.tsx';
+import RecipeDetail from './pages/RecipeDetail.tsx';
+import RecipesView from './pages/RecipesView.tsx';
 
 function App() {
   // const handleLogin = () => {
@@ -68,10 +70,7 @@ function App() {
             <Route path="/fridges" element={<FridgeList />} />
             <Route path="/IngredientView" element={<IngredientView />} />
             <Route path="/ingredients/:id" element={<IngredientDetailList />} />
-            <Route
-              path="/ingredients/:id/edit"
-              element={<IngredientDetailEdit />}
-            />
+            <Route path="/recipes" element={<RecipesView />} />
           </Routes>
         </main>
       </div>
