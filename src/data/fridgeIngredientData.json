@@ -1,11 +1,11 @@
 [
   {
     "fridgeId": 1,
-    "fridgeIngreId": 101,
+    "id": 101,
     "fridgeIngreName": "토마토",
     "ingredient": {
-      "ingredientId": 201,
-      "ingredientName": "토마토",
+      "id": 201,
+      "originName": "토마토",
       "category": "채소",
       "mdCategory": "신선",
       "sbCategory": "빨강"
@@ -18,11 +18,11 @@
   },
   {
     "fridgeId": 1,
-    "fridgeIngreId": 102,
+    "id": 102,
     "fridgeIngreName": "닭가슴살",
     "ingredient": {
-      "ingredientId": 202,
-      "ingredientName": "닭가슴살",
+      "id": 202,
+      "originName": "닭가슴살",
       "category": "고기",
       "mdCategory": "가금류"
     },
@@ -34,11 +34,11 @@
   },
   {
     "fridgeId": 1,
-    "fridgeIngreId": 103,
+    "id": 103,
     "fridgeIngreName": "양파",
     "ingredient": {
-      "ingredientId": 203,
-      "ingredientName": "양파",
+      "id": 203,
+      "originName": "양파",
       "category": "채소"
     },
     "createdDate": "2024-01-05",
@@ -49,11 +49,11 @@
   },
   {
     "fridgeId": 1,
-    "fridgeIngreId": 104,
+    "id": 104,
     "fridgeIngreName": "돼지고기",
     "ingredient": {
-      "ingredientId": 204,
-      "ingredientName": "돼지고기",
+      "id": 204,
+      "originName": "돼지고기",
       "category": "고기",
       "mdCategory": "육류"
     },
@@ -65,11 +65,11 @@
   },
   {
     "fridgeId": 1,
-    "fridgeIngreId": 105,
+    "id": 105,
     "fridgeIngreName": "감자",
     "ingredient": {
-      "ingredientId": 205,
-      "ingredientName": "감자",
+      "id": 205,
+      "originName": "감자",
       "category": "채소",
       "mdCategory": "뿌리채소"
     },
@@ -81,11 +81,11 @@
   },
   {
     "fridgeId": 1,
-    "fridgeIngreId": 106,
+    "id": 106,
     "fridgeIngreName": "소고기",
     "ingredient": {
-      "ingredientId": 206,
-      "ingredientName": "소고기",
+      "id": 206,
+      "originName": "소고기",
       "category": "고기",
       "mdCategory": "육류"
     },
@@ -97,11 +97,11 @@
   },
   {
     "fridgeId": 1,
-    "fridgeIngreId": 107,
+    "id": 107,
     "fridgeIngreName": "마늘",
     "ingredient": {
-      "ingredientId": 207,
-      "ingredientName": "마늘",
+      "id": 207,
+      "originName": "마늘",
       "category": "채소",
       "mdCategory": "향신료"
     },
@@ -113,11 +113,11 @@
   },
   {
     "fridgeId": 1,
-    "fridgeIngreId": 108,
+    "id": 108,
     "fridgeIngreName": "새우",
     "ingredient": {
-      "ingredientId": 208,
-      "ingredientName": "새우",
+      "id": 208,
+      "originName": "새우",
       "category": "해산물",
       "mdCategory": "갑각류"
     },
@@ -129,11 +129,11 @@
   },
   {
     "fridgeId": 1,
-    "fridgeIngreId": 109,
+    "id": 109,
     "fridgeIngreName": "양배추",
     "ingredient": {
-      "ingredientId": 209,
-      "ingredientName": "양배추",
+      "id": 209,
+      "originName": "양배추",
       "category": "채소",
       "mdCategory": "잎채소"
     },
@@ -145,11 +145,11 @@
   },
   {
     "fridgeId": 1,
-    "fridgeIngreId": 110,
+    "id": 110,
     "fridgeIngreName": "연어",
     "ingredient": {
-      "ingredientId": 210,
-      "ingredientName": "연어",
+      "id": 210,
+      "originName": "연어",
       "category": "해산물",
       "mdCategory": "생선"
     },
@@ -161,11 +161,11 @@
   },
   {
     "fridgeId": 1,
-    "fridgeIngreId": 111,
+    "id": 111,
     "fridgeIngreName": "고구마",
     "ingredient": {
-      "ingredientId": 211,
-      "ingredientName": "고구마",
+      "id": 211,
+      "originName": "고구마",
       "category": "채소",
       "mdCategory": "뿌리채소"
     },
@@ -177,11 +177,11 @@
   },
   {
     "fridgeId": 1,
-    "fridgeIngreId": 112,
+    "id": 112,
     "fridgeIngreName": "오징어",
     "ingredient": {
-      "ingredientId": 212,
-      "ingredientName": "오징어",
+      "id": 212,
+      "originName": "오징어",
       "category": "해산물",
       "mdCategory": "연체류"
     },
@@ -193,11 +193,11 @@
   },
   {
     "fridgeId": 1,
-    "fridgeIngreId": 113,
+    "id": 113,
     "fridgeIngreName": "상추",
     "ingredient": {
-      "ingredientId": 213,
-      "ingredientName": "상추",
+      "id": 213,
+      "originName": "상추",
       "category": "채소",
       "mdCategory": "잎채소"
     },
@@ -209,11 +209,11 @@
   },
   {
     "fridgeId": 1,
-    "fridgeIngreId": 114,
+    "id": 114,
     "fridgeIngreName": "치즈",
     "ingredient": {
-      "ingredientId": 214,
-      "ingredientName": "치즈",
+      "id": 214,
+      "originName": "치즈",
       "category": "유제품"
     },
     "createdDate": "2024-01-26",
@@ -224,11 +224,11 @@
   },
   {
     "fridgeId": 1,
-    "fridgeIngreId": 115,
+    "id": 115,
     "fridgeIngreName": "버터",
     "ingredient": {
-      "ingredientId": 215,
-      "ingredientName": "버터",
+      "id": 215,
+      "originName": "버터",
       "category": "유제품"
     },
     "createdDate": "2024-01-28",
@@ -239,11 +239,11 @@
   },
   {
     "fridgeId": 1,
-    "fridgeIngreId": 116,
+    "id": 116,
     "fridgeIngreName": "고추",
     "ingredient": {
-      "ingredientId": 216,
-      "ingredientName": "고추",
+      "id": 216,
+      "originName": "고추",
       "category": "채소",
       "mdCategory": "향신료"
     },
@@ -255,11 +255,11 @@
   },
   {
     "fridgeId": 1,
-    "fridgeIngreId": 117,
+    "id": 117,
     "fridgeIngreName": "두부",
     "ingredient": {
-      "ingredientId": 217,
-      "ingredientName": "두부",
+      "id": 217,
+      "originName": "두부",
       "category": "가공식품"
     },
     "createdDate": "2024-02-01",
@@ -270,11 +270,11 @@
   },
   {
     "fridgeId": 1,
-    "fridgeIngreId": 118,
+    "id": 118,
     "fridgeIngreName": "계란",
     "ingredient": {
-      "ingredientId": 218,
-      "ingredientName": "계란",
+      "id": 218,
+      "originName": "계란",
       "category": "가금류"
     },
     "createdDate": "2024-02-02",
@@ -285,11 +285,11 @@
   },
   {
     "fridgeId": 1,
-    "fridgeIngreId": 119,
+    "id": 119,
     "fridgeIngreName": "배추",
     "ingredient": {
-      "ingredientId": 219,
-      "ingredientName": "배추",
+      "id": 219,
+      "originName": "배추",
       "category": "채소",
       "mdCategory": "잎채소"
     },
@@ -301,11 +301,11 @@
   },
   {
     "fridgeId": 1,
-    "fridgeIngreId": 120,
+    "id": 120,
     "fridgeIngreName": "바나나",
     "ingredient": {
-      "ingredientId": 220,
-      "ingredientName": "바나나",
+      "id": 220,
+      "originName": "바나나",
       "category": "과일"
     },
     "createdDate": "2024-02-04",
@@ -316,11 +316,11 @@
   },
   {
     "fridgeId": 1,
-    "fridgeIngreId": 121,
+    "id": 121,
     "fridgeIngreName": "멸치",
     "ingredient": {
-      "ingredientId": 221,
-      "ingredientName": "멸치",
+      "id": 221,
+      "originName": "멸치",
       "category": "해산물",
       "mdCategory": "생선"
     },
@@ -332,11 +332,11 @@
   },
   {
     "fridgeId": 1,
-    "fridgeIngreId": 122,
+    "id": 122,
     "fridgeIngreName": "참치",
     "ingredient": {
-      "ingredientId": 222,
-      "ingredientName": "참치",
+      "id": 222,
+      "originName": "참치",
       "category": "해산물",
       "mdCategory": "생선"
     },
@@ -348,11 +348,11 @@
   },
   {
     "fridgeId": 1,
-    "fridgeIngreId": 123,
+    "id": 123,
     "fridgeIngreName": "오이",
     "ingredient": {
-      "ingredientId": 223,
-      "ingredientName": "오이",
+      "id": 223,
+      "originName": "오이",
       "category": "채소",
       "mdCategory": "신선"
     },
@@ -364,11 +364,11 @@
   },
   {
     "fridgeId": 1,
-    "fridgeIngreId": 124,
+    "id": 124,
     "fridgeIngreName": "양송이버섯",
     "ingredient": {
-      "ingredientId": 224,
-      "ingredientName": "양송이버섯",
+      "id": 224,
+      "originName": "양송이버섯",
       "category": "채소",
       "mdCategory": "버섯"
     },
@@ -380,11 +380,11 @@
   },
   {
     "fridgeId": 1,
-    "fridgeIngreId": 125,
+    "id": 125,
     "fridgeIngreName": "파프리카",
     "ingredient": {
-      "ingredientId": 225,
-      "ingredientName": "파프리카",
+      "id": 225,
+      "originName": "파프리카",
       "category": "채소",
       "mdCategory": "신선",
       "sbCategory": "빨강"
@@ -397,11 +397,11 @@
   },
   {
     "fridgeId": 2,
-    "fridgeIngreId": 126,
+    "id": 126,
     "fridgeIngreName": "토마토",
     "ingredient": {
-      "ingredientId": 201,
-      "ingredientName": "토마토",
+      "id": 201,
+      "originName": "토마토",
       "category": "채소",
       "mdCategory": "신선",
       "sbCategory": "빨강"
@@ -414,11 +414,11 @@
   },
   {
     "fridgeId": 2,
-    "fridgeIngreId": 127,
+    "id": 127,
     "fridgeIngreName": "브로콜리",
     "ingredient": {
-      "ingredientId": 226,
-      "ingredientName": "브로콜리",
+      "id": 226,
+      "originName": "브로콜리",
       "category": "채소",
       "mdCategory": "신선"
     },
@@ -430,11 +430,11 @@
   },
   {
     "fridgeId": 2,
-    "fridgeIngreId": 128,
+    "id": 128,
     "fridgeIngreName": "양파",
     "ingredient": {
-      "ingredientId": 203,
-      "ingredientName": "양파",
+      "id": 203,
+      "originName": "양파",
       "category": "채소"
     },
     "createdDate": "2024-02-03",
@@ -445,11 +445,11 @@
   },
   {
     "fridgeId": 2,
-    "fridgeIngreId": 129,
+    "id": 129,
     "fridgeIngreName": "돼지고기",
     "ingredient": {
-      "ingredientId": 204,
-      "ingredientName": "돼지고기",
+      "id": 204,
+      "originName": "돼지고기",
       "category": "고기",
       "mdCategory": "육류"
     },
@@ -461,11 +461,11 @@
   },
   {
     "fridgeId": 2,
-    "fridgeIngreId": 130,
+    "id": 130,
     "fridgeIngreName": "당근",
     "ingredient": {
-      "ingredientId": 230,
-      "ingredientName": "당근",
+      "id": 230,
+      "originName": "당근",
       "category": "채소",
       "mdCategory": "뿌리채소"
     },
@@ -477,11 +477,11 @@
   },
   {
     "fridgeId": 2,
-    "fridgeIngreId": 131,
+    "id": 131,
     "fridgeIngreName": "우유",
     "ingredient": {
-      "ingredientId": 231,
-      "ingredientName": "우유",
+      "id": 231,
+      "originName": "우유",
       "category": "유제품"
     },
     "createdDate": "2024-02-06",
@@ -492,11 +492,11 @@
   },
   {
     "fridgeId": 2,
-    "fridgeIngreId": 132,
+    "id": 132,
     "fridgeIngreName": "파",
     "ingredient": {
-      "ingredientId": 232,
-      "ingredientName": "파",
+      "id": 232,
+      "originName": "파",
       "category": "채소",
       "mdCategory": "신선"
     },
@@ -508,11 +508,11 @@
   },
   {
     "fridgeId": 2,
-    "fridgeIngreId": 133,
+    "id": 133,
     "fridgeIngreName": "미역",
     "ingredient": {
-      "ingredientId": 233,
-      "ingredientName": "미역",
+      "id": 233,
+      "originName": "미역",
       "category": "해산물",
       "mdCategory": "해조류"
     },
@@ -524,11 +524,11 @@
   },
   {
     "fridgeId": 2,
-    "fridgeIngreId": 134,
+    "id": 134,
     "fridgeIngreName": "김치",
     "ingredient": {
-      "ingredientId": 234,
-      "ingredientName": "김치",
+      "id": 234,
+      "originName": "김치",
       "category": "가공식품"
     },
     "createdDate": "2024-02-09",
@@ -539,11 +539,11 @@
   },
   {
     "fridgeId": 2,
-    "fridgeIngreId": 135,
+    "id": 135,
     "fridgeIngreName": "깻잎",
     "ingredient": {
-      "ingredientId": 235,
-      "ingredientName": "깻잎",
+      "id": 235,
+      "originName": "깻잎",
       "category": "채소",
       "mdCategory": "잎채소"
     },
@@ -555,11 +555,11 @@
   },
   {
     "fridgeId": 2,
-    "fridgeIngreId": 136,
+    "id": 136,
     "fridgeIngreName": "다진마늘",
     "ingredient": {
-      "ingredientId": 236,
-      "ingredientName": "다진마늘",
+      "id": 236,
+      "originName": "다진마늘",
       "category": "가공식품"
     },
     "createdDate": "2024-02-11",
@@ -570,11 +570,11 @@
   },
   {
     "fridgeId": 2,
-    "fridgeIngreId": 137,
+    "id": 137,
     "fridgeIngreName": "두부",
     "ingredient": {
-      "ingredientId": 237,
-      "ingredientName": "두부",
+      "id": 237,
+      "originName": "두부",
       "category": "가공식품"
     },
     "createdDate": "2024-02-12",
@@ -585,11 +585,11 @@
   },
   {
     "fridgeId": 2,
-    "fridgeIngreId": 138,
+    "id": 138,
     "fridgeIngreName": "닭가슴살",
     "ingredient": {
-      "ingredientId": 202,
-      "ingredientName": "닭가슴살",
+      "id": 202,
+      "originName": "닭가슴살",
       "category": "고기",
       "mdCategory": "가금류"
     },
@@ -601,11 +601,11 @@
   },
   {
     "fridgeId": 2,
-    "fridgeIngreId": 139,
+    "id": 139,
     "fridgeIngreName": "돼지갈비",
     "ingredient": {
-      "ingredientId": 204,
-      "ingredientName": "돼지갈비",
+      "id": 204,
+      "originName": "돼지갈비",
       "category": "고기",
       "mdCategory": "육류"
     },
@@ -617,11 +617,11 @@
   },
   {
     "fridgeId": 2,
-    "fridgeIngreId": 140,
+    "id": 140,
     "fridgeIngreName": "홍합",
     "ingredient": {
-      "ingredientId": 240,
-      "ingredientName": "홍합",
+      "id": 240,
+      "originName": "홍합",
       "category": "해산물",
       "mdCategory": "조개류"
     },
@@ -633,11 +633,11 @@
   },
   {
     "fridgeId": 2,
-    "fridgeIngreId": 141,
+    "id": 141,
     "fridgeIngreName": "연어",
     "ingredient": {
-      "ingredientId": 210,
-      "ingredientName": "연어",
+      "id": 210,
+      "originName": "연어",
       "category": "해산물",
       "mdCategory": "생선"
     },
@@ -649,11 +649,11 @@
   },
   {
     "fridgeId": 2,
-    "fridgeIngreId": 142,
+    "id": 142,
     "fridgeIngreName": "참치캔",
     "ingredient": {
-      "ingredientId": 242,
-      "ingredientName": "참치캔",
+      "id": 242,
+      "originName": "참치캔",
       "category": "가공식품"
     },
     "createdDate": "2024-02-17",
@@ -664,11 +664,11 @@
   },
   {
     "fridgeId": 2,
-    "fridgeIngreId": 143,
+    "id": 143,
     "fridgeIngreName": "딸기",
     "ingredient": {
-      "ingredientId": 243,
-      "ingredientName": "딸기",
+      "id": 243,
+      "originName": "딸기",
       "category": "과일"
     },
     "createdDate": "2024-02-18",
@@ -679,11 +679,11 @@
   },
   {
     "fridgeId": 2,
-    "fridgeIngreId": 144,
+    "id": 144,
     "fridgeIngreName": "당근",
     "ingredient": {
-      "ingredientId": 244,
-      "ingredientName": "당근",
+      "id": 244,
+      "originName": "당근",
       "category": "채소",
       "mdCategory": "뿌리채소"
     },
@@ -695,11 +695,11 @@
   },
   {
     "fridgeId": 2,
-    "fridgeIngreId": 145,
+    "id": 145,
     "fridgeIngreName": "브로콜리",
     "ingredient": {
-      "ingredientId": 226,
-      "ingredientName": "브로콜리",
+      "id": 226,
+      "originName": "브로콜리",
       "category": "채소",
       "mdCategory": "신선"
     },
@@ -711,11 +711,11 @@
   },
   {
     "fridgeId": 2,
-    "fridgeIngreId": 146,
+    "id": 146,
     "fridgeIngreName": "감자",
     "ingredient": {
-      "ingredientId": 205,
-      "ingredientName": "감자",
+      "id": 205,
+      "originName": "감자",
       "category": "채소",
       "mdCategory": "뿌리채소"
     },
@@ -727,11 +727,11 @@
   },
   {
     "fridgeId": 2,
-    "fridgeIngreId": 147,
+    "id": 147,
     "fridgeIngreName": "시금치",
     "ingredient": {
-      "ingredientId": 247,
-      "ingredientName": "시금치",
+      "id": 247,
+      "originName": "시금치",
       "category": "채소",
       "mdCategory": "잎채소"
     },
@@ -743,11 +743,11 @@
   },
   {
     "fridgeId": 2,
-    "fridgeIngreId": 148,
+    "id": 148,
     "fridgeIngreName": "오이",
     "ingredient": {
-      "ingredientId": 223,
-      "ingredientName": "오이",
+      "id": 223,
+      "originName": "오이",
       "category": "채소",
       "mdCategory": "신선"
     },
@@ -759,11 +759,11 @@
   },
   {
     "fridgeId": 2,
-    "fridgeIngreId": 149,
+    "id": 149,
     "fridgeIngreName": "고구마",
     "ingredient": {
-      "ingredientId": 211,
-      "ingredientName": "고구마",
+      "id": 211,
+      "originName": "고구마",
       "category": "채소",
       "mdCategory": "뿌리채소"
     },
@@ -775,11 +775,11 @@
   },
   {
     "fridgeId": 2,
-    "fridgeIngreId": 150,
+    "id": 150,
     "fridgeIngreName": "감귤",
     "ingredient": {
-      "ingredientId": 250,
-      "ingredientName": "감귤",
+      "id": 250,
+      "originName": "감귤",
       "category": "과일"
     },
     "createdDate": "2024-02-25",
