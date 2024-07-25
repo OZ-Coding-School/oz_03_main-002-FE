@@ -11,10 +11,42 @@ function Login() {
   const [isEmailLogin, setIsEmailLogin] = useState(false);
 
   const login = useAuthStore((state) => state.login);
-  const emailLogin = useAuthStore((state) => state.emailLogin);
+  const [errors, setErrors] = useState({
+    id: '',
+    password: '',
+    username: '',
+    email: '',
+  });
+
+  // 유효성 검사 함수
+  const validateId = (userId: string) =>
+    /^(?=.*[a-z])[a-z][A-Za-z\d]{2,14}$/.test(userId);
+  const validatePassword = (pw: string) =>
+    /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[-_.,?!~])[A-Za-z\d-_.,?!~]{8,20}$/.test(
+      pw,
+    );
+  const validateEmail = (mail: string) =>
+    /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{3,}$/.test(mail);
+
+  const handleValidation = () => {
+    const newErrors = { id: '', password: '', username: '', email: '' };
+    if (!validateId(id))
+      newErrors.id =
+        '아이디는 소문자로 시작하는 영대소문자 또는 숫자가 포함되된 2자 이상 14자 이하로 입력해주세요.';
+    if (!validatePassword(password))
+      newErrors.password =
+        '비밀번호는 영문 대소문자, 숫자, 특수문자가 포함된 8자 이상 20자 이하로 입력해주세요.';
+    if (!validateEmail(email))
+      newErrors.email = '유효한 이메일 주소를 입력해주세요.';
+    setErrors(newErrors);
+    return Object.values(newErrors).every((error) => error === '');
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    if (!handleValidation()) {
+      return;
+    }
 
     // 암호화 적용 - SHA256 단방향 해시 적용
     const hashedPassword = SHA256(password).toString();
@@ -24,6 +56,8 @@ function Login() {
     }
     login(id, hashedPassword);
   };
+
+  const errorClassName = 'text-red-500 text-xs mt-2';
 
   const handleGoogleLogin = () => {};
   return (
@@ -54,9 +88,12 @@ function Login() {
                     required
                     placeholder="이메일을 입력해주세요."
                     className="appearance-none block w-full h-12 px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-lg"
-                    value={id}
-                    onChange={(e) => setId(e.target.value)}
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                   />
+                  {errors.email && (
+                    <p className={errorClassName}>{errors.email}</p>
+                  )}
                 </div>
               </>
             ) : (
@@ -78,6 +115,7 @@ function Login() {
                     value={id}
                     onChange={(e) => setId(e.target.value)}
                   />
+                  {errors.id && <p className={errorClassName}>{errors.id}</p>}
                 </div>
               </>
             )}
@@ -100,6 +138,9 @@ function Login() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
+              {errors.password && (
+                <p className={errorClassName}>{errors.password}</p>
+              )}
             </div>
           </div>
 
