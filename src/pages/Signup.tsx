@@ -75,11 +75,8 @@ function Signup() {
   const errorClassName = 'text-red-500 text-xs mt-2';
 
   return (
-    <div
-      className="h-[100vh] sm:h-[100vh] md:h-auto w-full sm:w-full md:w-[360px] bg-white shadow-2xl rounded-3xl mt-2 mx-auto min-w-[360px]"
-      style={{ height: 'calc(100vh - 140px)' }}
-    >
-      <div className="flex flex-col justify-center py-3 sm:px-6 lg:px-8">
+    <div id="signup-container">
+      <div className="flex flex-col justify-center py-3 sm:px-6 lg:px-8 mt-10">
         <div className="sm:mx-auto sm:w-full sm:max-w-md">
           <h2 className="text-left text-3xl font-normal text-gray-900">
             회원가입
@@ -88,12 +85,6 @@ function Signup() {
             <div className="relative w-44 [font-family:'SF_Pro_Text-Regular',Helvetica] font-normal text-black text-sm tracking-[0] leading-[normal]">
               정보를 입력해 주세요.
             </div>
-            <Link
-              to="/login"
-              className="relative w-[147px] [font-family:'SF_Pro_Text-Regular',Helvetica] font-normal text-[#4340f2] text-sm tracking-[0] leading-[normal] underline"
-            >
-              로그인으로 돌아가기
-            </Link>
           </div>
         </div>
       </div>
@@ -191,6 +182,12 @@ function Signup() {
             </button>
           </div>
         </form>
+        <p className="relative w-full py-12 text-center [font-family:'SF_Pro_Text-Regular',Helvetica] font-normal text-sm tracking-[0] leading-[normal] ">
+          이미 회원이신가요?{' '}
+          <Link to="/login" className="text-[#4340f2] underline">
+            로그인으로 돌아가기
+          </Link>
+        </p>
       </div>
     </div>
   );
