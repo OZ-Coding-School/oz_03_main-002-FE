@@ -9,36 +9,13 @@ import {
 } from 'react-icons/ri';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import fridgeIngredientData from '../data/fridgeIngredientData.json';
+import {
+  Ingredient,
+  FridgeIngredient,
+  SelectedIngredient,
+} from '../types/ingredientType';
 
 // Ingredient 인터페이스 정의
-interface Ingredient {
-  id: number;
-  originName: string;
-  category: string;
-  mdCategory?: string;
-  sbCategory?: string;
-}
-
-// FridgeIngredient 인터페이스 정의
-interface FridgeIngredient {
-  fridgeId: number;
-  id: number;
-  fridgeIngreName: string;
-  ingredient: Ingredient;
-  createdDate: string;
-  expirationDate: string;
-  quantity: number;
-  weight?: number;
-  memo?: string;
-}
-
-// SelectedIngredient 인터페이스 정의 (Ingredient에 quantity와 날짜 필드 추가)
-interface SelectedIngredient extends Ingredient {
-  quantity: number;
-  createdDate: string;
-  expirationDate: string;
-}
-
 // BottomSheetProps 인터페이스 정의 (BottomSheet 컴포넌트의 prop 정의)
 interface BottomSheetProps {
   isOpen: boolean; // BottomSheet의 열림 상태
