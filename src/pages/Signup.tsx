@@ -76,7 +76,7 @@ function Signup() {
 
   return (
     <div id="signup-container">
-      <div className="flex flex-col justify-center py-3 sm:px-6 lg:px-8 mt-10">
+      <div className="flex flex-col justify-center py-3 px-8 mt-10">
         <div className="sm:mx-auto sm:w-full sm:max-w-md">
           <h2 className="text-left text-3xl font-normal text-gray-900">
             회원가입

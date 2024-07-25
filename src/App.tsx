@@ -10,31 +10,6 @@ import IngredientDetailEdit from './pages/IngredientDetailEdit.tsx';
 import Layout from './components/common/Layout.tsx';
 
 function App() {
-  // const handleLogin = () => {
-  //   // 로그인 로직
-  //   console.log('Login');
-  // };
-
-  // const handleGoogleLogin = () => {
-  //   // Google 로그인 로직
-  //   console.log('Google Login');
-  // };
-
-  // const handleEmailLogin = () => {
-  //   // 이메일 로그인 로직
-  //   console.log('Email Login');
-  // };
-
-  // const handleForgotCredentials = () => {
-  //   // 비밀번호 찾기 로직
-  //   console.log('Forgot Credentials');
-  // };
-
-  // const handleSignUp = () => {
-  //   // 회원가입 로직
-  //   console.log('Sign Up');
-  // };
-
   return (
     <Router>
       <div className="flex flex-col h-full">
@@ -45,30 +20,9 @@ function App() {
               <Route index element={<Login />} />
               <Route path="/signup" element={<Signup />} />
               <Route path="/fridges" element={<FridgeList />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="LoginToEmail" element={<LoginToEmail />} />
             </Route>
-            <Route
-              path="/login"
-              element={
-                <Login
-                // onLogin={handleLogin}
-                // onGoogleLogin={handleGoogleLogin}
-                // onEmailLogin={handleEmailLogin}
-                // onForgotCredentials={handleForgotCredentials}
-                // onSignUp={handleSignUp}
-                />
-              }
-            />
-            <Route
-              path="LoginToEmail"
-              element={
-                <LoginToEmail
-                // onLogin={handleLogin}
-                // onGoogleLogin={handleGoogleLogin}
-                // onForgotCredentials={handleForgotCredentials}
-                // onSignUp={handleSignUp}
-                />
-              }
-            />
             <Route path="/IngredientView" element={<IngredientView />} />
             <Route path="/ingredients/:id" element={<IngredientDetailList />} />
             <Route
