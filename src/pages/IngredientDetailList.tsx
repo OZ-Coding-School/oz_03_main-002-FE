@@ -1,3 +1,4 @@
+// src/pages/IngredientDetailList.tsx
 import { useEffect, useState, useCallback } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -5,26 +6,7 @@ import { RiEditLine, RiDeleteBinLine, RiArrowLeftSLine } from 'react-icons/ri';
 import fridgeIngredientData from '../data/fridgeIngredientData.json';
 import DeleteModal from '../components/DeleteModal.tsx';
 import EditModal from '../components/EditModal.tsx';
-
-interface Ingredient {
-  id: number;
-  originName: string;
-  category: string;
-  mdCategory?: string;
-  sbCategory?: string;
-}
-
-interface FridgeIngredient {
-  fridgeId: number;
-  id: number;
-  fridgeIngreName: string;
-  ingredient: Ingredient;
-  createdDate: string;
-  expirationDate: string;
-  quantity: number;
-  weight: number;
-  memo: string;
-}
+import { FridgeIngredient } from '../types/ingredientType';
 
 function InfoItem({ label, value }: { label: string; value: string }) {
   return (
