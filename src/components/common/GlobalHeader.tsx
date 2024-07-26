@@ -1,11 +1,12 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { IoIosMenu, IoMdClose, IoIosArrowForward } from 'react-icons/io';
 import useAuthStore from '../../store/useAuthStore';
 
 function GlobalHeader() {
   const [isOpen, setIsOpen] = useState(false);
-  const isLoggedIn = useAuthStore((state) => state.token !== null);
-  const username = useAuthStore((state) => state.user?.username || '');
+  const user = useAuthStore((state) => state.user);
+  const [isHovered, setIsHovered] = useState(false);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -16,17 +17,21 @@ function GlobalHeader() {
 
   return (
     <div className="w-full h-12 flex justify-between items-center px-5 shadow-lg z-30 ">
+      <div className="w-8 p-0">{/* 뒤로 돌아가는 버튼 생성 예정 */}</div>
       <h2 className="font-bold">냉똑이</h2>
       <button
         type="button"
-        className="text-2xl cursor-pointer text-slate-800"
+        className="w-8 text-2xl  cursor-pointer text-slate-800"
         onClick={toggleMenu}
+        aria-label="메뉴 창 열기"
       >
-        {/* 햄버거 버튼 */}
-        &#9776;
+        <IoIosMenu />
       </button>
       {isOpen && (
-        <div className="absolute inset-0 z-40 flex justify-end">
+        <div
+          className="absolute inset-0 z-40 flex justify-end"
+          aria-label="메뉴창"
+        >
           <div
             className="absolute inset-0 bg-black opacity-50"
             onClick={closeMenu}
@@ -38,25 +43,28 @@ function GlobalHeader() {
           <div className="relative w-64 bg-white h-full shadow-lg">
             <button
               type="button"
-              className="absolute top-4 left-5 cursor-pointer text-slate-800 font-bold"
+              className="absolute top-4 left-5 cursor-pointer text-slate-800 text-2xl font-bold"
               onClick={closeMenu}
               aria-label="메뉴 닫기"
             >
-              ✕
+              <IoMdClose />
             </button>
             <div className="p-5 mt-10">
-              {isLoggedIn ? (
+              {user ? (
                 <div className="flex items-center space-x-3 mb-5">
                   <img
-                    src="/path/to/avatar.png" // Replace with the actual path to the avatar image
+                    src="/defaultUserAvatar.png"
                     alt="avatar"
                     className="w-10 h-10 rounded-full"
                   />
                   <div>
-                    <p className="font-bold">{username}</p>
+                    <p className="font-bold">{user?.username}</p>
                     <Link
                       to="/mypage"
-                      className="text-sm text-blue-500 hover:underline"
+                      className="text-sm text-sky-500 "
+                      onClick={(e) => {
+                        e.preventDefault(); // 마이페이지 생성후 비활성 해제
+                      }}
                     >
                       마이페이지
                     </Link>
@@ -66,17 +74,17 @@ function GlobalHeader() {
                 <div className="mb-5">
                   <Link
                     to="/login"
-                    className="block py-2 text-slate-800 hover:font-bold"
+                    className="py-2 text-slate-800 hover:font-bold flex items-center hover:text-slate-800"
                     onClick={toggleMenu}
+                    onMouseEnter={() => setIsHovered(true)}
+                    onMouseLeave={() => setIsHovered(false)}
                   >
                     로그인
-                  </Link>
-                  <Link
-                    to="/signup"
-                    className="block py-2 text-slate-800 hover:font-bold"
-                    onClick={toggleMenu}
-                  >
-                    회원가입
+                    <IoIosArrowForward
+                      className={`ml-3 text-slate-400 transform transition-transform duration-500 ${
+                        isHovered ? 'translate-x-32' : 'translate-x-0'
+                      }`}
+                    />
                   </Link>
                 </div>
               )}

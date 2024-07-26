@@ -31,7 +31,7 @@ function Header() {
             </li>
             <li>
               <Link
-                to="Login"
+                to="/login"
                 className={`${isActive('../pages/Login')} hover:text-blue-500 transition duration-300`}
               >
                 Login 페이지
@@ -39,7 +39,7 @@ function Header() {
             </li>
             <li>
               <Link
-                to="/LoginToEmail"
+                to="/loginToEmail"
                 className={`${isActive('../pages/LoginToEmail')} hover:text-blue-500 transition duration-300`}
               >
                 E-mail 로그인 페이지
