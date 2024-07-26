@@ -1,4 +1,5 @@
 import { Refrigerator } from '../../../types/fridgeType.tsx';
+import { motion } from 'framer-motion';
 
 type DeleteFridgeModalProps = {
   existingData: Refrigerator;
@@ -18,7 +19,11 @@ function DeleteFridgeModal({
   return (
     // <ModalForm title="냉장고 삭제" onDelete={onDelete} onClose={onClose} />
     <div className="fixed inset-0 bg-gray-600 bg-opacity-50 flex justify-center items-center z-50">
-      <div className="bg-white p-5 rounded-lg shadow-lg">
+      <motion.div
+        initial={{ scale: 0 }}
+        animate={{ scale: 1 }}
+        className="bg-white p-5 rounded-lg shadow-lg"
+      >
         <h2 className="text-xl mb-4">냉장고를 삭제합니다</h2>
         <p>정말로 {existingData?.fridgeName} 를 삭제하시겠습니까?</p>
         <button
@@ -35,7 +40,7 @@ function DeleteFridgeModal({
         >
           닫기
         </button>
-      </div>
+      </motion.div>
     </div>
   );
 }

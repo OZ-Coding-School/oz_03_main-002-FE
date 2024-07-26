@@ -1,6 +1,7 @@
 // ModalForm.tsx
 import React, { useState } from 'react';
 // import InputField from './InputField.tsx';
+import { motion } from 'framer-motion';
 
 type ModalFormProps = {
   title: string;
@@ -27,7 +28,11 @@ function ModalForm({ title, initialData, onSubmit, onClose }: ModalFormProps) {
 
   return (
     <div className="fixed inset-0 bg-gray-600 bg-opacity-50 flex justify-center items-center">
-      <div className="bg-white p-5 rounded-lg shadow-lg">
+      <motion.div
+        initial={{ scale: 0 }}
+        animate={{ scale: 1 }}
+        className="bg-white p-5 rounded-lg shadow-lg"
+      >
         <h2 className="text-xl mb-4">{title}</h2>
         <form onSubmit={handleSubmit}>
           <input
@@ -52,7 +57,7 @@ function ModalForm({ title, initialData, onSubmit, onClose }: ModalFormProps) {
             닫기
           </button>
         </form>
-      </div>
+      </motion.div>
     </div>
   );
 }
