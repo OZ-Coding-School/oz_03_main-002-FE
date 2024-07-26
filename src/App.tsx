@@ -5,7 +5,6 @@ import Signup from './pages/Signup.tsx';
 import FridgeList from './components/Fridge/FridgeList.tsx';
 import IngredientView from './pages/IngredientView.tsx';
 import IngredientDetailList from './pages/IngredientDetailList.tsx';
-import IngredientDetailEdit from './pages/IngredientDetailEdit.tsx';
 import Layout from './components/common/Layout.tsx';
 
 function App() {
@@ -23,10 +22,6 @@ function App() {
             </Route>
             <Route path="/IngredientView" element={<IngredientView />} />
             <Route path="/ingredients/:id" element={<IngredientDetailList />} />
-            <Route
-              path="/ingredients/:id/edit"
-              element={<IngredientDetailEdit />}
-            />
           </Routes>
         </main>
       </div>
