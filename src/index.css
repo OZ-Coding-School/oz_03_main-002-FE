@@ -78,12 +78,12 @@
 
 @layer utilities {
   .scroll_custom {
-    overflow: overlay;
-    scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
+    overflow: scroll;
+    scrollbar-color: rgba(0, 0, 0, 0.2) transparent !important;
     scrollbar-width: thin;
   }
   .scroll_custom:hover {
-    scrollbar-color: rgba(0, 0, 0, 0.4) transparent;
+    scrollbar-color: rgba(0, 0, 0, 0.4) transparent !important;
   }
   .skeleton {
     @apply animate-shimmer bg-gradient-custom;
