@@ -1,3 +1,5 @@
+// 커스텀 재료 (사용자 재료)
+
 import { create } from 'zustand';
 import { FridgeIngredient } from '../types/ingredientType';
 
@@ -8,6 +10,7 @@ interface IngredientStore {
   deleteIngredient: (id: number) => void; // deleteIngredient 함수 추가
 }
 
+// 여기에 작성하기
 const useIngredientStore = create<IngredientStore>((set) => ({
   ingredients: [],
   setIngredients: (ingredients) => set({ ingredients }),
@@ -17,9 +20,7 @@ const useIngredientStore = create<IngredientStore>((set) => ({
         ingredient.id === updatedIngredient.id ? updatedIngredient : ingredient,
       ),
     })),
-  deleteIngredient: (
-    id: number, // deleteIngredient 함수 정의
-  ) =>
+  deleteIngredient: (id: number) =>
     set((state) => ({
       ingredients: state.ingredients.filter(
         (ingredient) => ingredient.id !== id,

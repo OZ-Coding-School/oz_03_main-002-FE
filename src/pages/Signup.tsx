@@ -3,26 +3,25 @@ import { SHA256 } from 'crypto-js';
 import { v4 as uuid } from 'uuid';
 import { FaRegEye, FaRegEyeSlash } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import useAuthStore from '../store/useAuthStore';
 
 function Signup() {
-  const [userId, setUserId] = useState('');
+  const [id, setId] = useState('');
   const [password, setPassword] = useState('');
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
+  const signup = useAuthStore((state) => state.signUp);
 
   const [errors, setErrors] = useState({
-    userId: '',
+    id: '',
     password: '',
     username: '',
     email: '',
   });
-  const users = (saltedPassword: string) => {
-    setPassword(saltedPassword);
-  };
 
   // 유효성 검사 함수
-  const validateUserId = (id: string) =>
-    /^(?=.*[a-z])[a-z][A-Za-z\d]{2,14}$/.test(id);
+  const validateId = (userId: string) =>
+    /^(?=.*[a-z])[a-z][A-Za-z\d]{2,14}$/.test(userId);
   const validatePassword = (pw: string) =>
     /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[-_.,?!~])[A-Za-z\d-_.,?!~]{8,20}$/.test(
       pw,
@@ -32,9 +31,9 @@ function Signup() {
     /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{3,}$/.test(mail);
 
   const handleValidation = () => {
-    const newErrors = { userId: '', password: '', username: '', email: '' };
-    if (!validateUserId(userId))
-      newErrors.userId =
+    const newErrors = { id: '', password: '', username: '', email: '' };
+    if (!validateId(id))
+      newErrors.id =
         '아이디는 소문자로 시작하는 영대소문자 또는 숫자가 포함되된 2자 이상 14자 이하로 입력해주세요.';
     if (!validatePassword(password))
       newErrors.password =
@@ -64,10 +63,9 @@ function Signup() {
     // 로그인 암호화 적용 - salt
     const salt = uuid(); // 고유한 salt 생성
     // 암호화 적용 - SHA256 단방향 해시 적용
-    const hashedPassword = SHA256(password + salt).toString();
+    const hashedPassword = SHA256(password).toString();
     const saltedPassword: string = SHA256(hashedPassword + salt).toString();
-    // console.log({ userId, username, email, hashedPassword, salt });
-    users(saltedPassword);
+    signup(id, username, email, saltedPassword, salt);
   };
 
   // 공통 Tailwind CSS 클래스명 변수로 추출
@@ -77,11 +75,8 @@ function Signup() {
   const errorClassName = 'text-red-500 text-xs mt-2';
 
   return (
-    <div
-      className="h-[100vh] sm:h-[100vh] md:h-auto w-full sm:w-full md:w-[360px] bg-white shadow-2xl rounded-3xl mt-2 mx-auto min-w-[360px]"
-      style={{ height: 'calc(100vh - 140px)' }}
-    >
-      <div className="flex flex-col justify-center py-3 sm:px-6 lg:px-8">
+    <div id="signup-container">
+      <div className="flex flex-col justify-center py-3 px-8 mt-10">
         <div className="sm:mx-auto sm:w-full sm:max-w-md">
           <h2 className="text-left text-3xl font-normal text-gray-900">
             회원가입
@@ -90,12 +85,6 @@ function Signup() {
             <div className="relative w-44 [font-family:'SF_Pro_Text-Regular',Helvetica] font-normal text-black text-sm tracking-[0] leading-[normal]">
               정보를 입력해 주세요.
             </div>
-            <Link
-              to="/login"
-              className="relative w-[147px] [font-family:'SF_Pro_Text-Regular',Helvetica] font-normal text-[#4340f2] text-sm tracking-[0] leading-[normal] underline"
-            >
-              로그인으로 돌아가기
-            </Link>
           </div>
         </div>
       </div>
@@ -113,12 +102,10 @@ function Signup() {
                 required
                 placeholder="아이디를 입력해주세요."
                 className={inputClassName}
-                value={userId}
-                onChange={(e) => setUserId(e.target.value)}
+                value={id}
+                onChange={(e) => setId(e.target.value)}
               />
-              {errors.userId && (
-                <p className={errorClassName}>{errors.userId}</p>
-              )}
+              {errors.id && <p className={errorClassName}>{errors.id}</p>}
             </div>
           </div>
           <div>
@@ -195,6 +182,12 @@ function Signup() {
             </button>
           </div>
         </form>
+        <p className="relative w-full py-12 text-center [font-family:'SF_Pro_Text-Regular',Helvetica] font-normal text-sm tracking-[0] leading-[normal] ">
+          이미 회원이신가요?{' '}
+          <Link to="/login" className="text-[#4340f2] underline">
+            로그인으로 돌아가기
+          </Link>
+        </p>
       </div>
     </div>
   );

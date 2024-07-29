@@ -2,13 +2,22 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { IoCloseOutline } from 'react-icons/io5';
 import { RiDeleteBinLine } from 'react-icons/ri';
-import { Ingredient } from '../types/types'; // 수정된 import 경로
+import { FridgeIngredient } from '../types/ingredientType';
 
 interface DeleteModalProps {
   isOpen: boolean;
   onClose: () => void;
-  ingredient: Ingredient | null;
+  ingredient: FridgeIngredient | null;
   onConfirm: () => void;
+}
+
+function InfoItem({ label, value }: { label: string; value: string }) {
+  return (
+    <div className="flex justify-between items-center py-1">
+      <span className="text-sm text-gray-600">{label}:</span>
+      <span className="text-sm font-semibold text-gray-800">{value}</span>
+    </div>
+  );
 }
 
 function DeleteModal({
@@ -40,26 +49,74 @@ function DeleteModal({
           className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center backdrop-blur-sm z-50"
         >
           <motion.div
-            initial={{ scale: 0.9, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            exit={{ scale: 0.9, opacity: 0 }}
-            transition={{ duration: 0.2 }}
-            className="bg-white p-4 rounded-lg shadow-xl max-w-md w-full mx-4"
+            initial={{ scale: 0.9 }}
+            animate={{ scale: 1 }}
+            exit={{ scale: 0.9 }}
+            className="bg-white p-6 rounded-lg shadow-xl max-w-md w-full mx-4 max-h-[90vh] overflow-y-auto"
           >
-            <h3 className="text-base font-bold mb-3">재료 삭제</h3>
-            <p className="mb-2 text-sm">{ingredient.name}을(를) 삭제할까요?</p>
-            <p className="text-gray-600 text-xs mb-3">
-              수량: {ingredient.quantity}
-              <br />
-              소비기한: {ingredient.expirationDate}{' '}
-              {/* 유통기한을 소비기한으로 수정 */}
-            </p>
-            <hr className="my-3 border-gray-300" />
+            <h3 className="text-xl font-bold mb-4 text-gray-800">
+              재료 삭제 확인
+            </h3>
+            <div className="mb-4">
+              <p className="font-semibold mb-2 text-gray-700">
+                {ingredient.fridgeIngreName}을(를) 삭제하시겠습니까?
+              </p>
+              <div className="bg-gray-100 p-4 rounded-lg">
+                <InfoItem
+                  label="소비기한"
+                  value={ingredient.expirationDate || '정보 없음'}
+                />
+                <InfoItem
+                  label="개수"
+                  value={
+                    ingredient.quantity !== undefined
+                      ? `${ingredient.quantity}`
+                      : '정보 없음'
+                  }
+                />
+                <InfoItem
+                  label="중량"
+                  value={
+                    ingredient.weight !== undefined
+                      ? `${ingredient.weight}g`
+                      : '정보 없음'
+                  }
+                />
+                <InfoItem
+                  label="카테고리"
+                  value={ingredient.ingredient.category || '정보 없음'}
+                />
+                {ingredient.ingredient.mdCategory && (
+                  <InfoItem
+                    label="중분류"
+                    value={ingredient.ingredient.mdCategory}
+                  />
+                )}
+                {ingredient.ingredient.sbCategory && (
+                  <InfoItem
+                    label="소분류"
+                    value={ingredient.ingredient.sbCategory}
+                  />
+                )}
+                <InfoItem
+                  label="등록일"
+                  value={ingredient.createdDate || '정보 없음'}
+                />
+                {ingredient.memo && (
+                  <div className="mt-2">
+                    <span className="font-semibold text-sm text-gray-600">
+                      메모:
+                    </span>
+                    <p className="text-sm text-gray-600">{ingredient.memo}</p>
+                  </div>
+                )}
+              </div>
+            </div>
             <div className="flex justify-between mt-4">
               <motion.button
                 type="button"
                 onClick={onClose}
-                className="bg-gray-300 hover:bg-gray-400 text-gray-700 rounded-lg py-2 px-4 text-sm flex flex-col items-center mr-2 w-full"
+                className="bg-gray-300 hover:bg-gray-400 text-gray-700 rounded-lg py-2 px-4 text-sm flex flex-col items-center mr-2 w-1/2"
                 whileHover={{
                   scale: 1.02,
                   boxShadow: '0px 5px 15px rgba(0,0,0,0.1)',
@@ -72,7 +129,7 @@ function DeleteModal({
               <motion.button
                 type="button"
                 onClick={handleDelete}
-                className="bg-red-400 hover:bg-red-500 text-white rounded-lg py-2 px-4 text-sm flex flex-col items-center w-full"
+                className="bg-red-500 hover:bg-red-600 text-white rounded-lg py-2 px-4 text-sm flex flex-col items-center w-1/2"
                 whileHover={{
                   scale: 1.02,
                   boxShadow: '0px 5px 15px rgba(0,0,0,0.1)',

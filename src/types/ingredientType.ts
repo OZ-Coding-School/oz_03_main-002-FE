@@ -17,3 +17,9 @@ export interface FridgeIngredient {
   weight?: number;
   memo?: string;
 }
+
+export interface SelectedIngredient extends Ingredient {
+  quantity: number;
+  createdDate: string;
+  expirationDate: string;
+}

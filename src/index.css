@@ -105,3 +105,20 @@
   width: 100%;
   height: 100vh;
 }
+
+.placeholder-text {
+  @apply text-sm; /* Tailwind의 text-sm 클래스를 적용합니다. */
+}
+
+input::placeholder {
+  @apply placeholder-text;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
