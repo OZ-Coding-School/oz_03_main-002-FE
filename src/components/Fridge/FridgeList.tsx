@@ -46,8 +46,7 @@ function FridgeList() {
       {/* 본문 */}
       <div
         id="fridge-list" // 냉장고 리스트 컨테이너
-        className="w-full px-5 flex flex-col gap-5 pt-5 pb-3 overflow-auto scroll-smooth  scroll_custom relative"
-        style={{ height: 'calc(100% - 80px)' }} // 동적 높이 계산
+        className="w-full  h-[690px] px-5 flex flex-col gap-5 pt-5 pb-3 overflow-scroll scroll-smooth  scroll_custom relative"
       >
         {/* 각 냉장고 아이템을 반복문을 통해 렌더링 */}
         {Array.isArray(fridges) &&

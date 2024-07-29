@@ -45,6 +45,7 @@ const useFridgeStore = create<FridgeState>((set, get) => ({
           return { fridges: updatedFridges };
         });
       }
+      get().fetchFridges();
     } catch (error) {
       console.log('Failed to add fridge', error);
     }
@@ -76,6 +77,7 @@ const useFridgeStore = create<FridgeState>((set, get) => ({
           return { fridges: updatedFridges };
         });
         console.log('Fridge deleted successfully');
+        get().fetchFridges();
       } else {
         console.log('Failed to delete fridge');
       }
