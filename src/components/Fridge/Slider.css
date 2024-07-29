@@ -1,18 +1,20 @@
 .slider-container {
   position: relative;
+  width: 100%;
+  height: 180px;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 .slider-content {
+  position: absolute;
   display: grid; /* flex에서 grid로 변경 */
   grid-template-columns: repeat(2, 1fr); /* 2열 그리드 */
   grid-template-rows: repeat(2, 1fr); /* 2행 그리드 */
   gap: 15px; /* 아이템 간의 간격 설정 */
-  overflow: hidden;
   width: 100%;
-  height: 180px;
   padding: 10px 15px 20px 15px;
 }
 
