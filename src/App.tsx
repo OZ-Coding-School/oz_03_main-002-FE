@@ -8,7 +8,6 @@ import IngredientDetailList from './pages/IngredientDetailList.tsx';
 import Layout from './components/common/Layout.tsx';
 import RecipesView from './pages/RecipesView.tsx';
 import RecipeDetail from './pages/RecipeDetail.tsx';
-import { recipes } from './data/recipeData.json';
 
 function App() {
   return (
@@ -23,10 +22,7 @@ function App() {
               <Route path="/fridges" element={<FridgeList />} />
               <Route path="/login" element={<Login />} />
               <Route path="/recipes" element={<RecipesView />} />
-              <Route
-                path="/recipes/:id"
-                element={<RecipeDetail recipes={recipes} />}
-              />
+              <Route path="/recipes/:id" element={<RecipeDetail />} />
             </Route>
             <Route path="/IngredientView" element={<IngredientView />} />
             <Route path="/ingredients/:id" element={<IngredientDetailList />} />

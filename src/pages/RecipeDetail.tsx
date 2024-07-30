@@ -1,45 +1,47 @@
-import React from 'react';
+import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { useSwipeable } from 'react-swipeable';
 import {
   faUtensils,
   faUserFriends,
   faClock,
 } from '@fortawesome/free-solid-svg-icons';
+import axios from 'axios';
 import { RecipeDetailType } from '../types/recipeType';
 
-type RecipeDetailProps = {
-  recipes: RecipeDetailType[];
-};
-
-const RecipeDetail: React.FC<RecipeDetailProps> = ({ recipes }) => {
+function RecipeDetail() {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
-  const recipe = recipes.find((r) => r.recipeSummary.id === Number(id));
+  const [recipe, setRecipe] = useState<RecipeDetailType | null>(null);
 
-  const handlers = useSwipeable({
-    onSwipedRight: () => navigate(-1),
-    preventDefaultTouchmoveEvent: true,
-    trackMouse: true,
-  } as any);
+  useEffect(() => {
+    const fetchRecipe = async () => {
+      try {
+        const response = await axios.get<RecipeDetailType>(
+          `http://localhost:3000/recipes/${id}`,
+        );
+        setRecipe(response.data);
+      } catch (error) {
+        console.error('Error fetching recipe:', error);
+      }
+    };
+
+    fetchRecipe();
+  }, [id]);
 
   if (!recipe) {
     return <div>레시피를 찾을 수 없습니다.</div>;
   }
 
   return (
-    <div
-      {...handlers}
-      id="recipeDetail-container"
-      className="h-[752px] bg-slate-50 overflow-scroll scroll_custom scroll_custom:hover"
-    >
+    <div id="recipeDetail-container" className="h-auto bg-slate-50">
       {/* 서브 헤더 */}
       <div
         id="recipeDetail-sub-header"
         className="w-full h-[50px] bg-slate-100 text-center flex items-center "
       >
         <button
+          type="button"
           onClick={() => navigate(-1)}
           className="ml-4 p-2 text-xl text-gray-700 hover:text-gray-900"
         >
@@ -54,7 +56,7 @@ const RecipeDetail: React.FC<RecipeDetailProps> = ({ recipes }) => {
           className="size-full"
         />
       </div>
-      <div id="recipeDetail-list" className="bg-gray-100 pt-3">
+      <div id="recipeDetail-list" className="size-full bg-slate-100 pt-3">
         <div className="size-full mb-4 rounded-3xl bg-white p-5">
           <h2 className="text-2xl font-bold">
             {recipe.recipeSummary.recipeName}
@@ -81,27 +83,25 @@ const RecipeDetail: React.FC<RecipeDetailProps> = ({ recipes }) => {
           <h3 className="text-xl font-semibold">재료</h3>
           <hr className="my-2 bg-gray-700 h-0.5" />
           <div className="list-outside">
-            {recipe.ingredients
-              .filter(
-                (ingredientDetail) =>
-                  ingredientDetail.ingredient.originName.length <= 3,
-              )
-              .map((ingredientDetail) => (
-                <ul
-                  key={ingredientDetail.ingredient.id}
-                  className="pb-2 pt-2 flex justify-between border-b-[1px]"
+            {recipe.ingredients.map((ingredientDetail) => (
+              <ul
+                key={ingredientDetail.ingredient.id}
+                className="pb-2 pt-2 flex justify-between border-b-[1px]"
+              >
+                <li className="w-[100px] ">
+                  {ingredientDetail.ingredient.originName}
+                </li>
+                <li className="w-[60px]">
+                  {ingredientDetail.ingredientQuantity}g
+                </li>
+                <button
+                  type="button"
+                  className="bg-gray-200 w-[50px] rounded-3xl"
                 >
-                  <li className="w-[100px] ">
-                    {ingredientDetail.ingredient.originName}
-                  </li>
-                  <li className="w-[60px]">
-                    {ingredientDetail.ingredientQuantity}g
-                  </li>
-                  <button className="bg-gray-200 w-[50px] rounded-3xl">
-                    구매
-                  </button>
-                </ul>
-              ))}
+                  구매
+                </button>
+              </ul>
+            ))}
           </div>
         </div>
         <div className="size-full mb-4 rounded-3xl bg-white p-5">
@@ -112,6 +112,6 @@ const RecipeDetail: React.FC<RecipeDetailProps> = ({ recipes }) => {
       </div>
     </div>
   );
-};
+}
 
 export default RecipeDetail;

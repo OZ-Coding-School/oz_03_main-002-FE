@@ -1,11 +1,11 @@
 import { useEffect, useState, useCallback } from 'react';
 import axios from 'axios';
 import InfiniteScroll from 'react-infinite-scroll-component';
-import { RecipeSummary, RecipeDetailType } from '../types/recipeType';
-import { Ingredient } from '../types/ingredientType';
 import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { Ingredient } from '../types/ingredientType';
+import { RecipeSummary, RecipeDetailType } from '../types/recipeType';
 
 function RecipesView() {
   const [recipes, setRecipes] = useState<RecipeSummary[]>([]);
@@ -57,13 +57,13 @@ function RecipesView() {
     } catch (error) {
       console.error('Error fetching recipes:', error);
       setHasMore(false);
-    }
-  }, [page]);
+    } // setLoading(false) - 무한루프 발생, 수정 필요
+  }, [page, loading]);
 
   // 페이지가 변경될 때마다 레시피 데이터를 가져옴
   useEffect(() => {
     fetchRecipes();
-  }, [page]);
+  }, [page, fetchRecipes]);
 
   // 레시피 클릭 시 상세 페이지로 이동하는 함수
   const handleRecipeClick = (id: number) => {
@@ -123,8 +123,15 @@ function RecipesView() {
               {recipes.map((recipe) => (
                 <div
                   key={recipe.id}
+                  role="button"
+                  tabIndex={0}
                   className="bg-white rounded-lg shadow-md cursor-pointer mb-5"
                   onClick={() => handleRecipeClick(recipe.id)}
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      handleRecipeClick(recipe.id);
+                    }
+                  }}
                 >
                   <div>
                     <img

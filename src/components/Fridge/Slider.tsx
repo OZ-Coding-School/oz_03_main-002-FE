@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './Slider.css';
-import { RefrigeratorIngre } from '../../types/fridgeType';
 import { motion, AnimatePresence, PanInfo } from 'framer-motion';
+import { RefrigeratorIngre } from '../../types/fridgeType';
 
 type SliderProps = {
   ingredients: RefrigeratorIngre[];
