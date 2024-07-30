@@ -6,6 +6,8 @@ import FridgeList from './components/Fridge/FridgeList.tsx';
 import IngredientView from './pages/IngredientView.tsx';
 import IngredientDetailList from './pages/IngredientDetailList.tsx';
 import Layout from './components/common/Layout.tsx';
+import RecipesView from './pages/RecipesView.tsx';
+import RecipeDetail from './pages/RecipeDetail.tsx';
 
 function App() {
   return (
@@ -19,6 +21,8 @@ function App() {
               <Route path="/signup" element={<Signup />} />
               <Route path="/fridges" element={<FridgeList />} />
               <Route path="/login" element={<Login />} />
+              <Route path="/recipes" element={<RecipesView />} />
+              <Route path="/recipes/:id" element={<RecipeDetail />} />
             </Route>
             <Route path="/IngredientView" element={<IngredientView />} />
             <Route path="/ingredients/:id" element={<IngredientDetailList />} />

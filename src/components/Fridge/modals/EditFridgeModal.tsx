@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Refrigerator } from '../../../types/fridgeType';
 import { motion } from 'framer-motion';
+import { Refrigerator } from '../../../types/fridgeType';
 
 type EditFridgeModalProps = {
   existingData: Refrigerator;

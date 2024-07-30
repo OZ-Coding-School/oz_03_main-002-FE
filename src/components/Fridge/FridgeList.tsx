@@ -38,7 +38,7 @@ function FridgeList() {
       {/* 서브 헤더 */}
       <div
         id="fridges-header" // 냉장고 목록의 헤더
-        className="w-full h-[50px] bg-slate-100 text-center flex "
+        className="w-full h-[50px] bg-slate-100 text-center flex"
       >
         <p className="m-auto">나의 냉장고 목록</p> {/* 헤더 텍스트 */}
       </div>
