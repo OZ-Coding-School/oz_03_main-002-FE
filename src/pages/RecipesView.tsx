@@ -31,11 +31,10 @@ function RecipesView() {
           },
         },
       );
-      console.log(`Fetched data for page ${page}:`, response.data);
-
       if (Array.isArray(response.data)) {
         const newRecipes = response.data.map((recipeDetail) => ({
           ...recipeDetail.recipeSummary,
+          // RecipeDetailType의 ingredients 배열을 RecipeSummary의 ingredients 배열로 변환
           ingredients: recipeDetail.ingredients.map((ing) => ing.ingredient),
         }));
 
@@ -51,6 +50,7 @@ function RecipesView() {
         });
 
         setHasMore(response.data.length === 10);
+        setPage((prevPage) => prevPage + 1);
       } else {
         setHasMore(false);
       }
@@ -58,19 +58,12 @@ function RecipesView() {
       console.error('Error fetching recipes:', error);
       setHasMore(false);
     }
-    setLoading(false);
-  }, [page, loading]);
+  }, [page]);
 
   // 페이지가 변경될 때마다 레시피 데이터를 가져옴
   useEffect(() => {
     fetchRecipes();
-  }, [page, fetchRecipes]);
-
-  // 더 많은 데이터를 가져오는 함수
-  const fetchMoreData = () => {
-    setPage((prevPage) => prevPage + 1);
-    console.log('Next page:', page + 1);
-  };
+  }, [page]);
 
   // 레시피 클릭 시 상세 페이지로 이동하는 함수
   const handleRecipeClick = (id: number) => {
@@ -81,7 +74,10 @@ function RecipesView() {
 
   return (
     // 전체 컨테이너
-    <div id="recipesView-container" className="size-full">
+    <div
+      id="recipesView-container"
+      className="h-[740px] overflow-scroll scroll_custom scroll_custom:hover"
+    >
       {/* 서브 헤더 */}
       <div
         id="recipesView-header"
@@ -90,9 +86,9 @@ function RecipesView() {
         <p className="m-auto">레시피 홈</p>
       </div>
       {/* 헤더 및 서브헤더를 제외한 모든 요소의 컨테이너 */}
-      <div id="recipesView-all-features" className="p-4 h-full">
+      <div id="recipesView-all-features" className="p-4 h-full ">
         {/* 검색바(전체) */}
-        <div id="recipesView-search-bar" className="mb-10">
+        <div id="recipesView-search-bar" className="mb-5">
           {/* 검색바 제목 */}
           <h2 className="text-lg mb-3 font-bold">레시피 검색</h2>
           {/* 검색바 input (현재 아무 기능 없음) */}
@@ -106,13 +102,13 @@ function RecipesView() {
           </div>
         </div>
         {/* 레시피 목록(전체) */}
-        <div id="scrollableDiv" className="h-full no-scrollbar">
+        <div className="h-full">
           {/* 레시피 목록 제목 */}
           <h2 className="text-lg mb-4 font-bold">레시피 목록</h2>
           {/* 레시피 목록 본문 */}
           <InfiniteScroll
             dataLength={recipes.length}
-            next={fetchMoreData}
+            next={fetchRecipes}
             hasMore={hasMore}
             loader={<h4>Loading...</h4>}
             endMessage={
@@ -120,11 +116,10 @@ function RecipesView() {
                 <b>모든 레시피를 불러왔습니다.</b>
               </p>
             }
-            scrollableTarget="scrollableDiv"
             scrollThreshold={0.8}
           >
             {/* 레시피 카드 요소 */}
-            <div id="RecipesView-card" className="grid grid-cols-2 gap-2">
+            <div id="scrollableDiv" className="grid grid-cols-2 gap-2 h-full">
               {recipes.map((recipe) => (
                 <div
                   key={recipe.id}

@@ -82,11 +82,27 @@
     scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
     scrollbar-width: thin;
   }
+
   .scroll_custom:hover {
     scrollbar-color: rgba(0, 0, 0, 0.4) transparent;
   }
+
+  .no-horizontal-scroll {
+    overflow-x: hidden;
+  }
+
   .skeleton {
     @apply animate-shimmer bg-gradient-custom;
+  }
+}
+
+@layer utilities {
+  .placeholder-text {
+    @apply text-sm;
+  }
+
+  input::placeholder {
+    @apply placeholder-text;
   }
 }
 
@@ -104,21 +120,4 @@
 #root {
   width: 100%;
   height: 100vh;
-}
-
-.placeholder-text {
-  @apply text-sm; /* Tailwind의 text-sm 클래스를 적용합니다. */
-}
-
-input::placeholder {
-  @apply placeholder-text;
-}
-
-.no-scrollbar::-webkit-scrollbar {
-  display: none;
-}
-
-.no-scrollbar {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
 }

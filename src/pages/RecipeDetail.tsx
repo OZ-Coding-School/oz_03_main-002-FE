@@ -31,8 +31,8 @@ const RecipeDetail: React.FC<RecipeDetailProps> = ({ recipes }) => {
   return (
     <div
       {...handlers}
-      id="recipeDetial-container"
-      className="h-auto bg-slate-50"
+      id="recipeDetail-container"
+      className="h-[752px] bg-slate-50 overflow-scroll scroll_custom scroll_custom:hover"
     >
       {/* 서브 헤더 */}
       <div
@@ -54,7 +54,7 @@ const RecipeDetail: React.FC<RecipeDetailProps> = ({ recipes }) => {
           className="size-full"
         />
       </div>
-      <div id="recipeDetail-list" className="size-full bg-slate-100 pt-3">
+      <div id="recipeDetail-list" className="bg-gray-100 pt-3">
         <div className="size-full mb-4 rounded-3xl bg-white p-5">
           <h2 className="text-2xl font-bold">
             {recipe.recipeSummary.recipeName}
@@ -81,23 +81,27 @@ const RecipeDetail: React.FC<RecipeDetailProps> = ({ recipes }) => {
           <h3 className="text-xl font-semibold">재료</h3>
           <hr className="my-2 bg-gray-700 h-0.5" />
           <div className="list-outside">
-            {recipe.ingredients.map((ingredientDetail) => (
-              <ul
-                key={ingredientDetail.ingredient.id}
-                className="pb-2 pt-2 flex justify-between border-b-[1px]"
-              >
-                <li className="w-[100px] ">
-                  {ingredientDetail.ingredient.originName}
-                </li>
-
-                <li className="w-[60px]">
-                  {ingredientDetail.ingredientQuantity}g
-                </li>
-                <button className="bg-gray-200 w-[50px] rounded-3xl">
-                  구매
-                </button>
-              </ul>
-            ))}
+            {recipe.ingredients
+              .filter(
+                (ingredientDetail) =>
+                  ingredientDetail.ingredient.originName.length <= 3,
+              )
+              .map((ingredientDetail) => (
+                <ul
+                  key={ingredientDetail.ingredient.id}
+                  className="pb-2 pt-2 flex justify-between border-b-[1px]"
+                >
+                  <li className="w-[100px] ">
+                    {ingredientDetail.ingredient.originName}
+                  </li>
+                  <li className="w-[60px]">
+                    {ingredientDetail.ingredientQuantity}g
+                  </li>
+                  <button className="bg-gray-200 w-[50px] rounded-3xl">
+                    구매
+                  </button>
+                </ul>
+              ))}
           </div>
         </div>
         <div className="size-full mb-4 rounded-3xl bg-white p-5">
