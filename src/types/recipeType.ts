@@ -1,8 +1,8 @@
 import { Ingredient } from './ingredientType';
 
-type OptionalCategoryIngredient = Omit<Ingredient, 'category'> & {
-  category?: string;
-};
+// type OptionalCategoryIngredient = Omit<Ingredient, 'category'> & {
+//   category?: string;
+// };
 
 export interface RecipeSummary {
   id: number;
@@ -12,14 +12,16 @@ export interface RecipeSummary {
 }
 
 export interface RecipeDetailType {
-  recipeSummary: RecipeSummary;
+  id: number;
+  recipeName: string;
+  recipeImgURL: string;
   instructions: string;
   description: string; // 오타 수정
   cookingTime: number;
   cookingLevel: string;
   servings: number;
   ingredients: {
-    ingredient: OptionalCategoryIngredient;
+    ingredient: Ingredient;
     ingredientQuantity: number;
   }[];
 }

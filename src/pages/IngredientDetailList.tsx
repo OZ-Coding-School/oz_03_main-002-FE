@@ -10,8 +10,8 @@ import { FridgeIngredient } from '../types/ingredientType';
 
 function InfoItem({ label, value }: { label: string; value: string }) {
   return (
-    <div className="flex justify-between items-center py-3 border-b border-gray-200 last:border-b-0">
-      <span className="text-gray-600">{label}</span>
+    <div className="flex justify-between text-md items-center py-3 border-b border-gray-200 last:border-b-0">
+      <span className="text-gray-800">{label}</span>
       <span className="font-semibold">{value}</span>
     </div>
   );
@@ -100,7 +100,7 @@ function IngredientDetailList() {
         )}
       </AnimatePresence>
 
-      <div className="w-full max-w-md h-full max-h-[844px] flex flex-col bg-white border-gray-500 rounded-3xl shadow-xl overflow-hidden">
+      <div className="w-full max-w-md h-full max-h-[844px] flex flex-col bg-white border-gray-300 rounded-3xl shadow-2xl overflow-hidden">
         <div className="flex flex-col p-4 bg-white shadow">
           <div className="flex items-center mb-2">
             <motion.button
@@ -111,14 +111,14 @@ function IngredientDetailList() {
             >
               <RiArrowLeftSLine size={24} />
             </motion.button>
-            <h2 className="text-lg font-bold">재료 상세 정보</h2>
+            <h2 className="text-lg font-bold text-gray-800">재료 상세 정보</h2>
           </div>
         </div>
         <div className="flex-1 overflow-y-auto p-4">
-          <div className="p-4 mb-4 bg-white border-gray-500 rounded-2xl shadow-2xl">
-            <h3 className="text-xl font-bold mb-4">
+          <div className="p-4 mb-4 bg-white border border-gray-200 rounded-2xl shadow-lg">
+            <h2 className="text-lg font-bold mb-4 text-gray-800">
               {ingredient.fridgeIngreName}
-            </h3>
+            </h2>
             <InfoItem
               label="소비기한"
               value={ingredient.expirationDate || '정보 없음'}
@@ -170,7 +170,7 @@ function IngredientDetailList() {
 
         <div className="p-4 space-y-2">
           <motion.button
-            className="w-full bg-sky-500 text-white rounded-lg py-3 px-4 text-sm font-semibold hover:bg-sky-600 active:bg-sky-700 transition duration-150 ease-in-out shadow-md"
+            className="w-full bg-blue-500 text-white rounded-lg py-3 px-4 text-md hover:bg-blud-600 active:bg-blud-700 transition duration-150 ease-in-out"
             onClick={handleEdit}
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
@@ -179,7 +179,7 @@ function IngredientDetailList() {
             수정
           </motion.button>
           <motion.button
-            className="w-full bg-red-400 text-white rounded-lg py-3 px-4 text-sm font-semibold hover:bg-red-500 active:bg-red-600 transition duration-150 ease-in-out shadow-md"
+            className="w-full bg-custom-red text-white rounded-lg py-3 px-4 text-md hover:bg-red-600 active:bg-red-700 transition duration-150 ease-in-out"
             onClick={() => setIsDeleteModalOpen(true)}
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}

@@ -62,7 +62,7 @@ function FridgeItem({ item }: FridgeItemProps) {
           type="button"
           aria-label="select"
           onClick={toggleSelector}
-          className="absolute w-6 h-6 top-2 right-2 text-xl text-slate-800"
+          className="absolute w-6 h-6 top-2 right-2 text-lg"
         >
           <IoEllipsisVerticalCircle />
         </button>
@@ -71,12 +71,12 @@ function FridgeItem({ item }: FridgeItemProps) {
       <button
         type="button"
         aria-label="moveToIngredientViewPage"
-        className="m-3  bg-amber-700/40 rounded-2xl py-1 px-16 self-center"
+        className="m-3 bg-amber-700/40 rounded-2xl py-1 px-16 self-center"
       >
         <Link to="/IngredientView">재료 관리</Link>
       </button>
       {isSelector && (
-        <div className="flex flex-col absolute top-8 right-4 px-4 py-1 text-xs bg-white  rounded-md z-10 border border-sky-400">
+        <div className="flex flex-col absolute top-8 right-4 px-4 py-1 text-xs bg-white rounded-md z-10 border border-sky-400">
           <button
             type="button"
             aria-label="Edit Fridge"

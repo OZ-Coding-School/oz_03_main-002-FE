@@ -70,9 +70,9 @@ function Signup() {
 
   // 공통 Tailwind CSS 클래스명 변수로 추출
   const inputClassName =
-    'appearance-none block w-full px-3 h-12 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-lg';
-  const labelClassName = 'block text-sm font-bold text-gray-700';
-  const errorClassName = 'text-red-500 text-xs mt-2';
+    'appearance-none block w-full px-3 h-12 py-2 border border-gray-300 rounded-md placeholder-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-lg';
+  const labelClassName = 'block text-sm font-bold';
+  const errorClassName = 'text-custom-red text-xs mt-2';
 
   return (
     <div id="signup-container">
@@ -82,7 +82,7 @@ function Signup() {
             회원가입
           </h2>
           <div className="flex w-full items-center py-2 gap-2.5">
-            <div className="relative w-44 [font-family:'SF_Pro_Text-Regular',Helvetica] font-normal text-black text-sm tracking-[0] leading-[normal]">
+            <div className="relative w-44 font-normal text-md tracking-[0] leading-[normal]">
               정보를 입력해 주세요.
             </div>
           </div>
@@ -125,7 +125,7 @@ function Signup() {
               />
               <button
                 type="button"
-                className="absolute top-3.5 right-4 text-xl text-slate-700"
+                className="absolute top-3.5 right-4 text-xl text-gray-700"
                 onClick={toggleHidePassword}
               >
                 {hidePassword ? <FaRegEye /> : <FaRegEyeSlash />}
@@ -176,15 +176,18 @@ function Signup() {
           <div className="space-y-3">
             <button
               type="submit"
-              className="w-full h-12 flex justify-center items-center py-2 px-4 border rounded-full border-transparent shadow-sm text-sm font-medium text-white bg-amber-500 hover:bg-amber-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-amber-500"
+              className="w-full h-12 flex justify-center items-center py-2 px-4 border rounded-full border-transparent shadow-sm text-sm font-medium text-white bg-custom-yellow hover:bg-amber-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-amber-500"
             >
               회원가입
             </button>
           </div>
         </form>
-        <p className="relative w-full py-12 text-center [font-family:'SF_Pro_Text-Regular',Helvetica] font-normal text-sm tracking-[0] leading-[normal] ">
+        <p className="relative w-full py-12 text-center font-medium text-sm tracking-[0] leading-[normal] ">
           이미 회원이신가요?{' '}
-          <Link to="/login" className="text-[#4340f2] underline">
+          <Link
+            to="/login"
+            className="text-sky-600 hover:text-sky-500 underline"
+          >
             로그인으로 돌아가기
           </Link>
         </p>
