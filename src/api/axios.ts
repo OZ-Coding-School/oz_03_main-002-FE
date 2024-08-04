@@ -2,7 +2,7 @@ import axios from 'axios';
 // import useAuthStore from '../store/useAuthStore';
 
 const instance = axios.create({
-  baseURL: 'https://api.naengttogi.com/',
+  baseURL: import.meta.env.VITE_API_BASE_URL,
   headers: {
     'Content-Type': 'application/json',
   },
