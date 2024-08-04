@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import SHA256 from 'crypto-js/sha256';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import GoogleIcon from '../assets/google-icon.svg';
 import useAuthStore from '../store/useAuthStore';
 
@@ -10,9 +10,9 @@ function Login() {
   const [password, setPassword] = useState('');
   const [isEmailLogin, setIsEmailLogin] = useState(false);
 
-  const googleLogin = useAuthStore((state) => state.googleLogin);
+  // const googleLogin = useAuthStore((state) => state.googleLogin);
   const login = useAuthStore((state) => state.login);
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const [errors, setErrors] = useState({
     id: '',
@@ -63,12 +63,14 @@ function Login() {
   const errorClassName = 'text-red-500 text-xs mt-2';
 
   const handleGoogleLogin = async () => {
-    try {
-      await googleLogin();
-      navigate('/fridges'); // 로그인 후 이동할 페이지 경로 설정
-    } catch (error) {
-      console.error('Google login failed:', error);
-    }
+    window.location.href = `${import.meta.env.VITE_API_BASE_URL}/v1/google/login`;
+
+    // try {
+    //   await googleLogin();
+    //   // navigate('/fridges'); // 로그인 후 이동할 페이지 경로 설정
+    // } catch (error) {
+    //   console.error('Google login failed:', error);
+    // }
   };
 
   return (
