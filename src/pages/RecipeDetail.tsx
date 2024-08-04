@@ -18,7 +18,7 @@ function RecipeDetail() {
     const fetchRecipe = async () => {
       try {
         const response = await axios.get<RecipeDetailType>(
-          `http://localhost:3000/recipes/${id}`,
+          `https://api.naengttogi.com/api/v1/recipe/recipes/${id}/detail_recipe/`,
         );
         setRecipe(response.data);
       } catch (error) {

@@ -23,3 +23,13 @@ export interface SelectedIngredient extends Ingredient {
   createdDate: string;
   expirationDate: string;
 }
+
+export interface TemporaryIngredient {
+  id: number;
+  name: string;
+  is_custom: boolean;
+  major: string;
+  middle?: string;
+  sub?: string;
+  created_by?: string;
+}
