@@ -1,0 +1,38 @@
+name: Deploy to S3
+
+on:
+  push:
+    branches: ['main']
+  pull_request:
+    branches: ['main']
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18.x
+          cache: 'npm'
+          cache-dependency-path: ./package-lock.json
+
+      - name: Install dependencies
+        run: npm install --production
+
+      - name: Build
+        run: npm run build --if-present
+
+      - name: Deploy to S3
+        uses: awact/s3-action@master
+        with:
+          args: --acl public-read --delete
+        env:
+          SOURCE_DIR: './dist'
+          AWS_REGION: 'ap-northeast-2'
+          AWS_S3_BUCKET: ${{ AWS_S3_BUCKET }}
+          AWS_ACCESS_KEY_ID: ${{ AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ AWS_SECRET_ACCESS_KEY }}

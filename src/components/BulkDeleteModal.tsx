@@ -37,7 +37,7 @@ function BulkDeleteModal({
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
-        className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center backdrop-blur-sm z-50"
+        className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
       >
         {/* modal 내용 스타일 정의 */}
         <motion.div
@@ -45,20 +45,20 @@ function BulkDeleteModal({
           animate={{ scale: 1, opacity: 1 }}
           exit={{ scale: 0.9, opacity: 0 }}
           transition={{ duration: 0.2 }}
-          className="bg-white p-4 rounded-lg shadow-xl max-w-md w-full mx-4"
+          className="bg-white p-4 rounded-lg max-w-md w-full mx-4"
         >
           {/* modal 제목 스타일 정의 */}
-          <h3 className="text-base font-bold mb-3">
+          <h3 className="text-lg font-bold mb-4">
             {isWarning ? '알림' : '재료 일괄 삭제'}
           </h3>
 
           {/* modal 내용 스타일 정의 */}
           {isWarning ? (
-            <p className="mb-4 text-sm">
+            <p className="mb-4 text-md">
               재료가 최소 1개 이상 선택되어야 삭제할 수 있어요.
             </p>
           ) : (
-            <p className="mb-4 text-sm">
+            <p className="mb-4 text-md">
               선택한 {selectedIngredients.length}개의 재료를 삭제하시겠습니까?
             </p>
           )}
@@ -72,9 +72,9 @@ function BulkDeleteModal({
               className={`${
                 isWarning
                   ? 'bg-blue-500 hover:bg-blue-600 text-white'
-                  : 'bg-gray-300 hover:bg-gray-400 text-gray-700'
-              } rounded-lg py-2 px-4 text-sm flex flex-col items-center ${
-                isWarning ? 'w-full' : 'mr-2 w-1/2'
+                  : 'bg-custom-gray-3 hover:bg-gray-300 text-gray-700'
+              } rounded-lg py-2 px-4 text-md flex flex-col items-center ${
+                isWarning ? 'w-full' : 'mr-4 w-1/2'
               }`}
               whileHover={{
                 scale: 1.02,
@@ -97,7 +97,7 @@ function BulkDeleteModal({
               <motion.button
                 type="button"
                 onClick={onConfirm}
-                className="bg-red-400 hover:bg-red-500 text-white rounded-lg py-2 px-4 text-sm flex flex-col items-center w-1/2"
+                className="bg-custom-red hover:bg-red-700 text-white rounded-lg py-2 px-4 text-md flex flex-col items-center w-1/2"
                 whileHover={{
                   scale: 1.02,
                   boxShadow: '0px 5px 15px rgba(0,0,0,0.1)',

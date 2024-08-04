@@ -18,6 +18,12 @@ export default {
         secondary: {
           light: '',
         },
+        'custom-red': '#FC4B4E',
+        'custom-yellow': '#FEC740',
+        'custom-gray-1': '#8A949F',
+        'custom-gray-2': '#B7BDC4',
+        'custom-gray-3': '#E4E6E9',
+        'custom-gray-4': '#F4F5F5',
       },
     },
   },

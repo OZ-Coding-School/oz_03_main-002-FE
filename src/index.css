@@ -82,11 +82,27 @@
     scrollbar-color: rgba(0, 0, 0, 0.2) transparent !important;
     scrollbar-width: thin;
   }
+
   .scroll_custom:hover {
     scrollbar-color: rgba(0, 0, 0, 0.4) transparent !important;
   }
+
+  .no-horizontal-scroll {
+    overflow-x: hidden;
+  }
+
   .skeleton {
     @apply animate-shimmer bg-gradient-custom;
+  }
+}
+
+@layer utilities {
+  .placeholder-text {
+    @apply text-sm;
+  }
+
+  input::placeholder {
+    @apply placeholder-text;
   }
 }
 

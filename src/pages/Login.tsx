@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import SHA256 from 'crypto-js/sha256';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import GoogleIcon from '../assets/google-icon.svg';
 import useAuthStore from '../store/useAuthStore';
 
@@ -10,7 +10,10 @@ function Login() {
   const [password, setPassword] = useState('');
   const [isEmailLogin, setIsEmailLogin] = useState(false);
 
+  const googleLogin = useAuthStore((state) => state.googleLogin);
   const login = useAuthStore((state) => state.login);
+  const navigate = useNavigate();
+
   const [errors, setErrors] = useState({
     id: '',
     password: '',
@@ -59,14 +62,20 @@ function Login() {
 
   const errorClassName = 'text-red-500 text-xs mt-2';
 
-  const handleGoogleLogin = () => {};
+  const handleGoogleLogin = async () => {
+    try {
+      await googleLogin();
+      navigate('/fridges'); // 로그인 후 이동할 페이지 경로 설정
+    } catch (error) {
+      console.error('Google login failed:', error);
+    }
+  };
+
   return (
     <div id="signup-container">
       <div className="flex flex-col justify-center py-3 px-8 mt-10">
         <div className="sm:mx-auto sm:w-full sm:max-w-md">
-          <h2 className="text-left text-3xl font-normal text-gray-900">
-            로그인
-          </h2>
+          <h2 className="text-left text-3xl font-normal">로그인</h2>
         </div>
       </div>
       <div className="py-8 ml-5 mr-5 px-4">
@@ -87,7 +96,7 @@ function Login() {
                     type="text"
                     required
                     placeholder="이메일을 입력해주세요."
-                    className="appearance-none block w-full h-12 px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-lg"
+                    className="appearance-none block w-full h-12 px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-lg"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                   />
@@ -98,10 +107,7 @@ function Login() {
               </>
             ) : (
               <>
-                <label
-                  htmlFor="id"
-                  className="block text-sm mr-10 font-bold text-gray-700"
-                >
+                <label htmlFor="id" className="block text-sm mr-10 font-bold">
                   아이디
                 </label>
                 <div className="mt-1">
@@ -111,7 +117,7 @@ function Login() {
                     type="text"
                     required
                     placeholder="아이디를 입력해주세요."
-                    className="appearance-none block w-full h-12 px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-lg"
+                    className="appearance-none block w-full h-12 px-3 py-2 border border-gray-300 rounded-md placeholder-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-lg"
                     value={id}
                     onChange={(e) => setId(e.target.value)}
                   />
@@ -121,10 +127,7 @@ function Login() {
             )}
           </div>
           <div>
-            <label
-              htmlFor="password"
-              className="block text-sm font-bold text-gray-700"
-            >
+            <label htmlFor="password" className="block text-sm font-bold">
               비밀번호
             </label>
             <div className="mt-1">
@@ -134,7 +137,7 @@ function Login() {
                 type="password"
                 required
                 placeholder="비밀번호를 입력해주세요."
-                className="appearance-none block w-full px-3 h-12 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-lg"
+                className="appearance-none block w-full px-3 h-12 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-300 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-lg"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
@@ -147,14 +150,14 @@ function Login() {
           <div className="space-y-3">
             <button
               type="submit"
-              className="w-full h-12 flex justify-center items-center py-2 px-4 border rounded-full border-transparent shadow-sm text-sm font-medium text-white bg-amber-500 hover:bg-amber-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-amber-500"
+              className="w-full h-12 flex justify-center items-center py-2 px-4 border rounded-full border-transparent text-md font-medium text-white bg-custom-yellow hover:bg-amber-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-amber-500"
             >
               로그인
             </button>
             <button
               onClick={handleGoogleLogin}
               type="button"
-              className="w-full h-12 flex justify-center items-center py-2 px-4 border border-gray-300 rounded-full shadow-sm bg-white text-sm font-medium text-gray-500 hover:bg-gray-50"
+              className="w-full h-12 flex justify-center items-center py-2 px-4 border border-gray-300 rounded-full bg-white text-sm font-medium text-gray-500 hover:bg-gray-100"
             >
               <img src={GoogleIcon} alt="Google" className="w-5 h-5 mr-2" />
               Google 계정으로 로그인

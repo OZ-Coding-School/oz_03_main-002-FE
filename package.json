@@ -6,7 +6,7 @@
   "proxy": "http://localhost:3000",
   "scripts": {
     "start": "concurrently \"npm run server\" \"npm run client\"",
-    "server": "json-server --watch src/data/fridgeData.json --port 3000",
+    "server": "json-server --watch src/data/recipeData.json --port 3000",
     "client": "vite",
     "dev": "vite",
     "build": "tsc -b && vite build",
@@ -18,11 +18,15 @@
   "dependencies": {
     "@eslint/config-array": "^0.17.0",
     "@eslint/object-schema": "^2.1.4",
+    "@fortawesome/free-solid-svg-icons": "^6.6.0",
+    "@fortawesome/react-fontawesome": "^0.2.2",
     "axios": "^1.7.2",
+    "cors": "^2.8.5",
     "crypto-js": "^4.2.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-airbnb-typescript": "^18.0.0",
+    "express": "^4.19.2",
     "framer-motion": "^11.3.7",
     "i": "^0.3.7",
     "react": "^18.3.1",
@@ -32,6 +36,7 @@
     "react-infinite-scroll-component": "^6.1.0",
     "react-router": "^6.25.1",
     "react-router-dom": "^6.24.1",
+    "react-swipeable": "^7.0.1",
     "uuid": "^10.0.0",
     "zustand": "^4.5.4"
   },

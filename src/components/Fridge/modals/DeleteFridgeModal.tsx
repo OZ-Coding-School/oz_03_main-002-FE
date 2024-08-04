@@ -1,5 +1,5 @@
-import { Refrigerator } from '../../../types/fridgeType.tsx';
 import { motion } from 'framer-motion';
+import { Refrigerator } from '../../../types/fridgeType.tsx';
 
 type DeleteFridgeModalProps = {
   existingData: Refrigerator;
