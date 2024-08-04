@@ -1,0 +1,42 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - feature/*
+      - develop
+      - main
+  pull_request:
+    branches:
+      - develop
+      - feature/*
+      - main
+
+jobs:
+  lint:
+    name: Lint Code Base
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+
+      - name: Cache node modules
+        uses: actions/cache@v3
+        id: cache-npm
+        with:
+          path: node_modules
+          key: npm-packages-${{ hashFiles('**/package-lock.json') }}
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run lint
+        run: npm run lint -- --quiet
+
+      - name: Build
+        run: npm run build

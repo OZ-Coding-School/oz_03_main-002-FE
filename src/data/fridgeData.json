@@ -1,0 +1,469 @@
+{
+  "fridges": [
+    {
+      "id": "1",
+      "fridgeName": "주방 냉장고",
+      "ingreList": [
+        {
+          "id": 1,
+          "ingreName": "당근",
+          "quantity": 3,
+          "expirationDate": "2024-08-01"
+        },
+        {
+          "id": 2,
+          "ingreName": "삼겹살",
+          "quantity": 3,
+          "expirationDate": "2024-08-01",
+          "weight": 600
+        },
+        {
+          "id": 3,
+          "ingreName": "김치",
+          "quantity": 1,
+          "expirationDate": "2024-12-01"
+        },
+        {
+          "id": 4,
+          "ingreName": "양파",
+          "quantity": 5,
+          "expirationDate": "2024-08-10"
+        },
+        {
+          "id": 5,
+          "ingreName": "소고기",
+          "quantity": 2,
+          "expirationDate": "2024-08-05",
+          "weight": 500
+        },
+        {
+          "id": 6,
+          "ingreName": "배추",
+          "quantity": 2,
+          "expirationDate": "2024-07-25"
+        },
+        {
+          "id": 7,
+          "ingreName": "계란말이",
+          "quantity": 4,
+          "expirationDate": "2024-07-22"
+        },
+        {
+          "id": 8,
+          "ingreName": "돼지갈비",
+          "quantity": 3,
+          "expirationDate": "2024-08-03",
+          "weight": 700
+        },
+        {
+          "id": 9,
+          "ingreName": "오이",
+          "quantity": 6,
+          "expirationDate": "2024-07-27"
+        },
+        {
+          "id": 10,
+          "ingreName": "멸치볶음",
+          "quantity": 1,
+          "expirationDate": "2024-08-15"
+        }
+      ],
+      "createAt": "2023-01-01 12:00:00",
+      "updateAt": "2023-01-10 15:12:30"
+    },
+    {
+      "id": "2",
+      "fridgeName": "베란다 냉장고",
+      "ingreList": [
+        {
+          "id": 1,
+          "ingreName": "아몬드",
+          "quantity": 3,
+          "expirationDate": "2025-07-19"
+        },
+        {
+          "id": 2,
+          "ingreName": "호두",
+          "quantity": 2,
+          "expirationDate": "2025-07-19"
+        },
+        {
+          "id": 3,
+          "ingreName": "캐슈넛",
+          "quantity": 1,
+          "expirationDate": "2025-07-19"
+        },
+        {
+          "id": 4,
+          "ingreName": "땅콩",
+          "quantity": 5,
+          "expirationDate": "2025-07-19"
+        },
+        {
+          "id": 5,
+          "ingreName": "아몬드 가루",
+          "quantity": 1,
+          "expirationDate": "2025-01-19"
+        },
+        {
+          "id": 6,
+          "ingreName": "밀가루",
+          "quantity": 2,
+          "expirationDate": "2025-01-19"
+        },
+        {
+          "id": 7,
+          "ingreName": "쌀가루",
+          "quantity": 3,
+          "expirationDate": "2025-01-19"
+        },
+        {
+          "id": 8,
+          "ingreName": "고춧가루",
+          "quantity": 1,
+          "expirationDate": "2025-01-19"
+        },
+        {
+          "id": 9,
+          "ingreName": "김",
+          "quantity": 10,
+          "expirationDate": "2025-07-19"
+        },
+        {
+          "id": 10,
+          "ingreName": "건새우",
+          "quantity": 2,
+          "expirationDate": "2025-07-19"
+        },
+        {
+          "id": 11,
+          "ingreName": "건멸치",
+          "quantity": 5,
+          "expirationDate": "2025-07-19"
+        },
+        {
+          "id": 12,
+          "ingreName": "건오징어",
+          "quantity": 3,
+          "expirationDate": "2025-07-19"
+        },
+        {
+          "id": 13,
+          "ingreName": "건조 대구포",
+          "quantity": 4,
+          "expirationDate": "2025-07-19"
+        },
+        {
+          "id": 14,
+          "ingreName": "간장",
+          "quantity": 1,
+          "expirationDate": "2026-07-19"
+        },
+        {
+          "id": 15,
+          "ingreName": "된장",
+          "quantity": 1,
+          "expirationDate": "2025-07-19"
+        },
+        {
+          "id": 16,
+          "ingreName": "고추장",
+          "quantity": 1,
+          "expirationDate": "2025-07-19"
+        },
+        {
+          "id": 17,
+          "ingreName": "청국장",
+          "quantity": 1,
+          "expirationDate": "2025-07-19"
+        },
+        {
+          "id": 18,
+          "ingreName": "굴소스",
+          "quantity": 1,
+          "expirationDate": "2026-07-19"
+        },
+        {
+          "id": 19,
+          "ingreName": "칠리소스",
+          "quantity": 1,
+          "expirationDate": "2026-07-19"
+        },
+        {
+          "id": 20,
+          "ingreName": "간장소스",
+          "quantity": 1,
+          "expirationDate": "2026-07-19"
+        }
+      ],
+      "createAt": "2023-02-01 13:00:12",
+      "updateAt": "2023-02-10 15:12:30"
+    },
+    {
+      "id": "3",
+      "fridgeName": "김치 냉장고",
+      "ingreList": [
+        {
+          "id": 1,
+          "ingreName": "사과",
+          "quantity": 5,
+          "expirationDate": "2024-08-01"
+        },
+        {
+          "id": 2,
+          "ingreName": "바나나",
+          "quantity": 6,
+          "expirationDate": "2024-07-25"
+        },
+        {
+          "id": 3,
+          "ingreName": "오렌지 주스",
+          "quantity": 2,
+          "expirationDate": "2024-08-05"
+        },
+        {
+          "id": 4,
+          "ingreName": "콜라",
+          "quantity": 10,
+          "expirationDate": "2025-01-01"
+        },
+        {
+          "id": 5,
+          "ingreName": "맥주",
+          "quantity": 8,
+          "expirationDate": "2025-12-01"
+        },
+        {
+          "id": 6,
+          "ingreName": "와인",
+          "quantity": 3,
+          "expirationDate": "2026-07-19"
+        },
+        {
+          "id": 7,
+          "ingreName": "포도",
+          "quantity": 2,
+          "expirationDate": "2024-07-22"
+        },
+        {
+          "id": 8,
+          "ingreName": "레몬",
+          "quantity": 4,
+          "expirationDate": "2024-08-10"
+        }
+      ],
+      "createAt": "2023-01-01 15:12:30",
+      "updateAt": "2023-01-10 15:12:30"
+    },
+    {
+      "id": "4",
+      "fridgeName": "대비마마 납시오",
+      "ingreList": [],
+      "createAt": "2024-07-23",
+      "updateAt": "2024-07-23",
+      "isActivate": true,
+      "updatedAt": "2024-07-23T13:59:03.725Z"
+    },
+    {
+      "id": "5",
+      "fridgeName": "미미뿌꾸",
+      "ingreList": [],
+      "createAt": "2024-07-23",
+      "updateAt": "2024-07-23",
+      "isActivate": true,
+      "updatedAt": "2024-07-23T13:59:14.997Z"
+    }
+  ],
+  "ingredient": [
+    {
+      "id": "201",
+      "originName": "토마토",
+      "category": "채소",
+      "mdCategory": "신선",
+      "sbCategory": "빨강"
+    },
+    {
+      "id": "202",
+      "originName": "닭가슴살",
+      "category": "고기",
+      "mdCategory": "가금류",
+      "sbCategory": ""
+    },
+    {
+      "id": "203",
+      "originName": "양파",
+      "category": "채소",
+      "mdCategory": "",
+      "sbCategory": ""
+    },
+    {
+      "id": "204",
+      "originName": "돼지고기",
+      "category": "고기",
+      "mdCategory": "육류",
+      "sbCategory": ""
+    },
+    {
+      "id": "205",
+      "originName": "감자",
+      "category": "채소",
+      "mdCategory": "뿌리채소",
+      "sbCategory": ""
+    },
+    {
+      "id": "206",
+      "originName": "소고기",
+      "category": "고기",
+      "mdCategory": "육류",
+      "sbCategory": ""
+    },
+    {
+      "id": "207",
+      "originName": "마늘",
+      "category": "채소",
+      "mdCategory": "향신료",
+      "sbCategory": ""
+    },
+    {
+      "id": "208",
+      "originName": "새우",
+      "category": "해산물",
+      "mdCategory": "갑각류",
+      "sbCategory": ""
+    },
+    {
+      "id": "209",
+      "originName": "양배추",
+      "category": "채소",
+      "mdCategory": "잎채소",
+      "sbCategory": ""
+    },
+    {
+      "id": "210",
+      "originName": "연어",
+      "category": "해산물",
+      "mdCategory": "생선",
+      "sbCategory": ""
+    },
+    {
+      "id": "211",
+      "originName": "고구마",
+      "category": "채소",
+      "mdCategory": "뿌리채소",
+      "sbCategory": ""
+    }
+  ],
+  "fridges_ingredient": [
+    {
+      "id": "101",
+      "fridgeId": "1",
+      "fridgeIngreName": "토마토",
+      "expirationDate": "2024-02-01",
+      "createdDate": "2024-01-01",
+      "weight": "500",
+      "quantity": "5",
+      "memo": ""
+    },
+    {
+      "id": "102",
+      "fridgeId": "1",
+      "fridgeIngreName": "닭가슴살",
+      "expirationDate": "2024-01-20",
+      "createdDate": "2024-01-02",
+      "weight": "300",
+      "quantity": "2",
+      "memo": ""
+    },
+    {
+      "id": "103",
+      "fridgeId": "1",
+      "fridgeIngreName": "양파",
+      "expirationDate": "2024-02-05",
+      "createdDate": "2024-01-05",
+      "weight": "1000",
+      "quantity": "10",
+      "memo": ""
+    },
+    {
+      "id": "104",
+      "fridgeId": "1",
+      "fridgeIngreName": "돼지고기",
+      "expirationDate": "2024-01-25",
+      "createdDate": "2024-01-06",
+      "weight": "800",
+      "quantity": "3",
+      "memo": ""
+    },
+    {
+      "id": "105",
+      "fridgeId": "1",
+      "fridgeIngreName": "감자",
+      "expirationDate": "2024-02-10",
+      "createdDate": "2024-01-07",
+      "weight": "1500",
+      "quantity": "8",
+      "memo": ""
+    },
+    {
+      "id": "106",
+      "fridgeId": "1",
+      "fridgeIngreName": "소고기",
+      "expirationDate": "2024-01-30",
+      "createdDate": "2024-01-10",
+      "weight": "600",
+      "quantity": "4",
+      "memo": ""
+    },
+    {
+      "id": "107",
+      "fridgeId": "1",
+      "fridgeIngreName": "마늘",
+      "expirationDate": "2024-02-12",
+      "createdDate": "2024-01-12",
+      "weight": "15",
+      "quantity": "200",
+      "memo": ""
+    },
+    {
+      "id": "108",
+      "fridgeId": "2",
+      "fridgeIngreName": "새우",
+      "expirationDate": "2024-01-25",
+      "createdDate": "2024-01-15",
+      "weight": "400",
+      "quantity": "12",
+      "memo": ""
+    },
+    {
+      "id": "109",
+      "fridgeId": "2",
+      "fridgeIngreName": "양배추",
+      "expirationDate": "2024-02-18",
+      "createdDate": "2024-01-18",
+      "weight": "1000",
+      "quantity": "2",
+      "memo": ""
+    },
+    {
+      "id": "110",
+      "fridgeId": "1",
+      "fridgeIngreName": "연어",
+      "expirationDate": "2024-01-30",
+      "createdDate": "2024-01-20",
+      "weight": "500",
+      "quantity": "1",
+      "memo": ""
+    },
+    {
+      "id": "111",
+      "fridgeId": "2",
+      "fridgeIngreName": "고구마",
+      "expirationDate": "2024-02-22",
+      "createdDate": "2024-01-22",
+      "weight": "700",
+      "quantity": "7",
+      "memo": ""
+    }
+  ],
+  "recipe": []
+}

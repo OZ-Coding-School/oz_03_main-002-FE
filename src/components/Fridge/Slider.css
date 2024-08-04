@@ -1,0 +1,63 @@
+.slider-container {
+  position: relative;
+  width: 100%;
+  height: 180px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.slider-content {
+  position: absolute;
+  display: grid; /* flex에서 grid로 변경 */
+  grid-template-columns: repeat(2, 1fr); /* 2열 그리드 */
+  grid-template-rows: repeat(2, 1fr); /* 2행 그리드 */
+  gap: 15px; /* 아이템 간의 간격 설정 */
+  width: 100%;
+  padding: 10px 15px 20px 15px;
+}
+
+.slider-item,
+.empty-item {
+  background-color: #ffffff;
+  /* border: 0px solid #cccccc90; */
+  border-radius: 5px;
+  /* text-align: center; */
+  padding: 10px;
+  box-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 -2px 6px -1px rgba(0, 0, 0, 0.1);
+}
+.slider-item__name {
+  font-size: 0.75rem;
+}
+
+.slider-item__blank {
+  height: 15px;
+}
+
+.slider-item__date {
+  font-size: 0.6rem;
+}
+
+.dots-container {
+  position: absolute;
+  bottom: 3px;
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.dot {
+  width: 7px;
+  height: 7px;
+  margin: 0 5px;
+  background-color: #ccc;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.dot.active {
+  background-color: #007bff;
+}

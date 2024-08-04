@@ -1,0 +1,1354 @@
+{
+  "recipes": [
+    {
+      "id": 1,
+      "recipeName": "스파게티 볼로네제",
+      "recipeImgURL": "https://via.placeholder.com/800x600.png?text=Spaghetti+Bolognese",
+      "instructions": "1단계: 스파게티 볼로네제를 위한 재료를 준비합니다. 2단계: 요리 단계를 따릅니다. 3단계: 맛있는 식사를 즐기세요!1단계: 스파게티 볼로네제를 위한 재료를 준비합니다. 2단계: 요리 단계를 따릅니다. 3단계: 맛있는 식사를 즐기세요!1단계: 스파게티 볼로네제를 위한 재료를 준비합니다. 2단계: 요리 단계를 따릅니다. 3단계: 맛있는 식사를 즐기세요!1단계: 스파게티 볼로네제를 위한 재료를 준비합니다. 2단계: 요리 단계를 따릅니다. 3단계: 맛있는 식사를 즐기세요!1단계: 스파게티 볼로네제를 위한 재료를 준비합니다. 2단계: 요리 단계를 따릅니다. 3단계: 맛있는 식사를 즐기세요!1단계: 스파게티 볼로네제를 위한 재료를 준비합니다. 2단계: 요리 단계를 따릅니다. 3단계: 맛있는 식사를 즐기세요!1단계: 스파게티 볼로네제를 위한 재료를 준비합니다. 2단계: 요리 단계를 따릅니다. 3단계: 맛있는 식사를 즐기세요!",
+      "description": "스파게티 볼로네제는 어떤 경우에도 완벽한 맛있는 요리입니다. 만들기 쉽고 맛도 훌륭합니다.",
+      "cookingTime": 30,
+      "cookingLevel": "쉬움",
+      "servings": 2,
+      "ingredients": [
+        {
+          "id": 1,
+          "originName": "토마토",
+          "ingredientQuantity": 100
+        },
+        {
+          "id": 2,
+          "originName": "양파",
+          "ingredientQuantity": 200
+        },
+        {
+          "id": 3,
+          "originName": "마늘",
+          "ingredientQuantity": 150
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "recipeName": "치킨 커리",
+      "recipeImgURL": "https://via.placeholder.com/800x600.png?text=Chicken+Curry",
+      "instructions": "1단계: 치킨 커리를 위한 재료를 준비합니다. 2단계: 요리 단계를 따릅니다. 3단계: 맛있는 식사를 즐기세요!",
+      "description": "치킨 커리는 어떤 경우에도 완벽한 맛있는 요리입니다. 만들기 쉽고 맛도 훌륭합니다.",
+      "cookingTime": 35,
+      "cookingLevel": "중간",
+      "servings": 3,
+      "ingredients": [
+        {
+          "id": 2,
+          "originName": "양파",
+          "ingredientQuantity": 100
+        },
+        {
+          "id": 3,
+          "originName": "마늘",
+          "ingredientQuantity": 200
+        },
+        {
+          "id": 4,
+          "originName": "치킨",
+          "ingredientQuantity": 150
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "recipeName": "비프 스튜",
+      "recipeImgURL": "https://via.placeholder.com/800x600.png?text=Beef+Stew",
+      "instructions": "1단계: 비프 스튜를 위한 재료를 준비합니다. 2단계: 요리 단계를 따릅니다. 3단계: 맛있는 식사를 즐기세요!",
+      "description": "비프 스튜는 어떤 경우에도 완벽한 맛있는 요리입니다. 만들기 쉽고 맛도 훌륭합니다.",
+      "cookingTime": 40,
+      "cookingLevel": "어려움",
+      "servings": 4,
+      "ingredients": [
+        {
+          "id": 3,
+          "originName": "마늘",
+          "ingredientQuantity": 100
+        },
+        {
+          "id": 4,
+          "originName": "치킨",
+          "ingredientQuantity": 200
+        },
+        {
+          "id": 5,
+          "originName": "비프",
+          "ingredientQuantity": 150
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "recipeName": "갈릭 브레드",
+      "recipeImgURL": "https://via.placeholder.com/800x600.png?text=Garlic+Bread",
+      "instructions": "1단계: 갈릭 브레드를 위한 재료를 준비합니다. 2단계: 요리 단계를 따릅니다. 3단계: 맛있는 식사를 즐기세요!",
+      "description": "갈릭 브레드는 어떤 경우에도 완벽한 맛있는 요리입니다. 만들기 쉽고 맛도 훌륭합니다.",
+      "cookingTime": 45,
+      "cookingLevel": "쉬움",
+      "servings": 2,
+      "ingredients": [
+        {
+          "id": 4,
+          "originName": "치킨",
+          "ingredientQuantity": 100
+        },
+        {
+          "id": 5,
+          "originName": "비프",
+          "ingredientQuantity": 200
+        },
+        {
+          "id": 6,
+          "originName": "소금",
+          "ingredientQuantity": 150
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "recipeName": "토마토 수프",
+      "recipeImgURL": "https://via.placeholder.com/800x600.png?text=Tomato+Soup",
+      "instructions": "1단계: 토마토 수프를 위한 재료를 준비합니다. 2단계: 요리 단계를 따릅니다. 3단계: 맛있는 식사를 즐기세요!",
+      "description": "토마토 수프는 어떤 경우에도 완벽한 맛있는 요리입니다. 만들기 쉽고 맛도 훌륭합니다.",
+      "cookingTime": 50,
+      "cookingLevel": "중간",
+      "servings": 3,
+      "ingredients": [
+        {
+          "id": 5,
+          "originName": "비프",
+          "ingredientQuantity": 100
+        },
+        {
+          "id": 6,
+          "originName": "소금",
+          "ingredientQuantity": 200
+        },
+        {
+          "id": 7,
+          "originName": "후추",
+          "ingredientQuantity": 150
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "recipeName": "그릴드 치즈 샌드위치",
+      "recipeImgURL": "https://via.placeholder.com/800x600.png?text=Grilled+Cheese+Sandwich",
+      "instructions": "1단계: 그릴드 치즈 샌드위치를 위한 재료를 준비합니다. 2단계: 요리 단계를 따릅니다. 3단계: 맛있는 식사를 즐기세요!",
+      "description": "그릴드 치즈 샌드위치는 어떤 경우에도 완벽한 맛있는 요리입니다. 만들기 쉽고 맛도 훌륭합니다.",
+      "cookingTime": 55,
+      "cookingLevel": "어려움",
+      "servings": 4,
+      "ingredients": [
+        {
+          "id": 6,
+          "originName": "소금",
+          "ingredientQuantity": 100
+        },
+        {
+          "id": 7,
+          "originName": "후추",
+          "ingredientQuantity": 200
+        },
+        {
+          "id": 8,
+          "originName": "올리브 오일",
+          "ingredientQuantity": 150
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "recipeName": "팬케이크",
+      "recipeImgURL": "https://via.placeholder.com/800x600.png?text=Pancakes",
+      "instructions": "1단계: 팬케이크를 위한 재료를 준비합니다. 2단계: 요리 단계를 따릅니다. 3단계: 맛있는 식사를 즐기세요!",
+      "description": "팬케이크는 어떤 경우에도 완벽한 맛있는 요리입니다. 만들기 쉽고 맛도 훌륭합니다.",
+      "cookingTime": 60,
+      "cookingLevel": "쉬움",
+      "servings": 2,
+      "ingredients": [
+        {
+          "id": 7,
+          "originName": "후추",
+          "ingredientQuantity": 100
+        },
+        {
+          "id": 8,
+          "originName": "올리브 오일",
+          "ingredientQuantity": 200
+        },
+        {
+          "id": 9,
+          "originName": "버터",
+          "ingredientQuantity": 150
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "recipeName": "시저 샐러드",
+      "recipeImgURL": "https://via.placeholder.com/800x600.png?text=Caesar+Salad",
+      "instructions": "1단계: 시저 샐러드를 위한 재료를 준비합니다. 2단계: 요리 단계를 따릅니다. 3단계: 맛있는 식사를 즐기세요!",
+      "description": "시저 샐러드는 어떤 경우에도 완벽한 맛있는 요리입니다. 만들기 쉽고 맛도 훌륭합니다.",
+      "cookingTime": 65,
+      "cookingLevel": "중간",
+      "servings": 3,
+      "ingredients": [
+        {
+          "id": 8,
+          "originName": "올리브 오일",
+          "ingredientQuantity": 100
+        },
+        {
+          "id": 9,
+          "originName": "버터",
+          "ingredientQuantity": 200
+        },
+        {
+          "id": 10,
+          "originName": "밀가루",
+          "ingredientQuantity": 150
+        }
+      ]
+    },
+    {
+      "id": 9,
+      "recipeName": "라자냐",
+      "recipeImgURL": "https://via.placeholder.com/800x600.png?text=Lasagna",
+      "instructions": "1단계: 라자냐를 위한 재료를 준비합니다. 2단계: 요리 단계를 따릅니다. 3단계: 맛있는 식사를 즐기세요!",
+      "description": "라자냐는 어떤 경우에도 완벽한 맛있는 요리입니다. 만들기 쉽고 맛도 훌륭합니다.",
+      "cookingTime": 70,
+      "cookingLevel": "어려움",
+      "servings": 4,
+      "ingredients": [
+        {
+          "id": 9,
+          "originName": "버터",
+          "ingredientQuantity": 100
+        },
+        {
+          "id": 10,
+          "originName": "밀가루",
+          "ingredientQuantity": 200
+        },
+        {
+          "id": 11,
+          "originName": "설탕",
+          "ingredientQuantity": 150
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "recipeName": "볶음밥",
+      "recipeImgURL": "https://via.placeholder.com/800x600.png?text=Fried+Rice",
+      "instructions": "1단계: 볶음밥을 위한 재료를 준비합니다. 2단계: 요리 단계를 따릅니다. 3단계: 맛있는 식사를 즐기세요!",
+      "description": "볶음밥은 어떤 경우에도 완벽한 맛있는 요리입니다. 만들기 쉽고 맛도 훌륭합니다.",
+      "cookingTime": 75,
+      "cookingLevel": "쉬움",
+      "servings": 2,
+      "ingredients": [
+        {
+          "id": 10,
+          "originName": "밀가루",
+          "ingredientQuantity": 100
+        },
+        {
+          "id": 11,
+          "originName": "설탕",
+          "ingredientQuantity": 200
+        },
+        {
+          "id": 12,
+          "originName": "계란",
+          "ingredientQuantity": 150
+        }
+      ]
+    },
+    {
+      "id": 11,
+      "recipeName": "초콜릿 케이크",
+      "recipeImgURL": "https://via.placeholder.com/800x600.png?text=Chocolate+Cake",
+      "instructions": "1단계: 초콜릿 케이크를 위한 재료를 준비합니다. 2단계: 요리 단계를 따릅니다. 3단계: 맛있는 식사를 즐기세요!",
+      "description": "초콜릿 케이크는 어떤 경우에도 완벽한 맛있는 요리입니다. 만들기 쉽고 맛도 훌륭합니다.",
+      "cookingTime": 80,
+      "cookingLevel": "중간",
+      "servings": 3,
+      "ingredients": [
+        {
+          "id": 11,
+          "originName": "설탕",
+          "ingredientQuantity": 100
+        },
+        {
+          "id": 12,
+          "originName": "계란",
+          "ingredientQuantity": 200
+        },
+        {
+          "id": 13,
+          "originName": "우유",
+          "ingredientQuantity": 150
+        }
+      ]
+    },
+    {
+      "id": 12,
+      "recipeName": "미네스트로네 수프",
+      "recipeImgURL": "https://via.placeholder.com/800x600.png?text=Minestrone+Soup",
+      "instructions": "1단계: 미네스트로네 수프를 위한 재료를 준비합니다. 2단계: 요리 단계를 따릅니다. 3단계: 맛있는 식사를 즐기세요!",
+      "description": "미네스트로네 수프는 어떤 경우에도 완벽한 맛있는 요리입니다. 만들기 쉽고 맛도 훌륭합니다.",
+      "cookingTime": 85,
+      "cookingLevel": "어려움",
+      "servings": 4,
+      "ingredients": [
+        {
+          "id": 12,
+          "originName": "계란",
+          "ingredientQuantity": 100
+        },
+        {
+          "id": 13,
+          "originName": "우유",
+          "ingredientQuantity": 200
+        },
+        {
+          "id": 14,
+          "originName": "치즈",
+          "ingredientQuantity": 150
+        }
+      ]
+    },
+    {
+      "id": 13,
+      "recipeName": "타코",
+      "recipeImgURL": "https://via.placeholder.com/800x600.png?text=Taco",
+      "instructions": "1단계: 타코를 위한 재료를 준비합니다. 2단계: 요리 단계를 따릅니다. 3단계: 맛있는 식사를 즐기세요!",
+      "description": "타코는 어떤 경우에도 완벽한 맛있는 요리입니다. 만들기 쉽고 맛도 훌륭합니다.",
+      "cookingTime": 90,
+      "cookingLevel": "쉬움",
+      "servings": 2,
+      "ingredients": [
+        {
+          "id": 13,
+          "originName": "우유",
+          "ingredientQuantity": 100
+        },
+        {
+          "id": 14,
+          "originName": "치즈",
+          "ingredientQuantity": 200
+        },
+        {
+          "id": 15,
+          "originName": "바질",
+          "ingredientQuantity": 150
+        }
+      ]
+    },
+    {
+      "id": 14,
+      "recipeName": "계란 볶음밥",
+      "recipeImgURL": "https://via.placeholder.com/800x600.png?text=Egg+Fried+Rice",
+      "instructions": "1단계: 계란 볶음밥을 위한 재료를 준비합니다. 2단계: 요리 단계를 따릅니다. 3단계: 맛있는 식사를 즐기세요!",
+      "description": "계란 볶음밥은 어떤 경우에도 완벽한 맛있는 요리입니다. 만들기 쉽고 맛도 훌륭합니다.",
+      "cookingTime": 95,
+      "cookingLevel": "중간",
+      "servings": 3,
+      "ingredients": [
+        {
+          "id": 14,
+          "originName": "치즈",
+          "ingredientQuantity": 100
+        },
+        {
+          "id": 15,
+          "originName": "바질",
+          "ingredientQuantity": 200
+        },
+        {
+          "id": 16,
+          "originName": "파슬리",
+          "ingredientQuantity": 150
+        }
+      ]
+    },
+    {
+      "id": 15,
+      "recipeName": "맥 앤 치즈",
+      "recipeImgURL": "https://via.placeholder.com/800x600.png?text=Mac+and+Cheese",
+      "instructions": "1단계: 맥 앤 치즈를 위한 재료를 준비합니다. 2단계: 요리 단계를 따릅니다. 3단계: 맛있는 식사를 즐기세요!",
+      "description": "맥 앤 치즈는 어떤 경우에도 완벽한 맛있는 요리입니다. 만들기 쉽고 맛도 훌륭합니다.",
+      "cookingTime": 100,
+      "cookingLevel": "어려움",
+      "servings": 4,
+      "ingredients": [
+        {
+          "id": 15,
+          "originName": "바질",
+          "ingredientQuantity": 100
+        },
+        {
+          "id": 16,
+          "originName": "파슬리",
+          "ingredientQuantity": 200
+        },
+        {
+          "id": 17,
+          "originName": "당근",
+          "ingredientQuantity": 150
+        }
+      ]
+    },
+    {
+      "id": 16,
+      "recipeName": "BBQ 립",
+      "recipeImgURL": "https://via.placeholder.com/800x600.png?text=BBQ+Ribs",
+      "instructions": "1단계: BBQ 립을 위한 재료를 준비합니다. 2단계: 요리 단계를 따릅니다. 3단계: 맛있는 식사를 즐기세요!",
+      "description": "BBQ 립은 어떤 경우에도 완벽한 맛있는 요리입니다. 만들기 쉽고 맛도 훌륭합니다.",
+      "cookingTime": 105,
+      "cookingLevel": "쉬움",
+      "servings": 2,
+      "ingredients": [
+        {
+          "id": 16,
+          "originName": "파슬리",
+          "ingredientQuantity": 100
+        },
+        {
+          "id": 17,
+          "originName": "당근",
+          "ingredientQuantity": 200
+        },
+        {
+          "id": 18,
+          "originName": "감자",
+          "ingredientQuantity": 150
+        }
+      ]
+    },
+    {
+      "id": 17,
+      "recipeName": "야채 볶음",
+      "recipeImgURL": "https://via.placeholder.com/800x600.png?text=Stir-fried+Vegetables",
+      "instructions": "1단계: 야채 볶음을 위한 재료를 준비합니다. 2단계: 요리 단계를 따릅니다. 3단계: 맛있는 식사를 즐기세요!",
+      "description": "야채 볶음은 어떤 경우에도 완벽한 맛있는 요리입니다. 만들기 쉽고 맛도 훌륭합니다.",
+      "cookingTime": 110,
+      "cookingLevel": "중간",
+      "servings": 3,
+      "ingredients": [
+        {
+          "id": 17,
+          "originName": "당근",
+          "ingredientQuantity": 100
+        },
+        {
+          "id": 18,
+          "originName": "감자",
+          "ingredientQuantity": 200
+        },
+        {
+          "id": 19,
+          "originName": "파스타",
+          "ingredientQuantity": 150
+        }
+      ]
+    },
+    {
+      "id": 18,
+      "recipeName": "프렌치 토스트",
+      "recipeImgURL": "https://via.placeholder.com/800x600.png?text=French+Toast",
+      "instructions": "1단계: 프렌치 토스트를 위한 재료를 준비합니다. 2단계: 요리 단계를 따릅니다. 3단계: 맛있는 식사를 즐기세요!",
+      "description": "프렌치 토스트는 어떤 경우에도 완벽한 맛있는 요리입니다. 만들기 쉽고 맛도 훌륭합니다.",
+      "cookingTime": 115,
+      "cookingLevel": "어려움",
+      "servings": 4,
+      "ingredients": [
+        {
+          "id": 18,
+          "originName": "감자",
+          "ingredientQuantity": 100
+        },
+        {
+          "id": 19,
+          "originName": "파스타",
+          "ingredientQuantity": 200
+        },
+        {
+          "id": 20,
+          "originName": "쌀",
+          "ingredientQuantity": 150
+        }
+      ]
+    },
+    {
+      "id": 19,
+      "recipeName": "새우 스캠피",
+      "recipeImgURL": "https://via.placeholder.com/800x600.png?text=Shrimp+Scampi",
+      "instructions": "1단계: 새우 스캠피를 위한 재료를 준비합니다. 2단계: 요리 단계를 따릅니다. 3단계: 맛있는 식사를 즐기세요!",
+      "description": "새우 스캠피는 어떤 경우에도 완벽한 맛있는 요리입니다. 만들기 쉽고 맛도 훌륭합니다.",
+      "cookingTime": 120,
+      "cookingLevel": "쉬움",
+      "servings": 2,
+      "ingredients": [
+        {
+          "id": 19,
+          "originName": "파스타",
+          "ingredientQuantity": 100
+        },
+        {
+          "id": 20,
+          "originName": "쌀",
+          "ingredientQuantity": 200
+        },
+        {
+          "id": 1,
+          "originName": "토마토",
+          "ingredientQuantity": 150
+        }
+      ]
+    },
+    {
+      "id": 20,
+      "recipeName": "비프 타코",
+      "recipeImgURL": "https://via.placeholder.com/800x600.png?text=Beef+Taco",
+      "instructions": "1단계: 비프 타코를 위한 재료를 준비합니다. 2단계: 요리 단계를 따릅니다. 3단계: 맛있는 식사를 즐기세요!",
+      "description": "비프 타코는 어떤 경우에도 완벽한 맛있는 요리입니다. 만들기 쉽고 맛도 훌륭합니다.",
+      "cookingTime": 125,
+      "cookingLevel": "중간",
+      "servings": 3,
+      "ingredients": [
+        {
+          "id": 20,
+          "originName": "쌀",
+          "ingredientQuantity": 100
+        },
+        {
+          "id": 1,
+          "originName": "토마토",
+          "ingredientQuantity": 200
+        },
+        {
+          "id": 2,
+          "originName": "양파",
+          "ingredientQuantity": 150
+        }
+      ]
+    },
+    {
+      "id": 21,
+      "recipeName": "로스트 치킨",
+      "recipeImgURL": "https://via.placeholder.com/800x600.png?text=Roast+Chicken",
+      "instructions": "1단계: 로스트 치킨을 위한 재료를 준비합니다. 2단계: 요리 단계를 따릅니다. 3단계: 맛있는 식사를 즐기세요!",
+      "description": "로스트 치킨은 고소한 향이 일품인 요리입니다. 닭고기와 향신료가 어우러진 맛이 훌륭합니다.",
+      "cookingTime": 90,
+      "cookingLevel": "중간",
+      "servings": 4,
+      "ingredients": [
+        {
+          "id": 21,
+          "originName": "닭고기",
+          "ingredientQuantity": 1000
+        },
+        {
+          "id": 22,
+          "originName": "로즈마리",
+          "ingredientQuantity": 5
+        },
+        {
+          "id": 23,
+          "originName": "마늘",
+          "ingredientQuantity": 20
+        }
+      ]
+    },
+    {
+      "id": 22,
+      "recipeName": "블루베리 머핀",
+      "recipeImgURL": "https://via.placeholder.com/800x600.png?text=Blueberry+Muffin",
+      "instructions": "1단계: 블루베리 머핀을 위한 재료를 준비합니다. 2단계: 요리 단계를 따릅니다. 3단계: 맛있는 식사를 즐기세요!",
+      "description": "블루베리 머핀은 달콤하고 상큼한 맛이 일품인 디저트입니다.",
+      "cookingTime": 45,
+      "cookingLevel": "쉬움",
+      "servings": 12,
+      "ingredients": [
+        {
+          "id": 24,
+          "originName": "블루베리",
+          "ingredientQuantity": 200
+        },
+        {
+          "id": 25,
+          "originName": "밀가루",
+          "ingredientQuantity": 300
+        },
+        {
+          "id": 26,
+          "originName": "설탕",
+          "ingredientQuantity": 100
+        }
+      ]
+    },
+    {
+      "id": 23,
+      "recipeName": "치킨 파르미지아나",
+      "recipeImgURL": "https://via.placeholder.com/800x600.png?text=Chicken+Parmigiana",
+      "instructions": "1단계: 치킨 파르미지아나를 위한 재료를 준비합니다. 2단계: 요리 단계를 따릅니다. 3단계: 맛있는 식사를 즐기세요!",
+      "description": "치킨 파르미지아나는 치즈와 토마토 소스가 어우러진 맛있는 요리입니다.",
+      "cookingTime": 60,
+      "cookingLevel": "어려움",
+      "servings": 2,
+      "ingredients": [
+        {
+          "id": 27,
+          "originName": "닭고기",
+          "ingredientQuantity": 200
+        },
+        {
+          "id": 28,
+          "originName": "치즈",
+          "ingredientQuantity": 100
+        },
+        {
+          "id": 29,
+          "originName": "토마토 소스",
+          "ingredientQuantity": 150
+        }
+      ]
+    },
+    {
+      "id": 24,
+      "recipeName": "새우 튀김",
+      "recipeImgURL": "https://via.placeholder.com/800x600.png?text=Fried+Shrimp",
+      "instructions": "1단계: 새우 튀김을 위한 재료를 준비합니다. 2단계: 요리 단계를 따릅니다. 3단계: 맛있는 식사를 즐기세요!",
+      "description": "새우 튀김은 바삭하고 고소한 맛이 일품입니다.",
+      "cookingTime": 30,
+      "cookingLevel": "쉬움",
+      "servings": 4,
+      "ingredients": [
+        {
+          "id": 30,
+          "originName": "새우",
+          "ingredientQuantity": 500
+        },
+        {
+          "id": 31,
+          "originName": "밀가루",
+          "ingredientQuantity": 200
+        },
+        {
+          "id": 32,
+          "originName": "계란",
+          "ingredientQuantity": 100
+        }
+      ]
+    },
+    {
+      "id": 25,
+      "recipeName": "야채 라자냐",
+      "recipeImgURL": "https://via.placeholder.com/800x600.png?text=Vegetable+Lasagna",
+      "instructions": "1단계: 야채 라자냐를 위한 재료를 준비합니다. 2단계: 요리 단계를 따릅니다. 3단계: 맛있는 식사를 즐기세요!",
+      "description": "야채 라자냐는 다양한 야채가 들어간 건강한 요리입니다.",
+      "cookingTime": 75,
+      "cookingLevel": "어려움",
+      "servings": 4,
+      "ingredients": [
+        {
+          "id": 33,
+          "originName": "가지",
+          "ingredientQuantity": 300
+        },
+        {
+          "id": 34,
+          "originName": "호박",
+          "ingredientQuantity": 300
+        },
+        {
+          "id": 35,
+          "originName": "치즈",
+          "ingredientQuantity": 200
+        }
+      ]
+    },
+    {
+      "id": 26,
+      "recipeName": "감자 샐러드",
+      "recipeImgURL": "https://via.placeholder.com/800x600.png?text=Potato+Salad",
+      "instructions": "1단계: 감자 샐러드를 위한 재료를 준비합니다. 2단계: 요리 단계를 따릅니다. 3단계: 맛있는 식사를 즐기세요!",
+      "description": "감자 샐러드는 상큼하고 고소한 맛이 일품입니다.",
+      "cookingTime": 20,
+      "cookingLevel": "쉬움",
+      "servings": 6,
+      "ingredients": [
+        {
+          "id": 36,
+          "originName": "감자",
+          "ingredientQuantity": 500
+        },
+        {
+          "id": 37,
+          "originName": "마요네즈",
+          "ingredientQuantity": 150
+        },
+        {
+          "id": 38,
+          "originName": "양파",
+          "ingredientQuantity": 100
+        }
+      ]
+    },
+    {
+      "id": 27,
+      "recipeName": "초콜릿 칩 쿠키",
+      "recipeImgURL": "https://via.placeholder.com/800x600.png?text=Chocolate+Chip+Cookie",
+      "instructions": "1단계: 초콜릿 칩 쿠키를 위한 재료를 준비합니다. 2단계: 요리 단계를 따릅니다. 3단계: 맛있는 식사를 즐기세요!",
+      "description": "초콜릿 칩 쿠키는 달콤하고 바삭한 맛이 일품인 디저트입니다.",
+      "cookingTime": 25,
+      "cookingLevel": "쉬움",
+      "servings": 24,
+      "ingredients": [
+        {
+          "id": 39,
+          "originName": "초콜릿 칩",
+          "ingredientQuantity": 200
+        },
+        {
+          "id": 40,
+          "originName": "밀가루",
+          "ingredientQuantity": 300
+        },
+        {
+          "id": 41,
+          "originName": "버터",
+          "ingredientQuantity": 200
+        }
+      ]
+    },
+    {
+      "id": 28,
+      "recipeName": "스파이시 두부",
+      "recipeImgURL": "https://via.placeholder.com/800x600.png?text=Spicy+Tofu",
+      "instructions": "1단계: 스파이시 두부를 위한 재료를 준비합니다. 2단계: 요리 단계를 따릅니다. 3단계: 맛있는 식사를 즐기세요!",
+      "description": "스파이시 두부는 매콤하고 부드러운 맛이 일품인 요리입니다.",
+      "cookingTime": 35,
+      "cookingLevel": "쉬움",
+      "servings": 4,
+      "ingredients": [
+        {
+          "id": 42,
+          "originName": "두부",
+          "ingredientQuantity": 400
+        },
+        {
+          "id": 43,
+          "originName": "고추장",
+          "ingredientQuantity": 50
+        },
+        {
+          "id": 44,
+          "originName": "대파",
+          "ingredientQuantity": 100
+        }
+      ]
+    },
+    {
+      "id": 29,
+      "recipeName": "연어 스테이크",
+      "recipeImgURL": "https://via.placeholder.com/800x600.png?text=Salmon+Steak",
+      "instructions": "1단계: 연어 스테이크를 위한 재료를 준비합니다. 2단계: 요리 단계를 따릅니다. 3단계: 맛있는 식사를 즐기세요!",
+      "description": "연어 스테이크는 부드럽고 고소한 맛이 일품인 요리입니다.",
+      "cookingTime": 25,
+      "cookingLevel": "중간",
+      "servings": 2,
+      "ingredients": [
+        {
+          "id": 45,
+          "originName": "연어",
+          "ingredientQuantity": 400
+        },
+        {
+          "id": 46,
+          "originName": "올리브 오일",
+          "ingredientQuantity": 50
+        },
+        {
+          "id": 47,
+          "originName": "레몬",
+          "ingredientQuantity": 20
+        }
+      ]
+    },
+    {
+      "id": 30,
+      "recipeName": "크림 파스타",
+      "recipeImgURL": "https://via.placeholder.com/800x600.png?text=Cream+Pasta",
+      "instructions": "1단계: 크림 파스타를 위한 재료를 준비합니다. 2단계: 요리 단계를 따릅니다. 3단계: 맛있는 식사를 즐기세요!",
+      "description": "크림 파스타는 부드럽고 고소한 맛이 일품인 요리입니다.",
+      "cookingTime": 30,
+      "cookingLevel": "쉬움",
+      "servings": 4,
+      "ingredients": [
+        {
+          "id": 48,
+          "originName": "파스타",
+          "ingredientQuantity": 400
+        },
+        {
+          "id": 49,
+          "originName": "크림",
+          "ingredientQuantity": 200
+        },
+        {
+          "id": 50,
+          "originName": "파슬리",
+          "ingredientQuantity": 10
+        }
+      ]
+    },
+    {
+      "id": 31,
+      "recipeName": "브라우니",
+      "recipeImgURL": "https://via.placeholder.com/800x600.png?text=Brownie",
+      "instructions": "1단계: 브라우니를 위한 재료를 준비합니다. 2단계: 요리 단계를 따릅니다. 3단계: 맛있는 식사를 즐기세요!",
+      "description": "브라우니는 진한 초콜릿 맛이 일품인 디저트입니다.",
+      "cookingTime": 45,
+      "cookingLevel": "중간",
+      "servings": 16,
+      "ingredients": [
+        {
+          "id": 51,
+          "originName": "초콜릿",
+          "ingredientQuantity": 300
+        },
+        {
+          "id": 52,
+          "originName": "밀가루",
+          "ingredientQuantity": 200
+        },
+        {
+          "id": 53,
+          "originName": "계란",
+          "ingredientQuantity": 100
+        }
+      ]
+    },
+    {
+      "id": 32,
+      "recipeName": "감자 튀김",
+      "recipeImgURL": "https://via.placeholder.com/800x600.png?text=French+Fries",
+      "instructions": "1단계: 감자 튀김을 위한 재료를 준비합니다. 2단계: 요리 단계를 따릅니다. 3단계: 맛있는 식사를 즐기세요!",
+      "description": "감자 튀김은 바삭하고 고소한 맛이 일품인 간식입니다.",
+      "cookingTime": 20,
+      "cookingLevel": "쉬움",
+      "servings": 4,
+      "ingredients": [
+        {
+          "id": 54,
+          "originName": "감자",
+          "ingredientQuantity": 500
+        },
+        {
+          "id": 55,
+          "originName": "소금",
+          "ingredientQuantity": 5
+        },
+        {
+          "id": 56,
+          "originName": "식용유",
+          "ingredientQuantity": 200
+        }
+      ]
+    },
+    {
+      "id": 33,
+      "recipeName": "치즈 오믈렛",
+      "recipeImgURL": "https://via.placeholder.com/800x600.png?text=Cheese+Omelette",
+      "instructions": "1단계: 치즈 오믈렛을 위한 재료를 준비합니다. 2단계: 요리 단계를 따릅니다. 3단계: 맛있는 식사를 즐기세요!",
+      "description": "치즈 오믈렛은 부드럽고 고소한 맛이 일품인 요리입니다.",
+      "cookingTime": 15,
+      "cookingLevel": "쉬움",
+      "servings": 2,
+      "ingredients": [
+        {
+          "id": 57,
+          "originName": "계란",
+          "ingredientQuantity": 200
+        },
+        {
+          "id": 58,
+          "originName": "치즈",
+          "ingredientQuantity": 100
+        },
+        {
+          "id": 59,
+          "originName": "버터",
+          "ingredientQuantity": 20
+        }
+      ]
+    },
+    {
+      "id": 34,
+      "recipeName": "바질 페스토 파스타",
+      "recipeImgURL": "https://via.placeholder.com/800x600.png?text=Basil+Pesto+Pasta",
+      "instructions": "1단계: 바질 페스토 파스타를 위한 재료를 준비합니다. 2단계: 요리 단계를 따릅니다. 3단계: 맛있는 식사를 즐기세요!",
+      "description": "바질 페스토 파스타는 상큼하고 고소한 맛이 일품입니다.",
+      "cookingTime": 25,
+      "cookingLevel": "쉬움",
+      "servings": 4,
+      "ingredients": [
+        {
+          "id": 60,
+          "originName": "파스타",
+          "ingredientQuantity": 400
+        },
+        {
+          "id": 61,
+          "originName": "바질",
+          "ingredientQuantity": 50
+        },
+        {
+          "id": 62,
+          "originName": "올리브 오일",
+          "ingredientQuantity": 100
+        }
+      ]
+    },
+    {
+      "id": 35,
+      "recipeName": "닭가슴살 샐러드",
+      "recipeImgURL": "https://via.placeholder.com/800x600.png?text=Chicken+Salad",
+      "instructions": "1단계: 닭가슴살 샐러드를 위한 재료를 준비합니다. 2단계: 요리 단계를 따릅니다. 3단계: 맛있는 식사를 즐기세요!",
+      "description": "닭가슴살 샐러드는 건강하고 고소한 맛이 일품입니다.",
+      "cookingTime": 20,
+      "cookingLevel": "쉬움",
+      "servings": 2,
+      "ingredients": [
+        {
+          "id": 63,
+          "originName": "닭가슴살",
+          "ingredientQuantity": 200
+        },
+        {
+          "id": 64,
+          "originName": "양상추",
+          "ingredientQuantity": 100
+        },
+        {
+          "id": 65,
+          "originName": "올리브 오일",
+          "ingredientQuantity": 50
+        }
+      ]
+    },
+    {
+      "id": 36,
+      "recipeName": "토마토 브루스케타",
+      "recipeImgURL": "https://via.placeholder.com/800x600.png?text=Tomato+Bruschetta",
+      "instructions": "1단계: 토마토 브루스케타를 위한 재료를 준비합니다. 2단계: 요리 단계를 따릅니다. 3단계: 맛있는 식사를 즐기세요!",
+      "description": "토마토 브루스케타는 상큼하고 고소한 맛이 일품입니다.",
+      "cookingTime": 15,
+      "cookingLevel": "쉬움",
+      "servings": 4,
+      "ingredients": [
+        {
+          "id": 66,
+          "originName": "토마토",
+          "ingredientQuantity": 200
+        },
+        {
+          "id": 67,
+          "originName": "바게트",
+          "ingredientQuantity": 150
+        },
+        {
+          "id": 68,
+          "originName": "바질",
+          "ingredientQuantity": 10
+        }
+      ]
+    },
+    {
+      "id": 37,
+      "recipeName": "가지 요리",
+      "recipeImgURL": "https://via.placeholder.com/800x600.png?text=Eggplant+Dish",
+      "instructions": "1단계: 가지 요리를 위한 재료를 준비합니다. 2단계: 요리 단계를 따릅니다. 3단계: 맛있는 식사를 즐기세요!",
+      "description": "가지 요리는 부드럽고 고소한 맛이 일품입니다.",
+      "cookingTime": 25,
+      "cookingLevel": "쉬움",
+      "servings": 4,
+      "ingredients": [
+        {
+          "id": 69,
+          "originName": "가지",
+          "ingredientQuantity": 300
+        },
+        {
+          "id": 70,
+          "originName": "올리브 오일",
+          "ingredientQuantity": 50
+        },
+        {
+          "id": 71,
+          "originName": "마늘",
+          "ingredientQuantity": 10
+        }
+      ]
+    },
+    {
+      "id": 38,
+      "recipeName": "구운 채소",
+      "recipeImgURL": "https://via.placeholder.com/800x600.png?text=Grilled+Vegetables",
+      "instructions": "1단계: 구운 채소를 위한 재료를 준비합니다. 2단계: 요리 단계를 따릅니다. 3단계: 맛있는 식사를 즐기세요!",
+      "description": "구운 채소는 건강하고 고소한 맛이 일품입니다.",
+      "cookingTime": 30,
+      "cookingLevel": "쉬움",
+      "servings": 4,
+      "ingredients": [
+        {
+          "id": 72,
+          "originName": "파프리카",
+          "ingredientQuantity": 200
+        },
+        {
+          "id": 73,
+          "originName": "호박",
+          "ingredientQuantity": 200
+        },
+        {
+          "id": 74,
+          "originName": "양파",
+          "ingredientQuantity": 100
+        }
+      ]
+    },
+    {
+      "id": 39,
+      "recipeName": "소고기 타르타르",
+      "recipeImgURL": "https://via.placeholder.com/800x600.png?text=Beef+Tartare",
+      "instructions": "1단계: 소고기 타르타르를 위한 재료를 준비합니다. 2단계: 요리 단계를 따릅니다. 3단계: 맛있는 식사를 즐기세요!",
+      "description": "소고기 타르타르는 신선하고 고소한 맛이 일품입니다.",
+      "cookingTime": 15,
+      "cookingLevel": "쉬움",
+      "servings": 2,
+      "ingredients": [
+        {
+          "id": 75,
+          "originName": "소고기",
+          "ingredientQuantity": 200
+        },
+        {
+          "id": 76,
+          "originName": "계란 노른자",
+          "ingredientQuantity": 50
+        },
+        {
+          "id": 77,
+          "originName": "양파",
+          "ingredientQuantity": 50
+        }
+      ]
+    },
+    {
+      "id": 40,
+      "recipeName": "코코넛 카레",
+      "recipeImgURL": "https://via.placeholder.com/800x600.png?text=Coconut+Curry",
+      "instructions": "1단계: 코코넛 카레를 위한 재료를 준비합니다. 2단계: 요리 단계를 따릅니다. 3단계: 맛있는 식사를 즐기세요!",
+      "description": "코코넛 카레는 고소하고 매콤한 맛이 일품입니다.",
+      "cookingTime": 40,
+      "cookingLevel": "중간",
+      "servings": 4,
+      "ingredients": [
+        {
+          "id": 78,
+          "originName": "코코넛 밀크",
+          "ingredientQuantity": 400
+        },
+        {
+          "id": 79,
+          "originName": "닭고기",
+          "ingredientQuantity": 300
+        },
+        {
+          "id": 80,
+          "originName": "고추",
+          "ingredientQuantity": 50
+        }
+      ]
+    },
+    {
+      "id": 41,
+      "recipeName": "소고기 불고기",
+      "recipeImgURL": "https://via.placeholder.com/800x600.png?text=Beef+Bulgogi",
+      "instructions": "1단계: 소고기 불고기를 위한 재료를 준비합니다. 2단계: 요리 단계를 따릅니다. 3단계: 맛있는 식사를 즐기세요!",
+      "description": "소고기 불고기는 달콤하고 짭짤한 맛이 일품인 한국 요리입니다.",
+      "cookingTime": 30,
+      "cookingLevel": "중간",
+      "servings": 4,
+      "ingredients": [
+        {
+          "id": 81,
+          "originName": "소고기",
+          "ingredientQuantity": 400
+        },
+        {
+          "id": 82,
+          "originName": "간장",
+          "ingredientQuantity": 50
+        },
+        {
+          "id": 83,
+          "originName": "설탕",
+          "ingredientQuantity": 30
+        }
+      ]
+    },
+    {
+      "id": 42,
+      "recipeName": "새우 카르파초",
+      "recipeImgURL": "https://via.placeholder.com/800x600.png?text=Shrimp+Carpaccio",
+      "instructions": "1단계: 새우 카르파초를 위한 재료를 준비합니다. 2단계: 요리 단계를 따릅니다. 3단계: 맛있는 식사를 즐기세요!",
+      "description": "새우 카르파초는 신선하고 상큼한 맛이 일품입니다.",
+      "cookingTime": 20,
+      "cookingLevel": "쉬움",
+      "servings": 2,
+      "ingredients": [
+        {
+          "id": 84,
+          "originName": "새우",
+          "ingredientQuantity": 200
+        },
+        {
+          "id": 85,
+          "originName": "레몬",
+          "ingredientQuantity": 20
+        },
+        {
+          "id": 86,
+          "originName": "올리브 오일",
+          "ingredientQuantity": 10
+        }
+      ]
+    },
+    {
+      "id": 43,
+      "recipeName": "토마토 리조또",
+      "recipeImgURL": "https://via.placeholder.com/800x600.png?text=Tomato+Risotto",
+      "instructions": "1단계: 토마토 리조또를 위한 재료를 준비합니다. 2단계: 요리 단계를 따릅니다. 3단계: 맛있는 식사를 즐기세요!",
+      "description": "토마토 리조또는 부드럽고 고소한 맛이 일품입니다.",
+      "cookingTime": 35,
+      "cookingLevel": "쉬움",
+      "servings": 4,
+      "ingredients": [
+        {
+          "id": 87,
+          "originName": "쌀",
+          "ingredientQuantity": 300
+        },
+        {
+          "id": 88,
+          "originName": "토마토",
+          "ingredientQuantity": 200
+        },
+        {
+          "id": 89,
+          "originName": "파마산 치즈",
+          "ingredientQuantity": 50
+        }
+      ]
+    },
+    {
+      "id": 44,
+      "recipeName": "닭가슴살 구이",
+      "recipeImgURL": "https://via.placeholder.com/800x600.png?text=Grilled+Chicken+Breast",
+      "instructions": "1단계: 닭가슴살 구이를 위한 재료를 준비합니다. 2단계: 요리 단계를 따릅니다. 3단계: 맛있는 식사를 즐기세요!",
+      "description": "닭가슴살 구이는 건강하고 고소한 맛이 일품입니다.",
+      "cookingTime": 20,
+      "cookingLevel": "쉬움",
+      "servings": 2,
+      "ingredients": [
+        {
+          "id": 90,
+          "originName": "닭가슴살",
+          "ingredientQuantity": 200
+        },
+        {
+          "id": 91,
+          "originName": "올리브 오일",
+          "ingredientQuantity": 50
+        },
+        {
+          "id": 92,
+          "originName": "로즈마리",
+          "ingredientQuantity": 5
+        }
+      ]
+    },
+    {
+      "id": 45,
+      "recipeName": "크림 브륄레",
+      "recipeImgURL": "https://via.placeholder.com/800x600.png?text=Creme+Brulee",
+      "instructions": "1단계: 크림 브륄레를 위한 재료를 준비합니다. 2단계: 요리 단계를 따릅니다. 3단계: 맛있는 식사를 즐기세요!",
+      "description": "크림 브륄레는 부드럽고 달콤한 맛이 일품인 디저트입니다.",
+      "cookingTime": 50,
+      "cookingLevel": "중간",
+      "servings": 4,
+      "ingredients": [
+        {
+          "id": 93,
+          "originName": "크림",
+          "ingredientQuantity": 300
+        },
+        {
+          "id": 94,
+          "originName": "설탕",
+          "ingredientQuantity": 100
+        },
+        {
+          "id": 95,
+          "originName": "계란 노른자",
+          "ingredientQuantity": 50
+        }
+      ]
+    },
+    {
+      "id": 46,
+      "recipeName": "스파이시 치킨 윙",
+      "recipeImgURL": "https://via.placeholder.com/800x600.png?text=Spicy+Chicken+Wings",
+      "instructions": "1단계: 스파이시 치킨 윙을 위한 재료를 준비합니다. 2단계: 요리 단계를 따릅니다. 3단계: 맛있는 식사를 즐기세요!",
+      "description": "스파이시 치킨 윙은 매콤하고 고소한 맛이 일품입니다.",
+      "cookingTime": 35,
+      "cookingLevel": "쉬움",
+      "servings": 4,
+      "ingredients": [
+        {
+          "id": 96,
+          "originName": "치킨 윙",
+          "ingredientQuantity": 500
+        },
+        {
+          "id": 97,
+          "originName": "고추장",
+          "ingredientQuantity": 50
+        },
+        {
+          "id": 98,
+          "originName": "마늘",
+          "ingredientQuantity": 20
+        }
+      ]
+    },
+    {
+      "id": 47,
+      "recipeName": "초콜릿 무스",
+      "recipeImgURL": "https://via.placeholder.com/800x600.png?text=Chocolate+Mousse",
+      "instructions": "1단계: 초콜릿 무스를 위한 재료를 준비합니다. 2단계: 요리 단계를 따릅니다. 3단계: 맛있는 식사를 즐기세요!",
+      "description": "초콜릿 무스는 부드럽고 진한 초콜릿 맛이 일품인 디저트입니다.",
+      "cookingTime": 40,
+      "cookingLevel": "중간",
+      "servings": 4,
+      "ingredients": [
+        {
+          "id": 99,
+          "originName": "초콜릿",
+          "ingredientQuantity": 200
+        },
+        {
+          "id": 100,
+          "originName": "크림",
+          "ingredientQuantity": 200
+        },
+        {
+          "id": 101,
+          "originName": "계란",
+          "ingredientQuantity": 100
+        }
+      ]
+    },
+    {
+      "id": 48,
+      "recipeName": "스테이크",
+      "recipeImgURL": "https://via.placeholder.com/800x600.png?text=Steak",
+      "instructions": "1단계: 스테이크를 위한 재료를 준비합니다. 2단계: 요리 단계를 따릅니다. 3단계: 맛있는 식사를 즐기세요!",
+      "description": "스테이크는 부드럽고 고소한 맛이 일품인 요리입니다.",
+      "cookingTime": 20,
+      "cookingLevel": "중간",
+      "servings": 2,
+      "ingredients": [
+        {
+          "id": 102,
+          "originName": "소고기",
+          "ingredientQuantity": 400
+        },
+        {
+          "id": 103,
+          "originName": "올리브 오일",
+          "ingredientQuantity": 50
+        },
+        {
+          "id": 104,
+          "originName": "소금",
+          "ingredientQuantity": 10
+        }
+      ]
+    },
+    {
+      "id": 49,
+      "recipeName": "햄버거",
+      "recipeImgURL": "https://via.placeholder.com/800x600.png?text=Hamburger",
+      "instructions": "1단계: 햄버거를 위한 재료를 준비합니다. 2단계: 요리 단계를 따릅니다. 3단계: 맛있는 식사를 즐기세요!",
+      "description": "햄버거는 부드럽고 고소한 맛이 일품인 요리입니다.",
+      "cookingTime": 25,
+      "cookingLevel": "쉬움",
+      "servings": 4,
+      "ingredients": [
+        {
+          "id": 105,
+          "originName": "소고기",
+          "ingredientQuantity": 500
+        },
+        {
+          "id": 106,
+          "originName": "양상추",
+          "ingredientQuantity": 50
+        },
+        {
+          "id": 107,
+          "originName": "토마토",
+          "ingredientQuantity": 50
+        }
+      ]
+    },
+    {
+      "id": 50,
+      "recipeName": "새우 타코",
+      "recipeImgURL": "https://via.placeholder.com/800x600.png?text=Shrimp+Taco",
+      "instructions": "1단계: 새우 타코를 위한 재료를 준비합니다. 2단계: 요리 단계를 따릅니다. 3단계: 맛있는 식사를 즐기세요!",
+      "description": "새우 타코는 신선하고 상큼한 맛이 일품입니다.",
+      "cookingTime": 30,
+      "cookingLevel": "중간",
+      "servings": 4,
+      "ingredients": [
+        {
+          "id": 108,
+          "originName": "새우",
+          "ingredientQuantity": 300
+        },
+        {
+          "id": 109,
+          "originName": "아보카도",
+          "ingredientQuantity": 100
+        },
+        {
+          "id": 110,
+          "originName": "토마토",
+          "ingredientQuantity": 50
+        }
+      ]
+    }
+  ]
+}
