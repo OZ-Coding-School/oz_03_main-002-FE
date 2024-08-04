@@ -32,6 +32,8 @@ function FridgeList() {
   // 냉장고 스타일 정의
   const fridgeStyle = 'w-full rounded-2xl bg-[#f8f8f8] shadow-lg';
 
+    if (!fridges) return null;
+
   return (
     <div id="fridge-container">
       {/* 서브 헤더 */}
