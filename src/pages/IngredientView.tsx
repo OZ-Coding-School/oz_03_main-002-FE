@@ -226,9 +226,9 @@ function IngredientView(): React.ReactElement {
       <div className="w-full max-w-md h-full max-h-[844px] flex flex-col bg-white border-gray-500 rounded-3xl shadow-lg overflow-hidden">
         <div className="flex flex-col p-4 bg-white shadow">
           <div className="flex justify-between items-center mb-2">
-            <h2 className="text-left text-lg font-normal">재료 목록</h2>
+            <h2 className="text-left text-lg font-bold">재료 목록</h2>
             {isBulkDeleteMode && (
-              <span className="font-semibold text-sky-500 text-base">
+              <span className="font-semibold text-blue-500 text-base">
                 선택된 재료: {selectedIds.length}개
               </span>
             )}
@@ -239,7 +239,7 @@ function IngredientView(): React.ReactElement {
                 <>
                   {/* 일괄 삭제 모드에서 모든 재료 전체 선택 / 선택 해제 버튼 스타일 정의 */}
                   <motion.button
-                    className="px-3 py-2 bg-blue-400 hover:bg-blue-500 text-white rounded-lg flex flex-col items-center justify-center"
+                    className="px-4 py-2 bg-blue-500 hover:bg-blue-700 text-white rounded-lg flex flex-col items-center justify-center"
                     onClick={handleSelectAll}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
@@ -255,28 +255,28 @@ function IngredientView(): React.ReactElement {
                         className="justify-center"
                       />
                     )}
-                    <span className="text-sm">
+                    <span className="text-md">
                       {isAllSelected ? '선택 해제' : '전체 선택'}
                     </span>
                   </motion.button>
                   <div className="flex">
                     <motion.button
-                      className="px-3 py-2 bg-gray-400 hover:bg-gray-500 text-white rounded-lg flex flex-col items-center justify-center mr-2"
+                      className="px-4 py-2 bg-custom-gray-2 hover:bg-gray-500 text-white rounded-lg flex flex-col items-center justify-center mr-2"
                       onClick={() => setIsBulkDeleteMode(false)}
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                     >
                       <RiCloseLine size={20} className="justify-center" />
-                      <span className="text-sm">삭제 취소</span>
+                      <span className="text-md">삭제 취소</span>
                     </motion.button>
                     <motion.button
-                      className="px-3 py-2 bg-red-400 hover:bg-red-500 text-white rounded-lg flex flex-col items-center justify-center"
+                      className="px-4 py-2 bg-custom-red hover:bg-red-700 text-white rounded-lg flex flex-col items-center justify-center"
                       onClick={handleBulkDelete}
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                     >
                       <RiDeleteBinLine size={20} className="justify-center" />
-                      <span className="text-sm">삭제하기</span>
+                      <span className="text-md">삭제하기</span>
                     </motion.button>
                   </div>
                 </>
@@ -285,13 +285,13 @@ function IngredientView(): React.ReactElement {
                   <div />
                   {/* 일괄 삭제 모드가 아닐 때 일괄 삭제 버튼 */}
                   <motion.button
-                    className="px-3 py-2 bg-red-400 hover:bg-red-500 text-white rounded-lg flex flex-col items-center justify-center"
+                    className="px-4 py-2 bg-custom-red hover:bg-red-700 text-white rounded-lg flex flex-col items-center justify-center"
                     onClick={handleBulkDelete}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >
                     <RiDeleteBinLine size={20} className="justify-center" />
-                    <span className="text-sm">일괄삭제</span>
+                    <span className="text-md">일괄삭제</span>
                   </motion.button>
                 </>
               )}
@@ -318,12 +318,12 @@ function IngredientView(): React.ReactElement {
         <div className="p-4">
           {/* 재료 추가 버튼 */}
           <motion.button
-            className="w-full h-12 px-4 py-2 bg-pink-500 hover:bg-pink-600 shadow-md text-white rounded-lg flex items-center justify-center"
+            className="w-full h-12 px-4 py-2 bg-blue-500 hover:bg-blue-700 text-white rounded-lg flex items-center justify-center"
             onClick={handleAddButtonClick}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
-            <RiAddLine size={20} className="mr-2" />
+            <RiAddLine size={20} className="mr-2 text-md" />
             <span>여기를 눌러 재료 추가</span>
           </motion.button>
         </div>

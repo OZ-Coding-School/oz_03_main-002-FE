@@ -16,12 +16,12 @@ function GlobalHeader() {
   };
 
   return (
-    <div className="w-full h-12 flex justify-between items-center px-5 shadow-lg z-30 ">
+    <div className="w-full h-[50px] flex justify-between items-center px-5 shadow-sm z-30 text-gray-800">
       <div className="w-8 p-0">{/* 뒤로 돌아가는 버튼 생성 예정 */}</div>
       <h2 className="font-bold">냉똑이</h2>
       <button
         type="button"
-        className="w-8 text-2xl  cursor-pointer text-slate-800"
+        className="w-8 text-2xl cursor-pointer text-gray-800"
         onClick={toggleMenu}
         aria-label="메뉴 창 열기"
       >
@@ -43,7 +43,7 @@ function GlobalHeader() {
           <div className="relative w-64 bg-white h-full shadow-lg">
             <button
               type="button"
-              className="absolute top-4 left-5 cursor-pointer text-slate-800 text-2xl font-bold"
+              className="absolute top-4 left-5 cursor-pointer text-gray-800 text-2xl font-bold"
               onClick={closeMenu}
               aria-label="메뉴 닫기"
             >

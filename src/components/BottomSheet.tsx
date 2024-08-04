@@ -64,8 +64,8 @@ function IngredientItem({
 }) {
   return (
     <motion.div
-      className={`flex items-center py-2 px-2 rounded-lg cursor-pointer mb-3 ${
-        isSelected ? 'bg-sky-100' : 'bg-gray-50 hover:bg-gray-100'
+      className={`flex items-center p-2 rounded-md cursor-pointer mb-3 text-md ${
+        isSelected ? 'bg-sky-100' : 'bg-gray-100 hover:bg-gray-300'
       }`}
       initial={{ opacity: 0, y: 20 }} // 초기 애니메이션 상태
       animate={{ opacity: 1, y: 0 }} // 애니메이션 상태
@@ -248,22 +248,25 @@ function BottomSheet({ isOpen, onClose, onAddMultiple }: BottomSheetProps) {
           // 드래그 종료 시 처리
           if (info.offset.y > 100 || info.velocity.y > 500) handleClose();
         }}
-        className="fixed bottom-0 left-0 right-0 bg-white border-x-2 border-y-2 border-b-0 border-gray-500 shadow-2xl rounded-t-2xl max-w-md mx-auto h-[55vh] overflow-hidden flex flex-col"
+        className="fixed bottom-0 left-0 right-0 bg-white border-x-2 border-y-2 border-b-0 border-gray-500 shadow-2xl rounded-t-2xl max-w-md mx-auto h-[55vh] overflow-hidden flex p-2 flex-col"
         style={{ boxShadow: '0 -4px 20px rgba(0, 0, 0, 0.1)' }}
         role="dialog"
       >
-        <div className="w-14 h-1 bg-gray-300 rounded-full mx-auto my-3" />
+        <div className="w-14 h-1 bg-gray-300 rounded-full mx-auto my-2" />
         <div className="p-4 flex-1 flex flex-col overflow-hidden">
-          <h3 id="bottomSheetTitle" className="text-xl font-bold mb-4">
+          <h2
+            id="bottomSheetTitle"
+            className="text-lg font-bold mb-4 text-gray-800"
+          >
             재료 목록
-          </h3>
+          </h2>
           <div className="mb-4 relative">
             <input
               type="text"
               placeholder="재료명을 입력해 검색해보세요."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full px-4 py-2 border border-gray-300 rounded-lg pr-10 focus:outline-none focus:ring-2 focus:ring-sky-500"
+              className="w-full px-3 py-2 border border-gray-300 rounded-md pr-10 focus:outline-none focus:ring-1 focus:ring-blue-500 placeholder:text-gray-300"
             />
             <RiSearchLine
               className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400"
@@ -280,7 +283,7 @@ function BottomSheet({ isOpen, onClose, onAddMultiple }: BottomSheetProps) {
                 exit={{ opacity: 0, height: 0 }}
                 className="mb-4 overflow-hidden"
               >
-                <h4 className="text-sm font-semibold mb-2">
+                <h4 className="text-md font-semibold mb-2 text-gray-800">
                   선택된 재료 ({selectedIngredients.length}개)
                 </h4>
                 <div className="overflow-x-auto whitespace-nowrap">
@@ -305,12 +308,12 @@ function BottomSheet({ isOpen, onClose, onAddMultiple }: BottomSheetProps) {
               next={fetchMoreData} // 추가 데이터를 가져오는 함수
               hasMore={filteredIngredients.length > visibleIngredients.length} // 더 많은 데이터가 있는지 여부
               loader={
-                <div className="text-center py-2 text-gray-500">
+                <div className="text-center text-md py-2 text-gray-500">
                   재료정보를 가져오고 있습니다. 잠시 기다려주세요.
                 </div>
               }
               endMessage={
-                <div className="text-center py-2 text-gray-500">
+                <div className="text-center text-md py-2 text-gray-500">
                   더 이상 불러올 재료가 없습니다.
                 </div>
               }
@@ -344,11 +347,11 @@ function BottomSheet({ isOpen, onClose, onAddMultiple }: BottomSheetProps) {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 20 }}
               transition={{ duration: 0.2 }}
-              className="p-4 bg-white border-t border-gray-200"
+              className="p-4 bg-white border-t border-gray-300"
             >
               <button
                 type="button"
-                className="w-full h-12 bg-pink-500 text-white rounded-lg py-2 px-4 text-sm font-semibold hover:bg-pink-600 active:bg-pink-700 transition duration-150 ease-in-out shadow-md"
+                className="w-full h-12 bg-blue-500 text-white rounded-lg py-2 px-4 text-md hover:bg-blue-700 active:bg-blue-700 transition duration-150 ease-in-out"
                 onClick={handleAddSelectedIngredients} // 선택된 재료 추가 버튼 클릭 시 처리
               >
                 총 {selectedIngredients.length}개의 재료 추가하기
