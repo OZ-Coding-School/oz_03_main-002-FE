@@ -3,18 +3,20 @@ import axios from 'axios';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
-import { RecipeSummary } from '../types/recipeType';
+import { Recipe } from '../types/recipeType';
 import RecipeCard from '../components/RecipeCard.tsx';
 
 function RecipesView() {
-  const [recipes, setRecipes] = useState<RecipeSummary[]>([]);
+  const [recipes, setRecipes] = useState<Recipe[]>([]);
   const [page, setPage] = useState(1);
   const [hasMore, setHasMore] = useState(true);
 
   // 컴포넌트가 처음 렌더링될 때 첫 번째 페이지의 레시피를 가져옵니다.
   useEffect(() => {
     axios
-      .get<RecipeSummary[]>('http://localhost:3000/recipes?offset=0&limit=10')
+      .get<Recipe[]>(
+        'https://api.naengttogi.com/api/v1/recipe/recipes?offset=20&limit=20',
+      )
       .then((res) => setRecipes(res.data))
       .catch((err) => console.log(err));
   }, []);
@@ -22,17 +24,19 @@ function RecipesView() {
   // 추가 레시피 데이터를 가져오는 함수입니다.
   const fetchRecipes = () => {
     axios
-      .get<RecipeSummary[]>(
-        `http://localhost:3000/recipes?offset=${page * 10}&limit=10`,
+      .get<Recipe[]>(
+        `https://api.naengttogi.com/api/v1/recipe/recipes?offset=${page * 20}&limit=20`,
       )
       .then((res) => {
-        setRecipes((prevRecipes) => [...prevRecipes, ...res.data]);
-        setHasMore(res.data.length > 0); // 더 이상 레시피가 없으면 hasMore를 false로 설정합니다.
+        const newRecipes = res.data;
+        setRecipes((prevRecipes) => [...prevRecipes, ...newRecipes]);
+        setHasMore(newRecipes.length > 0);
+        setPage((prevPage) => prevPage + 1);
       })
       .catch((err) => console.log(err));
-    setPage((prevPage) => prevPage + 1);
   };
-
+  console.log('불러온 레시피 데이터', recipes);
+  console.log('페이지번호', page);
   return (
     <div id="recipesView-container" className="h-[740px]">
       <div
@@ -72,7 +76,7 @@ function RecipesView() {
             <div className="h-screen">
               <div className="grid grid-cols-2 gap-4">
                 {recipes.map((recipe) => (
-                  <RecipeCard key={recipe.id} recipe={recipe} />
+                  <RecipeCard key={`${recipe.id}`} recipe={recipe} />
                 ))}
               </div>
             </div>
