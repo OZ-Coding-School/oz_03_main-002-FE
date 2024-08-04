@@ -71,7 +71,7 @@ const useAuthStore = create<AuthState & AuthActions>()(
           set({ loading: true, error: '' });
           try {
             const response = await axios.post<AuthResponse>(
-              'https://api.naengttogi.com/api/v1/google/login/',
+              'http://api.naengttogi.com/api/v1/google/login/',
             );
             set({
               token: response.data.token,

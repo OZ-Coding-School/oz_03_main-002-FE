@@ -46,22 +46,25 @@ function DeleteModal({
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center backdrop-blur-sm z-50"
+          className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
         >
           <motion.div
             initial={{ scale: 0.9 }}
             animate={{ scale: 1 }}
             exit={{ scale: 0.9 }}
-            className="bg-white p-6 rounded-lg shadow-xl max-w-md w-full mx-4 max-h-[90vh] overflow-y-auto"
+            className="bg-white p-4 rounded-lg max-w-md w-full max-h-[90vh] overflow-y-auto"
           >
-            <h3 className="text-xl font-bold mb-4 text-gray-800">
+            <h3 className="text-lg font-bold mb-4 text-gray-800">
               재료 삭제 확인
             </h3>
-            <div className="mb-4">
-              <p className="font-semibold mb-2 text-gray-700">
-                {ingredient.fridgeIngreName}을(를) 삭제하시겠습니까?
+            <div>
+              <p className="mb-2">
+                <span className="font-bold text-md text-gray-800">
+                  {ingredient.fridgeIngreName}
+                </span>
+                을(를)삭제하시겠습니까?
               </p>
-              <div className="bg-gray-100 p-4 rounded-lg">
+              <div className="bg-gray-100 p-4 rounded-md">
                 <InfoItem
                   label="소비기한"
                   value={ingredient.expirationDate || '정보 없음'}
@@ -116,7 +119,7 @@ function DeleteModal({
               <motion.button
                 type="button"
                 onClick={onClose}
-                className="bg-gray-300 hover:bg-gray-400 text-gray-700 rounded-lg py-2 px-4 text-sm flex flex-col items-center mr-2 w-1/2"
+                className="bg-custom-gray-3 hover:bg-gray-300 text-gray-800 rounded-lg py-2 px-4 text-md flex flex-col items-center mr-4 w-1/2"
                 whileHover={{
                   scale: 1.02,
                   boxShadow: '0px 5px 15px rgba(0,0,0,0.1)',
@@ -129,7 +132,7 @@ function DeleteModal({
               <motion.button
                 type="button"
                 onClick={handleDelete}
-                className="bg-red-500 hover:bg-red-600 text-white rounded-lg py-2 px-4 text-sm flex flex-col items-center w-1/2"
+                className="bg-custom-red hover:bg-red-700 text-white rounded-lg py-2 px-4 text-md flex flex-col items-center w-1/2"
                 whileHover={{
                   scale: 1.02,
                   boxShadow: '0px 5px 15px rgba(0,0,0,0.1)',

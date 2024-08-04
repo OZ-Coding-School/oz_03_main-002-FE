@@ -1,5 +1,4 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Header from './components/Header.tsx';
 import Login from './pages/Login.tsx';
 import Signup from './pages/Signup.tsx';
 import FridgeList from './components/Fridge/FridgeList.tsx';
@@ -13,7 +12,7 @@ function App() {
   return (
     <Router>
       <div className="flex flex-col h-full">
-        <Header />
+        {/* <Header /> */}
         <main className="h-full  bg-gray-100">
           <Routes>
             <Route path="/" element={<Layout />}>

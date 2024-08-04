@@ -10,7 +10,7 @@
     "strict": true,
     "noEmit": true,
     "allowJs": true,
-    "types": ["@types/node"]
+    "types": ["@types/node", "axios"]
   },
   "include": ["vite.config.ts", "src/vite-env.d.ts", ".eslintrc.cjs"]
 }
