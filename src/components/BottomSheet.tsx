@@ -65,7 +65,7 @@ function IngredientItem({
   return (
     <motion.div
       className={`flex items-center p-2 rounded-md cursor-pointer mb-3 text-md ${
-        isSelected ? 'bg-sky-100' : 'bg-gray-100 hover:bg-gray-100'
+        isSelected ? 'bg-sky-100' : 'bg-gray-100 hover:bg-gray-300'
       }`}
       initial={{ opacity: 0, y: 20 }} // 초기 애니메이션 상태
       animate={{ opacity: 1, y: 0 }} // 애니메이션 상태
