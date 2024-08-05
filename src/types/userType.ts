@@ -27,7 +27,8 @@ export type AuthActions = {
   ) => Promise<void>;
   login: (id: string, password: string) => Promise<void>;
   logout: () => void;
-  googleLogin: () => Promise<void>;
+  setUser: (user: User) => void;
+
   // setId: (id: string) => void;
   // setUsername: (username: string) => void;
   // setEmail: (email: string) => void;

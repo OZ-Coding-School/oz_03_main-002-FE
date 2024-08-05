@@ -1,5 +1,4 @@
 import axios from 'axios';
-// import useAuthStore from '../store/useAuthStore';
 
 const instance = axios.create({
   baseURL: import.meta.env.VITE_API_BASE_URL,
@@ -9,22 +8,24 @@ const instance = axios.create({
   },
 });
 
-// instance.interceptors.request.use(
-//   (config) => {
-//     const token = useAuthStore.getState().token;
-
-//     if (token) {
-//       config.headers.Authorization = `Bearer ${token}`;
-//     } else {
-//       console.warn('No token available');
-//       window.location.href = '/login';
-//     }
-
-//     return config;
-//   },
-//   (error) => {
-//     return Promise.reject(error);
-//   },
-// );
+// 요청 인터셉터를 추가하여 모든 요청에 JWT 토큰을 포함시킴
+instance.interceptors.request.use(
+  (config) => {
+    const token = localStorage.getItem('jwt');
+    if (token) {
+      return {
+        ...config,
+        headers: {
+          ...config.headers,
+          Authorization: `Bearer ${token}`,
+        },
+      };
+    }
+    return config;
+  },
+  (error) => {
+    return Promise.reject(error);
+  },
+);
 
 export default instance;
