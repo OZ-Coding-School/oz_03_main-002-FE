@@ -7,6 +7,7 @@ import IngredientDetailList from './pages/IngredientDetailList.tsx';
 import Layout from './components/common/Layout.tsx';
 import RecipesView from './pages/RecipesView.tsx';
 import RecipeDetail from './pages/RecipeDetail.tsx';
+import GoogleCallback from './components/Fridge/googleCallback.tsx';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
               <Route path="/login" element={<Login />} />
               <Route path="/recipes" element={<RecipesView />} />
               <Route path="/recipes/:id" element={<RecipeDetail />} />
+              <Route path="/googleCallback" element={<GoogleCallback />} />
             </Route>
             <Route path="/IngredientView" element={<IngredientView />} />
             <Route path="/ingredients/:id" element={<IngredientDetailList />} />

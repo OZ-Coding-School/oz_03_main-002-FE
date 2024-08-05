@@ -67,22 +67,9 @@ const useAuthStore = create<AuthState & AuthActions>()(
           //   set({ error: err.message, loading: false });
           // }
         },
-        googleLogin: async () => {
-          set({ loading: true, error: '' });
-          try {
-            const response = await axios.post<AuthResponse>(
-              'http://api.naengttogi.com/api/v1/google/login/',
-            );
-            set({
-              token: response.data.token,
-              loading: false,
-              status: '로그인 성공',
-            });
-          } catch (error) {
-            set({ error: (error as Error).message, loading: false });
-          }
-        },
         // 상태 업데이트 액션
+        setUser: (user) => set({ user }),
+
         // setId: (id: string) =>
         //   set((state) => ({
         //     user: state.user ? { ...state.user, id } : null,
